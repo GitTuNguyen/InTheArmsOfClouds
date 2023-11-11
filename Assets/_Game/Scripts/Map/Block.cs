@@ -13,6 +13,9 @@ public class Block : MonoBehaviour
     private bool isHighLight;
     private bool isPredition;
 
+    [SerializeField]
+    private BlockType blockType;
+
     public bool IsPredition
     {
         get { return isPredition; }
