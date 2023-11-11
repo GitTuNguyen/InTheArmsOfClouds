@@ -37,7 +37,8 @@ public enum AnimalType
 {
     Deer,
     Horse,
-    Dog
+    Dog,
+    Dinaso
 }
 
 public enum AnimalState
