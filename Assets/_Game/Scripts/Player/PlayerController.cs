@@ -19,11 +19,34 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
 
     private Vector3 posNextBlock;
+
+    [SerializeField]
+    private GameObject playerGhost;
+
+    [SerializeField]
+    private List<Vector3> path;
+
+    [SerializeField]
+    private LineRenderer line;
+
+    [SerializeField]
+    private GameObject smallCircle;
+
+    [SerializeField]
+    private GameObject bigCircle;
+
+
+
+    private int leghtOfLineRender;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(startPos.position.x, transform.position.y, startPos.position.z);
         canMove = false;
+        path = new List<Vector3>();
+        leghtOfLineRender = 1;
+        line.SetPosition(0, bigCircle.transform.position);
+        smallCircle.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,10 +70,16 @@ public class PlayerController : MonoBehaviour
                         if(!block.IsHighLight && block.IsPredition)
                         {
                             hit.transform.gameObject.GetComponent<Block>().ActiveHightLighBlock();
-                            Vector3 target = new Vector3(hit.transform.position.x,transform.position.y,hit.transform.position.z);
-                            direction = target - transform.position;
+                            Vector3 target = new Vector3(hit.transform.position.x,bigCircle.transform.position.y,hit.transform.position.z);
+                            direction = target - playerGhost.transform.position;
                             posNextBlock = target;
                             canMove = true;
+                            path.Add(posNextBlock);
+                            leghtOfLineRender+= 1;
+                            smallCircle.SetActive(true);
+                            smallCircle.transform.position = posNextBlock;
+                            line.positionCount = leghtOfLineRender;
+                            line.SetPosition(leghtOfLineRender - 1, posNextBlock);
                         }
                     }
 
@@ -59,8 +88,8 @@ public class PlayerController : MonoBehaviour
         }
         if(canMove)
         {
-            transform.Translate(direction.normalized * speed * Time.deltaTime);
-            Vector3 dis = (transform.position - posNextBlock);
+            playerGhost.transform.Translate(direction.normalized * speed * Time.deltaTime);
+            Vector3 dis = (playerGhost.transform.position - posNextBlock);
             float distance = dis.magnitude;
             if (distance < 0.1f)
             {
