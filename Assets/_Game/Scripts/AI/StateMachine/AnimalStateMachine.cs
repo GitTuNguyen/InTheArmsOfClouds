@@ -53,4 +53,9 @@ public class AnimalStateMachine : MonoBehaviour
         currentState = nextAnimalState;
         nextAnimalState.EnterState(this);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        currentState.OnCollisionEnter(this, collision);
+    }
 }
