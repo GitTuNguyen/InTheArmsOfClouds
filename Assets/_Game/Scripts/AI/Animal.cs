@@ -139,9 +139,9 @@ public class Animal : LivingEntity
 
         timeLine = 0;
 
-        thirst = Random.Range(0, 5);
+        thirst = Random.Range(0, 20);
 
-        hunger = Random.Range(0, 4);
+        hunger = Random.Range(0, 20);
 
         reproductive = 0;
 

@@ -49,3 +49,12 @@ public enum AnimalState
     Eat,
     Die
 }
+
+public enum PlayerState
+{
+    DiceRoll,
+    SelectPath,
+    FollowPath,
+    TriggerEvent,
+    EndTurn
+}
