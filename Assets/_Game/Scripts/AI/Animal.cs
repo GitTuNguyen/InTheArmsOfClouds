@@ -152,10 +152,9 @@ public class Animal : LivingEntity
         isEating = false;
         isDrinking = false;
     }
-
+    public int hungerStats;
     public bool IsSearchFoodAndDrink()
     {
-        float hungerStats = Random.Range(40, 60);
         if (hunger > hungerStats)
         {
             if(posFood != Vector3.zero)

@@ -21,7 +21,7 @@ public class AnimalWalkState : AnimalBaseState
         animal.animator.SetBool("isWalk", true);
         animal.animator.SetBool("isIdle", false);
         animal.animator.SetBool("isEating", false);
-        timeToSwitchIdleState = Random.Range(20,40);
+        timeToSwitchIdleState = Random.Range(8,12);
         timeLine = 0;
     }
 
@@ -34,7 +34,7 @@ public class AnimalWalkState : AnimalBaseState
             animal.SwitchState(AnimalState.Idle);
         }
 
-        animal.animalController.UpdateStateOfAnimal(1, 1, 1);
+        animal.animalController.UpdateStateOfAnimal(2, 1, 1);
         //Debug.Log("Ssearching food");
         animal.animalController.AnimalWalking();
 
@@ -92,6 +92,7 @@ public class AnimalWalkState : AnimalBaseState
         if(collision.gameObject.tag == "Food")
         {
             animal.SwitchState(AnimalState.Eat);
+            animal.GetComponent<BoxCollider>().enabled = false; 
         }
     }
 }

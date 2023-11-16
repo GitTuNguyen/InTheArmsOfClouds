@@ -15243,6 +15243,10 @@ PrefabInstance:
       value: mushrooms
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bb885a283d9734242841d4c61c6c5778, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb885a283d9734242841d4c61c6c5778, type: 3}
       propertyPath: m_TagString
       value: Food
       objectReference: {fileID: 0}
@@ -17161,7 +17165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8716244429395236793, guid: cab38bbea66028a469ac9f01df419761, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.084
       objectReference: {fileID: 0}
     - target: {fileID: 8716244429395236793, guid: cab38bbea66028a469ac9f01df419761, type: 3}
       propertyPath: m_LocalPosition.z
