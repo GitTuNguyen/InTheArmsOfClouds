@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            {
-                if (Physics.Raycast(ray, out hit, layerMask))
+                if (Physics.Raycast(ray, out hit,Mathf.Infinity, layerMask))
                 {
                     Debug.DrawLine(transform.position, hit.point);
 
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
                     }
 
                 }
-            }
         }
 
     }
