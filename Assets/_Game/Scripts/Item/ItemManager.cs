@@ -1,23 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Item;
 
 public class ItemManager : MonoBehaviour
 {
-    public List<Item> inventory = new List<Item>();
-    //public List<itemData> datas;
+    public List<Item> items = new List<Item>();
+    public List<ItemData> itemDatas = new List<ItemData>();
 
-    // public void AddItem(Item item)
-    // {
-    //     inventory.Add(item);
-    // }
-
-    // public void RemoveItem(Item item)
-    // {
-    //     inventory.Remove(item);
-    // }
-
-    public void GetItem(string iteamName)
+    public void GetItem(ItemType itemType)
     {
 
     }

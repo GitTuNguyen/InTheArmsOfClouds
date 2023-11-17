@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
-  m_Name: Crop
+  m_Name: SpaceShip
   m_EditorClassIdentifier: 
-  nameItem: Crop
+  nameItem: SpaceShip
   imageItem: {fileID: 0}
   healthItem: 0
   luckItem: 0
-  sanityItem: 1
-  maxCapacity: 3
+  sanityItem: 0
+  maxCapacity: 0
