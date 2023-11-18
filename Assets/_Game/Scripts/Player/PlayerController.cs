@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject bigCircle;
 
+    [SerializeField]
+    private Animator character;
+
     int currentIndex = 0;
     int nextIndex = 1;
 
@@ -103,6 +106,28 @@ public class PlayerController : MonoBehaviour
             transform.Translate(dir.normalized * speed * Time.deltaTime);
             Vector3 dis = (bigCircle.transform.position - nextPos);
             float distance = dis.magnitude;
+            character.SetBool("isIdle", false);
+            character.SetBool("isRight", false);
+            character.SetBool("isForward", false);
+            character.SetBool("isLeft", false);
+            character.SetBool("isBack", false);
+            if (dir.normalized.z > 0.8f)
+            {
+                character.SetBool("isRight", true);
+            }
+            else if(dir.normalized.x > 0.8f)
+            {
+                character.SetBool("isBack", true);
+            }
+            else if(dir.normalized.z < -0.8f)
+            {
+                character.SetBool("isLeft", true);
+            }
+            else if(dir.normalized.x < -0.8f)
+            {
+                character.SetBool("isForward", true);
+            }
+
             if (distance < 0.1f)
             {
                 currentIndex += 1;
@@ -112,6 +137,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+                character.SetBool("isRight", false);
+                character.SetBool("isForward", false);
+                character.SetBool("isLeft", false);
+                character.SetBool("isBack", false);
+                character.SetBool("isIdle", true);
             return false;
         }
 
