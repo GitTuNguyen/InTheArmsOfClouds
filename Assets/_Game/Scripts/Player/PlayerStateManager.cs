@@ -51,4 +51,9 @@ public class PlayerStateManager : MonoBehaviour
         currentState = nextPlayerState;
         currentState.EnterState(this);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        currentState.OnTriggerEnter(this,other);
+    }
 }

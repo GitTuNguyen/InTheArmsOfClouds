@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,16 @@ public class PlayerController : MonoBehaviour
     int nextIndex = 1;
 
     private int leghtOfLineRender;
+
+    private CapsuleCollider capsuleCollider;
+
+    private Vector3 posSmallCircle;
+
+    private void Awake()
+    {
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        posSmallCircle = smallCircle.transform.localPosition;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +57,7 @@ public class PlayerController : MonoBehaviour
         leghtOfLineRender = 1;
         path.Add(bigCircle.transform.position);
         line.SetPosition(0, bigCircle.transform.position);
-        smallCircle.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -67,32 +78,38 @@ public class PlayerController : MonoBehaviour
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit,Mathf.Infinity, layerMask))
+            if (Physics.Raycast(ray, out hit,Mathf.Infinity, layerMask))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+
+                Block block = hit.transform.gameObject.GetComponent<Block>();
+
+                if (block != null)
                 {
-                    Debug.DrawLine(transform.position, hit.point);
-
-                    Block block = hit.transform.gameObject.GetComponent<Block>();
-
-                    if (block != null)
+                    if (block.IsHighLight)
                     {
-                        if (!block.IsHighLight && block.IsPredition)
+                        Vector3 target = new Vector3(hit.transform.position.x, bigCircle.transform.position.y, hit.transform.position.z);
+                        direction = target - playerGhost.transform.position;
+                        posNextBlock = target;
+                        Vector3 nextPos = Vector3.zero;
+                        if(block.CheckCloudOfBlock())
                         {
-                            hit.transform.gameObject.GetComponent<Block>().ActiveHightLighBlock();
-
-                            Vector3 target = new Vector3(hit.transform.position.x, bigCircle.transform.position.y, hit.transform.position.z);
-                            direction = target - playerGhost.transform.position;
-                            posNextBlock = target;
-                            playerGhost.transform.position = posNextBlock;
-                            path.Add(target);
-                            leghtOfLineRender += 1;
-                            smallCircle.SetActive(true);
-                            smallCircle.transform.position = posNextBlock;
-                            line.positionCount = leghtOfLineRender;
-                            line.SetPosition(leghtOfLineRender - 1, posNextBlock);
+                            nextPos = new Vector3(target.x, target.y + 0.5f, target.z);
                         }
+                        else
+                        {
+                            nextPos = target;
+                        }   
+                        playerGhost.transform.position = posNextBlock;
+                        path.Add(posNextBlock);
+                        leghtOfLineRender += 1;
+                        smallCircle.transform.position = nextPos;
+                        line.positionCount = leghtOfLineRender;
+                        line.SetPosition(leghtOfLineRender - 1, nextPos);
                     }
-
                 }
+
+            }
         }
 
     }
@@ -106,6 +123,8 @@ public class PlayerController : MonoBehaviour
             transform.Translate(dir.normalized * speed * Time.deltaTime);
             Vector3 dis = (bigCircle.transform.position - nextPos);
             float distance = dis.magnitude;
+
+
             character.SetBool("isIdle", false);
             character.SetBool("isRight", false);
             character.SetBool("isForward", false);
@@ -137,20 +156,29 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-                character.SetBool("isRight", false);
-                character.SetBool("isForward", false);
-                character.SetBool("isLeft", false);
-                character.SetBool("isBack", false);
-                character.SetBool("isIdle", true);
+            character.SetBool("isRight", false);
+            character.SetBool("isForward", false);
+            character.SetBool("isLeft", false);
+            character.SetBool("isBack", false);
+            character.SetBool("isIdle", true);
             return false;
         }
 
+    }
+
+    public void StartSelectPath()
+    {
+        playerGhost.SetActive(true);
+        capsuleCollider.enabled = false;
+        smallCircle.SetActive(true);
+        smallCircle.transform.localPosition = posSmallCircle;
     }
 
     public void StartFollowPath()
     {
         smallCircle.SetActive(false);
         playerGhost.SetActive(false);
+        capsuleCollider.enabled = true;
     }
     public void PlayerEndTurn()
     {

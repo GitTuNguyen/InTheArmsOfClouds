@@ -10,7 +10,7 @@ public class PlayerEndTurn : PlayerBaseState
         player.playerController.PlayerEndTurn();
     }
 
-    public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
+    public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
     {
         
     }

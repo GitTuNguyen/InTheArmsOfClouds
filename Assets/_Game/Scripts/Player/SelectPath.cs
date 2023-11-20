@@ -9,10 +9,10 @@ public class SelectPath : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
-       
+        player.playerController.StartSelectPath();
     }
 
-    public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
+    public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
     {
         
     }

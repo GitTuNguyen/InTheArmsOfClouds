@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Block : MonoBehaviour
+public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
     [SerializeField]
     private GameObject highLight;
@@ -15,6 +16,17 @@ public class Block : MonoBehaviour
 
     [SerializeField]
     private BlockType blockType;
+
+    [SerializeField]
+    private Cloud cloud;
+
+    private bool isHasCloud;
+
+    public bool IsHasCloud
+    {
+        get { return isHasCloud; }
+        set {  isHasCloud = value; }
+    }
 
     public bool IsPredition
     {
@@ -32,6 +44,7 @@ public class Block : MonoBehaviour
     {
         isHighLight = false;
         isPredition = false;
+        isHasCloud = true;
     }
 
 
@@ -52,6 +65,13 @@ public class Block : MonoBehaviour
     {
         isPredition = true;
         predition.SetActive(true);
+        if(isHasCloud)
+        {
+            if(cloud!= null)
+            {
+                cloud.ActivePreHightLight();
+            }
+        }
     }
 
     public void DeactivePreditionBlock()
@@ -66,5 +86,41 @@ public class Block : MonoBehaviour
         predition.SetActive(false);
         isHighLight= false;
         highLight.SetActive(false);
+        if (cloud != null)
+        {
+            cloud.ResetCloud();
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(isPredition)
+        {
+            ActiveHightLighBlock();
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(isHighLight)
+        {
+            DeactiveHightLightBlock();
+            ActivePreditionBlock();
+        }
+    }
+
+    public bool CheckCloudOfBlock()
+    {
+        if(cloud == null) return false;
+        if(cloud.gameObject.active == false) return false;
+        return true;
+    }
+
+    public void RemoveCloudOfBlock()
+    {
+        if(cloud != null)
+        {
+            cloud.gameObject.SetActive(false);
+        }
     }
 }

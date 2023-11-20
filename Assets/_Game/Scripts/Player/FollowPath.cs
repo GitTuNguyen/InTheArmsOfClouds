@@ -10,9 +10,16 @@ public class FollowPath : PlayerBaseState
         player.playerController.StartFollowPath();
     }
 
-    public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
+    public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
     {
-
+        if(collision.gameObject.tag == "Block")
+        {
+            Block block = collision.gameObject.GetComponent<Block>();
+            if(block != null)
+            {
+                block.RemoveCloudOfBlock();
+            }
+        }
     }
 
     public override void UpdateState(PlayerStateManager player)

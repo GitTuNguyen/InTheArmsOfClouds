@@ -9,7 +9,7 @@ public class RollDice : PlayerBaseState
         
     }
 
-    public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
+    public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
     {
         
     }
