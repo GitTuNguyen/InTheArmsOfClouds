@@ -17,6 +17,9 @@ public class Animal : LivingEntity
 
     private float reproductive;
 
+    [SerializeField]
+    public BoxCollider bigBoxCollider;
+
     public float Thirst
     {
         get { return thirst; }
@@ -56,20 +59,6 @@ public class Animal : LivingEntity
    
     private Vector3 posMate;
 
-    private bool isEating;
-    private bool isDrinking;
-
-    public bool IsEating
-    {
-        set { isEating = value; }
-        get { return isEating; }
-    }
-
-    public bool IsDrinking
-    {
-        set { isDrinking = value; }
-        get { return isDrinking; }
-    }
 
 
     // Start is called before the first frame update
@@ -121,7 +110,7 @@ public class Animal : LivingEntity
 
         hunger += Time.deltaTime* hungerStats;
 
-        thirst += Time.deltaTime * 2* thirstStats;
+        thirst += Time.deltaTime * thirstStats;
 
         hunger = Mathf.Clamp(hunger,0, 100);
 
@@ -148,22 +137,37 @@ public class Animal : LivingEntity
         posMate = Vector3.zero;
         posFood = Vector3.zero;
         posWater = Vector3.zero;
-
-        isEating = false;
-        isDrinking = false;
     }
     public int hungerStats;
+    public int thirstStats;
     public bool IsSearchFoodAndDrink()
     {
-        if (hunger > hungerStats)
+        if (hunger > hungerStats || thirst > thirstStats)
         {
-            if(posFood != Vector3.zero)
+            if(posFood != Vector3.zero && hunger > hungerStats)
             {
                 transform.LookAt(posFood);
             }
+
+            if(posWater != Vector3.zero && thirst > thirstStats)
+            {
+                transform.LookAt(new Vector3(posWater.x,1,posWater.z));
+            }
         }
 
-        return hunger > hungerStats /*|| thirst > 25*/;
+        return hunger > hungerStats || thirst > thirstStats;
+    }
+
+    public void CheckEnableBigBoxCollider()
+    {
+        if(posFood == Vector3.zero)
+        {
+            bigBoxCollider.enabled = true;
+        }
+        else
+        {
+            bigBoxCollider.enabled = false;
+        }
     }
 
     public void AnimalWalking()
@@ -177,13 +181,11 @@ public class Animal : LivingEntity
         if (other.gameObject.tag == "Food")
         {
             posFood = other.transform.position;
-            isEating = true;
         }
 
         if (other.gameObject.tag == "Water")
         {
             posWater = other.transform.position;
-            isDrinking = true;
         }
     }
 

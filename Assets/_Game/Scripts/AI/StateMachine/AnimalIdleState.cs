@@ -12,6 +12,7 @@ public class AnimalIdleState : AnimalBaseState
         animal.animator.SetBool("isIdle", true);
         animal.animator.SetBool("isWalk", false);
         animal.animalController.hungerStats = Random.Range(40, 60);
+        animal.animalController.thirstStats = Random.Range(50,60);
         timeToSwitchIdleState = Random.Range(5, 10);
         animal.GetComponent<BoxCollider>().enabled = true;
         timeLine = 0;
@@ -21,20 +22,21 @@ public class AnimalIdleState : AnimalBaseState
     {
         timeLine += Time.deltaTime;
 
-        if (timeLine > timeToSwitchIdleState)
-        {
-            animal.SwitchState(AnimalState.Walk);
-        }
-
         if (animal.animalController.IsSearchFoodAndDrink())
         {
             animal.SwitchState(AnimalState.Walk);
         }
 
-        animal.animalController.UpdateStateOfAnimal(2, 1, 1);
+        if (timeLine > timeToSwitchIdleState)
+        {
+            animal.SwitchState(AnimalState.Walk);
+        }
+
+
+        animal.animalController.UpdateStateOfAnimal(2, 2, 1);
     }
 
-    public override void OnCollisionEnter(AnimalStateMachine animal, Collision collision)
+    public override void OnTriggerEnter(AnimalStateMachine animal, Collider collision)
     {
 
     }

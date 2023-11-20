@@ -21,7 +21,9 @@ public class AnimalWalkState : AnimalBaseState
         animal.animator.SetBool("isWalk", true);
         animal.animator.SetBool("isIdle", false);
         animal.animator.SetBool("isEating", false);
-        timeToSwitchIdleState = Random.Range(8,12);
+        timeToSwitchIdleState = Random.Range(5,10);
+        animal.IsEating = false;
+        animal.IsDrinking = false;
         timeLine = 0;
     }
 
@@ -33,8 +35,8 @@ public class AnimalWalkState : AnimalBaseState
         {
             animal.SwitchState(AnimalState.Idle);
         }
-
-        animal.animalController.UpdateStateOfAnimal(2, 1, 1);
+        animal.animalController.CheckEnableBigBoxCollider();
+        animal.animalController.UpdateStateOfAnimal(2, 2, 1);
         //Debug.Log("Ssearching food");
         animal.animalController.AnimalWalking();
 
@@ -87,12 +89,19 @@ public class AnimalWalkState : AnimalBaseState
 
     }
 
-    public override void OnCollisionEnter(AnimalStateMachine animal, Collision collision)
+    public override void OnTriggerEnter(AnimalStateMachine animal, Collider collision)
     {
         if(collision.gameObject.tag == "Food")
         {
+            animal.IsEating = true;
             animal.SwitchState(AnimalState.Eat);
-            animal.GetComponent<BoxCollider>().enabled = false; 
         }
+
+        if (collision.gameObject.tag == "Water")
+        {
+            animal.IsDrinking = true;
+            animal.SwitchState(AnimalState.Eat);
+        }
+
     }
 }
