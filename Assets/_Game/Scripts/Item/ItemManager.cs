@@ -6,10 +6,11 @@ using static Item;
 public class ItemManager : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
-    public List<ItemData> itemDatas = new List<ItemData>();
+    public List<InventoryItemData> itemDatas = new List<InventoryItemData>();
 
-    public void GetItem(ItemType itemType)
+    public void GetItem(ItemName itemName)
     {
 
     }
+
 }

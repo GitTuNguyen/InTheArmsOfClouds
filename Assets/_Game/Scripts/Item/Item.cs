@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public enum ItemType
+    public enum ItemName
     {
         Meat = 1,
         Log,
@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
         Amulet,
         SpaceShip
     }
-
+    public ItemName itemName;
     public Sprite imageItem;
     public int healthItem;
     public int luckItem;
