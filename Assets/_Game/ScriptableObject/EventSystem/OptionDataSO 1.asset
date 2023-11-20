@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
   m_Name: OptionDataSO 1
   m_EditorClassIdentifier: 
-  optionId: 0
-  optionDescription: 
+  optionId: 1
+  optionDescription: Lie on the sand and sleep
   consequences: []

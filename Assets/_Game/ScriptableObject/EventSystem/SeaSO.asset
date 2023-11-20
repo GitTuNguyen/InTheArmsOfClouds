@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventBlock: 0
   eventId: 0
-  eventDescription: 
-  options: []
+  eventDescription: You in the reach of the sea, what do you do now?
+  options:
+  - {fileID: 11400000, guid: 09972447440788c49af3432abc6d8604, type: 2}
+  - {fileID: 11400000, guid: d370cd8dba1c6a746a31a26cc574d964, type: 2}
