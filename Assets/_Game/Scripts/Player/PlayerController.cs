@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
                         Vector3 nextPos = Vector3.zero;
                         if(block.CheckCloudOfBlock())
                         {
-                            nextPos = new Vector3(target.x, target.y + 0.5f, target.z);
+                            nextPos = new Vector3(target.x, target.y + 0.8f, target.z);
                         }
                         else
                         {

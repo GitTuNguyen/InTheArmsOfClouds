@@ -14,7 +14,7 @@ public class AnimalDieState : AnimalBaseState
         throw new System.NotImplementedException();
     }
 
-    public override void OnCollisionEnter(AnimalStateMachine animal, Collision collision)
+    public override void OnTriggerEnter(AnimalStateMachine animal, Collider collision)
     {
 
     }

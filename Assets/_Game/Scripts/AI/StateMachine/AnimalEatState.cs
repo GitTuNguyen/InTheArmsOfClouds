@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimalEatState : AnimalBaseState
 {
+    private bool isEating;
+    private bool isDrinking;
     public override void EnterState(AnimalStateMachine animal)
     {
         Debug.Log("Eat state");
@@ -14,14 +16,14 @@ public class AnimalEatState : AnimalBaseState
 
     public override void UpdateState(AnimalStateMachine animal)
     {
-       if(animal.animalController.IsEating)
+       if(animal.IsEating)
         {
-            animal.animalController.UpdateStateOfAnimal(-5, 1, 1);
+            animal.animalController.UpdateStateOfAnimal(-10, 1, 1);
         }
 
-        if (animal.animalController.IsDrinking)
+        if (animal.IsDrinking)
         {
-            animal.animalController.UpdateStateOfAnimal(1, -2, 1);
+            animal.animalController.UpdateStateOfAnimal(1, -10, 1);
         }
 
         if(animal.animalController.Hunger == 0 || animal.animalController.Thirst == 0)
@@ -30,8 +32,16 @@ public class AnimalEatState : AnimalBaseState
         }
     }
 
-    public override void OnCollisionEnter(AnimalStateMachine animal, Collision collision)
+    public override void OnTriggerEnter(AnimalStateMachine animal, Collider collision)
     {
+        if(collision.gameObject.tag == "Food")
+        {
+            isEating = true;
+        }
 
+        if(collision.gameObject.tag == "Water")
+        {
+            isDrinking = true;  
+        }
     }
 }

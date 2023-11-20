@@ -15,6 +15,20 @@ public class AnimalStateMachine : MonoBehaviour
 
     public Animal animalController;
 
+    private bool isDrinking;
+    private bool isEating;
+    public bool IsDrinking
+    {
+        get { return isDrinking; }
+        set { isDrinking = value; }
+    }
+
+    public bool IsEating
+    {
+        get { return isEating; }
+        set { isEating = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,8 +68,9 @@ public class AnimalStateMachine : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        currentState.OnCollisionEnter(this, collision);
+        currentState.OnTriggerEnter(this, other);
     }
+
 }
