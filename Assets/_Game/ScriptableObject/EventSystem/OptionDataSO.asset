@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
+  m_Name: OptionDataSO
+  m_EditorClassIdentifier: 
+  eventBlock: 0
+  optionId: 0
+  optionDescription: 'Talk to Mermaid '
+  consequences:
+  - {fileID: 11400000, guid: ed356a4d1bce25e459fcdd9b509b0393, type: 2}
+  - {fileID: 11400000, guid: f4b92104ed0ff8a48b1e099bdd586efc, type: 2}
+  - {fileID: 11400000, guid: 366a853199c69bb4c9365ae51773dba3, type: 2}
