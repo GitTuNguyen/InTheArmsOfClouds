@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickUp : MonoBehaviour
+public class ItemPickUp : MonoBehaviour,IPointerClickHandler
 {
     public float PickUpRadius = 1f;
     public InventoryItemData ItemData;
     private SphereCollider myCollider;
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!InventoryHolder.Instance)
+        {
+            Debug.Log("inventory = null");
+            return;
+        }
+        Debug.Log("inventory != null");
+        if (InventoryHolder.Instance.InventorySystem.AddToInventory(ItemData, 1))
+        {
+            Debug.Log("Destroy");
+            Destroy(this.gameObject);
+        }
+    }
+
+
     private void Awake(){
         myCollider = GetComponent<SphereCollider>();
-        myCollider.isTrigger = true;
+        //myCollider.isTrigger = true;
         myCollider.radius = PickUpRadius;
     }
     private void OnTriggerEnter(Collider other) {

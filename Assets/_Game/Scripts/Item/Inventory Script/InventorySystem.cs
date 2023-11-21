@@ -10,13 +10,22 @@ public class InventorySystem
     [SerializeField] private List<InventorySlot> inventorySlots;
     public List<InventorySlot> InventorySlot => inventorySlots;
     public int InventorySize => InventorySlot.Count;
+
     public UnityAction<InventorySlot> OnInventorySlotChanged;
-    public InventorySystem(int size){
+
+    [SerializeField]
+    private List<InventorySlotUI> inventorySlotUIs;
+
+    private int currentaAvailableSlot = 0;
+
+    public void InitInventorySystem(int size){
         inventorySlots = new List<InventorySlot>(size);
         for(int i = 0; i< size ; i++)
         {
             inventorySlots.Add(new InventorySlot());
         }
+
+        //inventorySlotUIs = new List<InventorySlotUI>(size);
     }
 
     public bool AddToInventory(InventoryItemData itemToAdd, int amountToAdd){
@@ -26,6 +35,7 @@ public class InventorySystem
             {
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
+                    inventorySlotUIs[inventorySlots.IndexOf(slot)].UpdateInventorySlot(slot.ItemData, slot.StackSize);
                     OnInventorySlotChanged?.Invoke(slot);
                     return true;
                 }
@@ -35,6 +45,8 @@ public class InventorySystem
         if(HasFreeSlot(out InventorySlot freeSlot))//Get first available slot
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
+            inventorySlotUIs[currentaAvailableSlot].UpdateInventorySlot(itemToAdd,amountToAdd);
+            currentaAvailableSlot++;
             OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
   m_Name: Log
   m_EditorClassIdentifier: 
-  ID: 0
-  DisplayName: Log
-  Description: This is log
-  Icon: {fileID: 0}
-  MaxStackSize: 4
+  type: 1
+  name: 
+  description: 
+  icon: {fileID: 21300000, guid: a4a1246d91e85db40aee9635fe79848e, type: 3}
+  maxStackSize: 2
   healthItem: 0
   luckItem: 0
   sanityItem: 0

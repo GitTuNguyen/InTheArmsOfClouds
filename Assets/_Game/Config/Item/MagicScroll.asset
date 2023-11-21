@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
   m_Name: MagicScroll
   m_EditorClassIdentifier: 
-  nameItem: MagicScroll
-  imageItem: {fileID: 0}
+  type: 5
+  name: 
+  description: 
+  icon: {fileID: 0}
+  maxStackSize: 0
   healthItem: 0
   luckItem: 0
   sanityItem: 0
-  maxCapacity: 2

@@ -12,7 +12,7 @@ public class InventoryItemData : ScriptableObject
 
     [TextArea(4,4)]
     public string description;
-    public Sprite Icon;
+    public Sprite icon;
     public int maxStackSize;
     public int healthItem;
     public int luckItem;

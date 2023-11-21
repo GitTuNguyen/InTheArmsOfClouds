@@ -37,7 +37,10 @@ public class InventorySlot
         if(stackSize + amountToAdd <= itemData.maxStackSize)
             return true;
         else
+        {
             return false;
+        }
+
     }
     public void AddToStack(int amount){
         stackSize += amount;
