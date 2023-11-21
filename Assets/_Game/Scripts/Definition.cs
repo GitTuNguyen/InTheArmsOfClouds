@@ -58,3 +58,19 @@ public enum PlayerState
     TriggerEvent,
     EndTurn
 }
+
+public enum ItemType
+{
+    Meat = 0,
+    Log,
+    Crop,
+    Seashell,
+    Gem,
+    MagicScroll,
+    GrilledMeat,
+    Salad,
+    EnchantedStew,
+    Shield,
+    Amulet,
+    SpaceShip
+}
