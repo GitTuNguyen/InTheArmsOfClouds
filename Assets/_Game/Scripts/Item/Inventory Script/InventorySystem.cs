@@ -16,8 +16,6 @@ public class InventorySystem
     [SerializeField]
     private List<InventorySlotUI> inventorySlotUIs;
 
-    private int currentaAvailableSlot = 0;
-
     public void InitInventorySystem(int size){
         inventorySlots = new List<InventorySlot>(size);
         for(int i = 0; i< size ; i++)
@@ -45,8 +43,7 @@ public class InventorySystem
         if(HasFreeSlot(out InventorySlot freeSlot))//Get first available slot
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
-            inventorySlotUIs[currentaAvailableSlot].UpdateInventorySlot(itemToAdd,amountToAdd);
-            currentaAvailableSlot++;
+            inventorySlotUIs[inventorySlots.IndexOf(freeSlot)].UpdateInventorySlot(itemToAdd,amountToAdd);          
             OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }
@@ -54,23 +51,14 @@ public class InventorySystem
         return false;
     }
 
-    public bool RemoveToInventory(InventoryItemData itemToRemove, int amountToRemove){
+    public bool RemoveToInventory(InventoryItemData itemToRemove, int amountToRemove,InventorySlotUI slotUI){
         if(ContainsItem(itemToRemove, out List<InventorySlot> invSlot))
         {
-            foreach(var slot in invSlot)
-            {
-                int amountRemaining = 0;
-                if(slot.RoomLeftInStack(amountToRemove, out amountRemaining)){
-                    if(amountToRemove <= amountRemaining){
-                        slot.RemoveFromStack(amountToRemove);
-                        OnInventorySlotChanged?.Invoke(slot);
-                        return true;
-                    } else{
-                        Debug.Log("amount To Remove > amount Remaining ");
-                        return false;
-                    }
-                }
-            }
+            InventorySlot slot = inventorySlots[inventorySlotUIs.IndexOf(slotUI)];
+            slot.RemoveFromStack(amountToRemove);
+            inventorySlotUIs[inventorySlotUIs.IndexOf(slotUI)].UpdateInventorySlot(itemToRemove, slot.StackSize);
+            return true;
+
         }
         return false;
     }
