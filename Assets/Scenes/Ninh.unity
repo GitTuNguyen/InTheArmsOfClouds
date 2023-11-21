@@ -2947,6 +2947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 1414114060}
   seaSO: {fileID: 11400000, guid: bd69c5dded5ff0b43954da76181f7187, type: 2}
+  woodSO: {fileID: 11400000, guid: 86d867c8f6582ab4d8f56649fc1c245f, type: 2}
   eventDes: {fileID: 1723481989}
   optionDesList:
   - {fileID: 117399695}

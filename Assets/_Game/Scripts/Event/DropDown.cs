@@ -8,27 +8,56 @@ public class DropDown : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public EventData seaSO;
-    /*public EventData woodSO;
-    public EventData desertSO;
+    public EventData woodSO;
+    /*public EventData desertSO;
     public EventData grassSO;*/
     public TextMeshProUGUI eventDes;
-    public List<TextMeshProUGUI> optionDesList = new List<TextMeshProUGUI>();
+    public List<TextMeshProUGUI> optionDesList;
+    List<OptionData> optionList;
 
     public void _DropDown(int eventBlock)
     {
         switch(eventBlock) 
         {
-            case 0:
+            case 0: 
                 title.text = "SEA";
                 eventDes.text = seaSO.EventDescription;
-                foreach(OptionData optionData in seaSO.Options)
+                optionList = seaSO.Options;
+                Debug.LogFormat("event of sea block has {0} options", optionList.Count);
+                int index = 0;
+                foreach (TextMeshProUGUI optionDes in optionDesList)
                 {
-                    optionDesList[optionData.OptionId].text = optionData.OptionDescription;
-                    
+                    if (index < optionList.Count)
+                    {
+                        optionDes.text = optionList[index].OptionDescription;
+                        ++index;
+                    }
+                    else
+                    {
+                        Transform optionButton = optionDes.transform.parent;
+                        optionButton.gameObject.SetActive(false);
+                    }
                 }    
                 break;
             case 1:
                 title.text = "WOOD";
+                eventDes.text = seaSO.EventDescription;
+                optionList = woodSO.Options;
+                Debug.LogFormat("event of wood block has {0} options", optionList.Count);
+                index = 0;
+                foreach (TextMeshProUGUI optionDes in optionDesList)
+                {
+                    if (index < optionList.Count)
+                    {
+                        optionDes.text = optionList[index].OptionDescription;
+                        ++index;
+                    }
+                    else
+                    {
+                        Transform optionButton = optionDes.transform.parent;
+                        optionButton.gameObject.SetActive(false);
+                    }
+                }
                 break;
             case 2:
                 title.text = "DESERT";
