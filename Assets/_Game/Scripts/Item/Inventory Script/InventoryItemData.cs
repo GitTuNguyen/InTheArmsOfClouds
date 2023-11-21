@@ -6,7 +6,21 @@ using UnityEngine;
 
 public class InventoryItemData : ScriptableObject
 {
-    public int ID;
+    public enum ItemDataType{
+        Meat = 1,
+        Log,
+        Crop,
+        Seashell,
+        Gem,
+        MagicScroll,
+        GrilledMeat,
+        Salad,
+        EnchantedStew,
+        Shield,
+        Amulet,
+        SpaceShip
+    }
+    public ItemDataType ID;
     public string DisplayName;
 
     [TextArea(4,4)]

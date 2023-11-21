@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
   m_Name: Crop
   m_EditorClassIdentifier: 
-  nameItem: Crop
-  imageItem: {fileID: 0}
+  ID: 0
+  DisplayName: Crop
+  Description: 
+  Icon: {fileID: 0}
+  MaxStackSize: 3
   healthItem: 0
   luckItem: 0
   sanityItem: 1
-  maxCapacity: 3

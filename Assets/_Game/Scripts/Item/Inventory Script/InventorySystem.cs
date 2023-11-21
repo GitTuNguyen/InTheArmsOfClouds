@@ -42,7 +42,26 @@ public class InventorySystem
         return false;
     }
 
-
+    public bool RemoveToInventory(InventoryItemData itemToRemove, int amountToRemove){
+        if(ContainsItem(itemToRemove, out List<InventorySlot> invSlot))
+        {
+            foreach(var slot in invSlot)
+            {
+                int amountRemaining = 0;
+                if(slot.RoomLeftInStack(amountToRemove, out amountRemaining)){
+                    if(amountToRemove <= amountRemaining){
+                        slot.RemoveFromStack(amountToRemove);
+                        OnInventorySlotChanged?.Invoke(slot);
+                        return true;
+                    } else{
+                        Debug.Log("amount To Remove > amount Remaining ");
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     public bool ContainsItem(InventoryItemData itemtoAdd, out List<InventorySlot> invSlot){
         invSlot = InventorySlot.Where(i => i.ItemData == itemtoAdd).ToList();
