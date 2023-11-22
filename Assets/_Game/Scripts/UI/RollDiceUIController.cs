@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+public class RollDiceUIController : MonoBehaviour
+{
+    [System.Serializable] public struct Dice 
+    {
+        public int value;
+        public Sprite image;
+    }
+    public List<Dice> diceTemplateList;
+    public Image diceImage;
+    public float rollDiceDurationTime = 2f;
+    public int resultDice = 1;
+    private Animator animator;
+    public GameObject panelDetectClick;
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+        StartRollDice(resultDice);
+    }
+
+    public void StartRollDice(int value)
+    {
+        Debug.Log("Start Roll Dice");
+        StartCoroutine(ShowRollDiceResult(value));
+    }
+    IEnumerator ShowRollDiceResult(int value)
+    {
+        yield return new WaitForSeconds(rollDiceDurationTime);
+        animator.enabled = false;
+        foreach (Dice dice in diceTemplateList)
+        {
+            if (dice.value == value)
+            {
+                diceImage.sprite = dice.image;
+                break;
+            }
+        }
+        Debug.Log("Dice complete");
+        panelDetectClick.SetActive(true);
+    }
+    
+}
