@@ -18,11 +18,18 @@ public class ItemPickUp : MonoBehaviour,IPointerClickHandler
             return;
         }
         Debug.Log("inventory != null");
-        if (InventoryHolder.Instance.InventorySystem.AddToInventory(ItemData, 1))
-        {
-            Debug.Log("Destroy");
+
+        if(InventoryHolder.Instance.InventorySystem.AddSpaceShip(ItemData)){
+            Debug.Log("Add spaceship to inventory");
             Destroy(this.gameObject);
+            Debug.Log("Destroy spaceship");
+        }else if (InventoryHolder.Instance.InventorySystem.AddToInventory(ItemData, 1))
+        {
+            Debug.Log("Add item to inventory");
+            Destroy(this.gameObject);
+            Debug.Log("Destroy item");
         }
+        
     }
 
 
@@ -44,22 +51,22 @@ public class ItemPickUp : MonoBehaviour,IPointerClickHandler
             Destroy(this.gameObject);
         }
     }
-    private void Update() {
+    // private void Update() {
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Debug.Log(" pressed 1");
-                GameObject newObject = new GameObject("NewObject");
-                InventoryHolder inventoryHolderComponent = newObject.AddComponent<InventoryHolder>();
+    //         if (Input.GetKeyDown(KeyCode.Alpha1))
+    //         {
+    //             Debug.Log(" pressed 1");
+    //             GameObject newObject = new GameObject("NewObject");
+    //             InventoryHolder inventoryHolderComponent = newObject.AddComponent<InventoryHolder>();
 
-                if(!inventoryHolderComponent) {
-                    Debug.Log(" inventory = null");
-                    return;
-                }
+    //             if(!inventoryHolderComponent) {
+    //                 Debug.Log(" inventory = null");
+    //                 return;
+    //             }
 
-                Debug.Log(" add 1 meat to Inventory");
-                inventoryHolderComponent.InventorySystem.AddToInventory(ItemData, 1);
-            }
+    //             Debug.Log(" add 1 meat to Inventory");
+    //             inventoryHolderComponent.InventorySystem.AddToInventory(ItemData, 1);
+    //         }
 
-    }
+    // }
 }
