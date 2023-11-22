@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO
+  m_Name: ConsequenceDataSO_3
   m_EditorClassIdentifier: 
-  consequenceId: 0
-  consequenceDescription: You turn crazy about her song
-  artwork: {fileID: -6598946016331564889, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+  consequenceCode: 3
+  artwork: {fileID: 21300000, guid: 7f31e0093297e954a90d9ddbaf951012, type: 3}

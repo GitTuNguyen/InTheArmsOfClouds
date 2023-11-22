@@ -26,5 +26,10 @@ public class OptionData : ScriptableObject
     private object optionObject;
 
     [SerializeField]
-    private List<ScriptableObject> consequences;
+    private List<ConsequenceData> consequences;
+    public List<ConsequenceData> Consequences
+    {
+        get { return consequences; }
+        set { consequences = value; }
+    }
 }

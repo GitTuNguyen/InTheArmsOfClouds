@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO 2
+  m_Name: ConsequenceDataSO_5
   m_EditorClassIdentifier: 
-  consequenceId: 2
-  consequenceDescription: She appreciate your patient & give you the gift
-  artwork: {fileID: -6388338761078672736, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+  consequenceCode: 5
+  artwork: {fileID: 21300000, guid: 82486bd99348ec04d92efed3b1056732, type: 3}

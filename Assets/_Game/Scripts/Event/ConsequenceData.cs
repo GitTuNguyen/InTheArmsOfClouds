@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ConsequenceData : ScriptableObject
 {
-    public int consequenceId;
-    public string consequenceDescription;
+    public int consequenceCode;
     public Sprite artwork;
 }

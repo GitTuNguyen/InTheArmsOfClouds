@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
-  m_Name: OptionDataSO
+  m_Name: OptionDataSO_2
   m_EditorClassIdentifier: 
   optionId: 0
-  optionDescription: 'Talk to Mermaid '
+  optionDescription: Lie on the sand and sleep
   consequences:
-  - {fileID: 11400000, guid: ed356a4d1bce25e459fcdd9b509b0393, type: 2}
-  - {fileID: 11400000, guid: f4b92104ed0ff8a48b1e099bdd586efc, type: 2}
-  - {fileID: 11400000, guid: 366a853199c69bb4c9365ae51773dba3, type: 2}
+  - {fileID: 11400000, guid: 8225f7f6886a7fa47801e978c168fbaf, type: 2}
+  - {fileID: 11400000, guid: 2523f4df371fcc241b9422b624db9170, type: 2}

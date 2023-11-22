@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eff57ffd6a4ab409d4cecdd8e96e70, type: 3}
   m_Name: SeaSO
   m_EditorClassIdentifier: 
-  eventBlock: 0
+  eventBlock: 2
   eventId: 0
   eventDescription: You in the reach of the sea, what do you do now?
   options:
   - {fileID: 11400000, guid: 09972447440788c49af3432abc6d8604, type: 2}
   - {fileID: 11400000, guid: d370cd8dba1c6a746a31a26cc574d964, type: 2}
+  - {fileID: 11400000, guid: 256844afbc1c8b5449f5830dc3bc415a, type: 2}

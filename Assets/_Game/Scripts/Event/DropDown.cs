@@ -14,12 +14,15 @@ public class DropDown : MonoBehaviour
     public TextMeshProUGUI eventDes;
     public List<TextMeshProUGUI> optionDesList;
     List<OptionData> optionList;
+    Events _eventBlock;
 
     public void _DropDown(int eventBlock)
     {
-        switch(eventBlock) 
+        
+        switch (eventBlock) 
         {
-            case 0: 
+            case 0:
+                _eventBlock = Events.SEA;
                 title.text = "SEA";
                 eventDes.text = seaSO.EventDescription;
                 optionList = seaSO.Options;
@@ -27,37 +30,45 @@ public class DropDown : MonoBehaviour
                 int index = 0;
                 foreach (TextMeshProUGUI optionDes in optionDesList)
                 {
+                    Transform optionButton = optionDes.transform.parent;
                     if (index < optionList.Count)
                     {
+                        optionButton.gameObject.SetActive(true);
                         optionDes.text = optionList[index].OptionDescription;
+                        optionButton.GetComponent<OptionHandle>().OptionData = optionList[index];
+                        Debug.LogFormat("optionButton.GetComponent<OptionHandle>().OptionData.OptionDescription: {0}", optionButton.GetComponent<OptionHandle>().OptionData.OptionDescription);
                         ++index;
                     }
                     else
                     {
-                        Transform optionButton = optionDes.transform.parent;
+
                         optionButton.gameObject.SetActive(false);
                     }
+                    Debug.LogFormat("index: {0}", index);
                 }    
                 break;
             case 1:
+                _eventBlock = Events.WOOD;
                 title.text = "WOOD";
-                eventDes.text = seaSO.EventDescription;
+                eventDes.text = woodSO.EventDescription;
                 optionList = woodSO.Options;
                 Debug.LogFormat("event of wood block has {0} options", optionList.Count);
-                index = 0;
+                /*index = 0;
                 foreach (TextMeshProUGUI optionDes in optionDesList)
                 {
+                    Transform optionButton = optionDes.transform.parent;
                     if (index < optionList.Count)
                     {
+                        optionButton.gameObject.SetActive(true);
                         optionDes.text = optionList[index].OptionDescription;
                         ++index;
                     }
                     else
                     {
-                        Transform optionButton = optionDes.transform.parent;
+                        
                         optionButton.gameObject.SetActive(false);
                     }
-                }
+                }*/
                 break;
             case 2:
                 title.text = "DESERT";

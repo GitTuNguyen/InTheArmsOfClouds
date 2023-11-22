@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eff57ffd6a4ab409d4cecdd8e96e70, type: 3}
   m_Name: WoodSO
   m_EditorClassIdentifier: 
-  eventBlock: 0
+  eventBlock: 3
   eventId: 1
   eventDescription: Surrounded by the mystical beauty of the forest, how will you
     embrace the unknown?

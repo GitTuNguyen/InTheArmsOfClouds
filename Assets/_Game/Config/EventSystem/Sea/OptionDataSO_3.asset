@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
-  m_Name: OptionDataSO 1
+  m_Name: OptionDataSO_3
   m_EditorClassIdentifier: 
-  optionId: 1
-  optionDescription: Lie on the sand and sleep
-  consequences: []
+  optionId: 3
+  optionDescription: Dive-deep into the sea
+  consequences:
+  - {fileID: 11400000, guid: b6a2511e00736454892d7ca3a30661f4, type: 2}
+  - {fileID: 11400000, guid: ca460766248130445a305c81e024a96a, type: 2}

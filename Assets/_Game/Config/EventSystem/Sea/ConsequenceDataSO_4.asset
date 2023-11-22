@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO 1
+  m_Name: ConsequenceDataSO_4
   m_EditorClassIdentifier: 
-  consequenceId: 1
-  consequenceDescription: Mermaid offer you a song but require you to pay the cost
-    for it
-  artwork: {fileID: -7675304248189546062, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+  consequenceCode: 4
+  artwork: {fileID: 21300000, guid: ea75b6dd04b7d2f4dbec2c7efdc7ce92, type: 3}

@@ -8,6 +8,10 @@ public class EventData : ScriptableObject
 {
     [SerializeField]
     private Events eventBlock;
+    public Events EventBlock
+    {
+        get { return eventBlock; }
+    }    
 
     [SerializeField]
     private int eventId;
