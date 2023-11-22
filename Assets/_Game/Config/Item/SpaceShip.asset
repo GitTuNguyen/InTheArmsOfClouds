@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SpaceShip
   m_EditorClassIdentifier: 
   type: 11
-  name: 
+  name: SpaceShip
   description: 
   icon: {fileID: 0}
-  maxStackSize: 0
+  maxStackSize: 4
   healthItem: 0
   luckItem: 0
   sanityItem: 0

@@ -15,7 +15,8 @@ public class InventorySystem
 
     [SerializeField]
     private List<InventorySlotUI> inventorySlotUIs;
-
+    public int spaceShipPiece = 0;
+    public const int SpaceShipPieceMax = 4;
     public void InitInventorySystem(int size){
         inventorySlots = new List<InventorySlot>(size);
         for(int i = 0; i< size ; i++)
@@ -63,6 +64,15 @@ public class InventorySystem
         return false;
     }
 
+    public bool AddSpaceShip(InventoryItemData spaceShipItem, int amountSpaceShip = 1){
+        if(spaceShipItem.type == ItemType.SpaceShip && spaceShipPiece < SpaceShipPieceMax){
+            spaceShipPiece += amountSpaceShip;
+            Debug.Log(" Space ship piece = " + spaceShipPiece);
+            return true;
+        }else 
+            return false;
+
+    }
     public bool ContainsItem(InventoryItemData itemtoAdd, out List<InventorySlot> invSlot){
         invSlot = InventorySlot.Where(i => i.ItemData == itemtoAdd).ToList();
         return invSlot == null ? false: true;
