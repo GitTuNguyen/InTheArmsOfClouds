@@ -17,7 +17,7 @@ public class PlayerEndTurn : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        player.SwitchState(PlayerState.SelectPath);
+        player.SwitchState(PlayerState.DiceRoll);
     }
 
 

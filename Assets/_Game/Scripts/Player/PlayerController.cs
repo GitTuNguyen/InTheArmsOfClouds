@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask layerMask;
 
-
-
     [SerializeField]
     private GameObject playerGhost;
 
@@ -35,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Animator character;
 
+    [SerializeField]
+    public PlayerUI playerUI;
+
     int currentIndex = 0;
     int nextIndex = 1;
 
@@ -44,11 +45,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 posSmallCircle;
 
+    public int numberDice;
+
     private void Awake()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         posSmallCircle = smallCircle.transform.localPosition;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
                 Block block = hit.transform.gameObject.GetComponent<Block>();
 
-                if (block != null)
+                if (block != null && numberDice > 0)
                 {
                     if (block.IsHighLight)
                     {
@@ -106,6 +110,8 @@ public class PlayerController : MonoBehaviour
                         smallCircle.transform.position = nextPos;
                         line.positionCount = leghtOfLineRender;
                         line.SetPosition(leghtOfLineRender - 1, nextPos);
+                        numberDice--;
+                        EventManager.Instance.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
                 }
 
@@ -194,6 +200,13 @@ public class PlayerController : MonoBehaviour
 
         currentIndex = 0;
         nextIndex = 1;
+        numberDice = 0;
+        playerUI.DisableUICanvas();
+    }
+
+    public void PlayerRollDice()
+    {
+        numberDice = Random.Range(1, 7);
     }
 
     private void OnTriggerEnter(Collider other)

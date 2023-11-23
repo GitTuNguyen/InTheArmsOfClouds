@@ -6,7 +6,8 @@ public class RollDice : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        
+        player.playerController.playerUI.DisableUICanvas();
+        player.playerController.PlayerRollDice();
     }
 
     public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
