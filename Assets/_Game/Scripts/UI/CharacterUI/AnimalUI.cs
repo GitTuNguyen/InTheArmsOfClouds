@@ -39,11 +39,12 @@ public class AnimalUI : MonoBehaviour
     {
         if (reproductive == 0)
         {
-            reproductiveBar.gameObject.active = false;
+            reproductiveBar.gameObject.SetActive(false);
         }
         else
         {
-            reproductiveBar.gameObject.active = true;
+            reproductiveBar.gameObject.SetActive(true);
+
             reproductiveBar.value = reproductive;
         }
 

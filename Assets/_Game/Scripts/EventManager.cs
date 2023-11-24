@@ -3,16 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class EventManager : MonoBehaviour
+public static class EventManager 
 {
-    public static EventManager Instance;
+    public static UnityAction SwitchStateToSelectPath;
 
-    public UnityAction SwitchStateToSelectPath;
-
-    public UnityAction<int> SelectBlockOnTheMap;
-    private void Awake()
-    {
-        Instance = this; 
-    }
-
+    public static UnityAction<int> SelectBlockOnTheMap;
 }

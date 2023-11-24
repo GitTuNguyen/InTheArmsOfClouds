@@ -8,7 +8,7 @@ public class InventoryItemData : ScriptableObject
 {
     public ItemType type;
     //public ItemDataType ID;
-    public string name;
+    public string nameItem;
 
     [TextArea(4,4)]
     public string description;

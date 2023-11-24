@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
                         line.positionCount = leghtOfLineRender;
                         line.SetPosition(leghtOfLineRender - 1, nextPos);
                         numberDice--;
-                        EventManager.Instance.SelectBlockOnTheMap?.Invoke(numberDice);
+                        EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
                 }
 

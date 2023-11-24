@@ -112,7 +112,7 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public bool CheckCloudOfBlock()
     {
         if(cloud == null) return false;
-        if(cloud.gameObject.active == false) return false;
+        if(cloud.gameObject.activeInHierarchy == false) return false;
         return true;
     }
 

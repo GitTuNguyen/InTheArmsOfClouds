@@ -30,7 +30,7 @@ public class MainUI : MonoBehaviour
     {
         mainUI.SetActive(true);
         diceUI.SetActive(false);
-        EventManager.Instance.SwitchStateToSelectPath?.Invoke();
+        EventManager.SwitchStateToSelectPath?.Invoke();
     }
 
     IEnumerator WaitingToShowDice(float time,int number)
