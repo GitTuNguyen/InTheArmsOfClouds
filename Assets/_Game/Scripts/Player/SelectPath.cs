@@ -9,6 +9,7 @@ public class SelectPath : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
+        player.playerController.playerUI.EnableUICanvas(player.playerController.numberDice);
         player.playerController.StartSelectPath();
     }
 

@@ -13,10 +13,21 @@ public class PlayerStateManager : MonoBehaviour
     PlayerEndTurn playerEndTurn = new PlayerEndTurn();
 
     public PlayerController playerController;
+
+    private void OnEnable()
+    {
+        EventManager.Instance.SwitchStateToSelectPath += SwitchToSelectPathState;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.SwitchStateToSelectPath -= SwitchToSelectPathState;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        currentState = selectPath;
+        currentState = rollDice;
         currentState.EnterState(this);
     }
 
@@ -55,5 +66,10 @@ public class PlayerStateManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         currentState.OnTriggerEnter(this,other);
+    }
+    
+    private void SwitchToSelectPathState()
+    {
+        SwitchState(PlayerState.SelectPath);
     }
 }
