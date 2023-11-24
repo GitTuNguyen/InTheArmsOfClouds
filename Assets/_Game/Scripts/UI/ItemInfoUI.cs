@@ -12,7 +12,7 @@ public class ItemInfoUI : MonoBehaviour
     public void SetItemInfoData(InventoryItemData itemData = null)
     {
         Debug.Log("set item info");
-        infoPopupItemName.text = itemData?.name ?? "Item null";
+        infoPopupItemName.text = itemData?.nameItem ?? "Item null";
         SetItemEffect(itemData);
     }
 
