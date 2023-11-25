@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private List<Vector3> path;
 
+    private List<GameObject> blocks;
+
     [SerializeField]
     private LineRenderer line;
 
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         leghtOfLineRender = 1;
         path.Add(bigCircle.transform.position);
         line.SetPosition(0, bigCircle.transform.position);
+        blocks = new List<GameObject>();
 
     }
 
@@ -110,6 +113,8 @@ public class PlayerController : MonoBehaviour
                         smallCircle.transform.position = nextPos;
                         line.positionCount = leghtOfLineRender;
                         line.SetPosition(leghtOfLineRender - 1, nextPos);
+                        block.IsSelected = true;
+                        blocks.Add(block.gameObject);
                         numberDice--;
                         EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
@@ -202,6 +207,14 @@ public class PlayerController : MonoBehaviour
         nextIndex = 1;
         numberDice = 0;
         playerUI.DisableUICanvas();
+        foreach(GameObject block in blocks)
+        {
+            if(block.GetComponent<Block>()!=null)
+            {
+                block.GetComponent<Block>().IsSelected = false;
+            }
+        }
+        blocks.Clear();
     }
 
     public void PlayerRollDice()

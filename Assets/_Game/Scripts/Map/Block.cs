@@ -20,6 +20,14 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField]
     private Cloud cloud;
 
+    private bool isSelected;
+
+    public bool IsSelected
+    {
+        get { return isSelected; }
+        set { isSelected = value; }
+    }
+
     private bool isHasCloud;
 
     public bool IsHasCloud
@@ -45,14 +53,19 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         isHighLight = false;
         isPredition = false;
         isHasCloud = true;
+        isSelected = false;
     }
 
 
     public void ActiveHightLighBlock()
     {
-        highLight.SetActive(true);
-        DeactivePreditionBlock();
-        isHighLight = true;
+        if(!isSelected)
+        {
+            highLight.SetActive(true);
+            DeactivePreditionBlock();
+            isHighLight = true;
+        }
+
     }
 
     public void DeactiveHightLightBlock()
@@ -63,15 +76,19 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     public void ActivePreditionBlock()
     {
-        isPredition = true;
-        predition.SetActive(true);
-        if(isHasCloud)
+        if(!isSelected)
         {
-            if(cloud!= null)
+            isPredition = true;
+            predition.SetActive(true);
+            if (isHasCloud)
             {
-                cloud.ActivePreHightLight();
+                if (cloud != null)
+                {
+                    cloud.ActivePreHightLight();
+                }
             }
         }
+
     }
 
     public void DeactivePreditionBlock()
