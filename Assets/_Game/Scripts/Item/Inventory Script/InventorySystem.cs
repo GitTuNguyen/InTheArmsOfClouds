@@ -64,6 +64,24 @@ public class InventorySystem
         return false;
     }
 
+    public void RemoveToInventory(InventoryItemData itemToRemove, int amountToRemove){
+        if(ContainsItem(itemToRemove, out List<InventorySlot> invSlot))
+        {
+            foreach(var slot in invSlot)
+            {
+                int amountRemaining = 0;
+                if(slot.RoomLeftInStack(amountToRemove, out amountRemaining)){
+                    if(amountToRemove <= amountRemaining){
+                        slot.RemoveFromStack(amountToRemove);
+                        OnInventorySlotChanged?.Invoke(slot);
+                    } else{
+                        Debug.Log("amount To Remove > amount Remaining ");
+                    }
+                }
+            }
+        }    
+    }
+    
     public bool AddSpaceShip(InventoryItemData spaceShipItem, int amountSpaceShip = 1){
         if(spaceShipItem.type == ItemType.SpaceShip && spaceShipPiece < SpaceShipPieceMax){
             spaceShipPiece += amountSpaceShip;
@@ -78,8 +96,22 @@ public class InventorySystem
         return invSlot == null ? false: true;
     }
 
+    public int GetAmountItemInInventory(InventoryItemData item){
+        var invSlot = InventorySlot.Where(i => i.ItemData == item).ToList();
+        int countItem = 0;
+        foreach (var slot in invSlot)
+        {
+            countItem += slot.StackSize;
+        }
+        return countItem;
+    }
+
+    public bool IsItemHasEnoughQuanity(InventoryItemData item, int amount){
+        return GetAmountItemInInventory(item) == amount? true: false;
+    }
     public bool HasFreeSlot(out InventorySlot freeSlot){
         freeSlot = InventorySlot.FirstOrDefault(i => i.ItemData == null);
         return freeSlot == null ? false: true;
     }
+
 }
