@@ -15,8 +15,37 @@ public class MainUI : MonoBehaviour
 
     [SerializeField]
     private PlayerController player;
+
+    [SerializeField]
+    private GameObject arrow;
+
+    [SerializeField]
+    private Camera cameraUI;
     // Start is called before the first frame update
 
+    public void Start()
+    {
+        //Cursor.visible = false;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.EndOfTurnUseItem += ActiveCurrsor;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.EndOfTurnUseItem -= ActiveCurrsor;
+    }
+
+    public void Update()
+    {
+        Vector3 mouse = Input.mousePosition;
+
+        Vector3 pos = cameraUI.ScreenToWorldPoint(mouse);
+
+        arrow.transform.position = new Vector3(pos.x, pos.y, 0);
+    }
     public void ShowRollDice()
     {
         mainUI.SetActive(false);
@@ -42,7 +71,20 @@ public class MainUI : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         ShowMainUI();
-    
-        
+     
+    }
+
+    public void UseAmuletItem()
+    {
+        Cursor.visible = false;
+        arrow.SetActive(true);
+        EventManager.UseAmuletItem?.Invoke();
+    }
+
+    public void ActiveCurrsor()
+    {
+        Cursor.visible = true;
+
+        arrow.SetActive(false);
     }
 }

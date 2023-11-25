@@ -114,4 +114,24 @@ public class InventorySystem
         return freeSlot == null ? false: true;
     }
 
+    private void UseItemInInventory(InventoryItemData itemData)
+    {
+        // Player.UpdateStatsOfPlayer(iteamData.heatlh, iteamData.luck,iteamData.santity);
+
+        RemoveToInventory(itemData, 1);
+
+        switch (itemData.type)
+        {
+            case ItemType.Amulet:
+                EventManager.UseAmuletItem?.Invoke();
+                break;
+            case ItemType.Shield:
+
+                break;
+            case ItemType.EnchantedStew:
+
+                break;
+        }
+
+    }
 }

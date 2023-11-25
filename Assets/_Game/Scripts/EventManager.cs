@@ -8,4 +8,8 @@ public static class EventManager
     public static UnityAction SwitchStateToSelectPath;
 
     public static UnityAction<int> SelectBlockOnTheMap;
+
+    public static UnityAction UseAmuletItem;
+
+    public static UnityAction EndOfTurnUseItem;
 }

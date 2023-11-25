@@ -64,6 +64,7 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             highLight.SetActive(true);
             DeactivePreditionBlock();
             isHighLight = true;
+
         }
 
     }
@@ -95,6 +96,28 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         isPredition = false;
         predition.SetActive(false);
+    }
+
+    public void ActivePreditionCouldBlock()
+    {
+        if (isHasCloud)
+        {
+            if (cloud != null)
+            {
+                cloud.ActivePreHightLight();
+            }
+        }
+    }
+
+    public void DeactivePreditionCouldBlock()
+    {
+        if (isHasCloud)
+        {
+            if (cloud != null)
+            {
+                cloud.DeActivePreHighLight();
+            }
+        }
     }
 
     public void ResetBlock()
