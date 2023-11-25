@@ -9,7 +9,7 @@ public class AnimalWalkState : AnimalBaseState
 
     private bool isTurnLeft;
 
-    private bool isTurning;
+    //private bool isTurning;
 
     private float timeToSwitchIdleState;
 
@@ -47,7 +47,6 @@ public class AnimalWalkState : AnimalBaseState
 
         GameObject rightVision = animal.animalController.rightVision;
 
-        RaycastHit rightHit;
 
         Vector3 rightRay = animal.animalController.rightVision.transform.forward;
 
@@ -60,8 +59,6 @@ public class AnimalWalkState : AnimalBaseState
             posTarget = new Vector3(leftVision.transform.position.x + leftVision.transform.forward.x, animal.transform.position.y, leftVision.transform.position.z + leftVision.transform.forward.z);
         }
 
-
-        RaycastHit leftHit;
 
         Vector3 leftRay = leftVision.transform.forward;
 
@@ -76,7 +73,7 @@ public class AnimalWalkState : AnimalBaseState
 
         if (isTurnLeft && isTurnRight)
         {
-            isTurning = true;
+            //isTurning = true;
             posTarget = animal.transform.position - animal.transform.forward;
         }
 

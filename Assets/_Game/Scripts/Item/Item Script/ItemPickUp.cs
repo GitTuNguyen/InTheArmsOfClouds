@@ -51,22 +51,4 @@ public class ItemPickUp : MonoBehaviour,IPointerClickHandler
             Destroy(this.gameObject);
         }
     }
-    // private void Update() {
-
-    //         if (Input.GetKeyDown(KeyCode.Alpha1))
-    //         {
-    //             Debug.Log(" pressed 1");
-    //             GameObject newObject = new GameObject("NewObject");
-    //             InventoryHolder inventoryHolderComponent = newObject.AddComponent<InventoryHolder>();
-
-    //             if(!inventoryHolderComponent) {
-    //                 Debug.Log(" inventory = null");
-    //                 return;
-    //             }
-
-    //             Debug.Log(" add 1 meat to Inventory");
-    //             inventoryHolderComponent.InventorySystem.AddToInventory(ItemData, 1);
-    //         }
-
-    // }
 }

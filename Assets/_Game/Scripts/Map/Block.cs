@@ -20,6 +20,14 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField]
     private Cloud cloud;
 
+    private bool isSelected;
+
+    public bool IsSelected
+    {
+        get { return isSelected; }
+        set { isSelected = value; }
+    }
+
     private bool isHasCloud;
 
     public bool IsHasCloud
@@ -45,14 +53,20 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         isHighLight = false;
         isPredition = false;
         isHasCloud = true;
+        isSelected = false;
     }
 
 
     public void ActiveHightLighBlock()
     {
-        highLight.SetActive(true);
-        DeactivePreditionBlock();
-        isHighLight = true;
+        if(!isSelected)
+        {
+            highLight.SetActive(true);
+            DeactivePreditionBlock();
+            isHighLight = true;
+
+        }
+
     }
 
     public void DeactiveHightLightBlock()
@@ -63,21 +77,47 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     public void ActivePreditionBlock()
     {
-        isPredition = true;
-        predition.SetActive(true);
-        if(isHasCloud)
+        if(!isSelected)
         {
-            if(cloud!= null)
+            isPredition = true;
+            predition.SetActive(true);
+            if (isHasCloud)
             {
-                cloud.ActivePreHightLight();
+                if (cloud != null)
+                {
+                    cloud.ActivePreHightLight();
+                }
             }
         }
+
     }
 
     public void DeactivePreditionBlock()
     {
         isPredition = false;
         predition.SetActive(false);
+    }
+
+    public void ActivePreditionCouldBlock()
+    {
+        if (isHasCloud)
+        {
+            if (cloud != null)
+            {
+                cloud.ActivePreHightLight();
+            }
+        }
+    }
+
+    public void DeactivePreditionCouldBlock()
+    {
+        if (isHasCloud)
+        {
+            if (cloud != null)
+            {
+                cloud.DeActivePreHighLight();
+            }
+        }
     }
 
     public void ResetBlock()
@@ -112,7 +152,7 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public bool CheckCloudOfBlock()
     {
         if(cloud == null) return false;
-        if(cloud.gameObject.active == false) return false;
+        if(cloud.gameObject.activeInHierarchy == false) return false;
         return true;
     }
 

@@ -62,11 +62,22 @@ public enum PlayerState
 public enum ItemType
 {
     Meat = 0,
+    GrilledMeat,
     Log,
     Crop,
     Seashell,
     Gem,
     MagicScroll,
+    Salad,
+    EnchantedStew,
+    Shield,
+    Amulet,
+    SpaceShip
+}
+
+
+public enum CrafItemType
+{
     GrilledMeat,
     Salad,
     EnchantedStew,

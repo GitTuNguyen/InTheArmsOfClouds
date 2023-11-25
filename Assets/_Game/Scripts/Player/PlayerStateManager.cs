@@ -16,17 +16,18 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.Instance.SwitchStateToSelectPath += SwitchToSelectPathState;
+        EventManager.SwitchStateToSelectPath += SwitchToSelectPathState;
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.SwitchStateToSelectPath -= SwitchToSelectPathState;
+        EventManager.SwitchStateToSelectPath -= SwitchToSelectPathState;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        //EventManager.Instance.SwitchStateToSelectPath += SwitchToSelectPathState;
         currentState = rollDice;
         currentState.EnterState(this);
     }
