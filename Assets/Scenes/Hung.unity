@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2465,6 +2465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140968735}
   - component: {fileID: 1140968739}
+  - component: {fileID: 1140968740}
   m_Layer: 0
   m_Name: '@Inventory'
   m_TagString: Untagged
@@ -2499,7 +2500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7954c4a0acb71bf479b65e0fab890075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySize: 5
+  inventorySize: 4
   inventorySystem:
     inventorySlots: []
     inventorySlotUIs:
@@ -2509,6 +2510,22 @@ MonoBehaviour:
     - {fileID: 559011354}
     - {fileID: 671133936}
     spaceShipPiece: 0
+--- !u!114 &1140968740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140968734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009bdd461b758d3488883d23b2a8573d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftableItem: {fileID: 0}
+  allMaterialLists: []
+  craftableItemsList:
+  - {fileID: 0}
 --- !u!1 &1160836044
 GameObject:
   m_ObjectHideFlags: 0

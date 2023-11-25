@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
   m_Name: Seashell
   m_EditorClassIdentifier: 
-  type: 3
-  name: 
+  type: 4
+  nameItem: SeaShell
   description: 
-  icon: {fileID: 21300000, guid: b3f7602c87b510f4eb03f07bd8e7a4c9, type: 3}
+  icon: {fileID: 21300000, guid: f9d6caa1649aeb448b45dc556648b389, type: 3}
   maxStackSize: 2
   healthItem: 0
   luckItem: 0
-  sanityItem: 1
+  sanityItem: 0

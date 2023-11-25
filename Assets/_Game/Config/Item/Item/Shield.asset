@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   type: 9
-  name: 
-  description: 
-  icon: {fileID: 0}
-  maxStackSize: 0
+  nameItem: Shield
+  description: Receive no Dammage in 3 turn
+  icon: {fileID: 21300000, guid: 74e0d2a8c93a0824aa341a602e7dd9c6, type: 3}
+  maxStackSize: 2
   healthItem: 0
   luckItem: 0
   sanityItem: 0

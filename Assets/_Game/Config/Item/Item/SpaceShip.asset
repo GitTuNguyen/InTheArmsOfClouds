@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpaceShip
   m_EditorClassIdentifier: 
   type: 11
-  name: SpaceShip
+  nameItem: SpaceShip
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7fc75f6b2ebe66944b6b31a4ef91e118, type: 3}
   maxStackSize: 4
   healthItem: 0
   luckItem: 0

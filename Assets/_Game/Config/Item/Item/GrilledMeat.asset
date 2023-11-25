@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1684eca8b776d547b656dbc7366df87, type: 3}
   m_Name: GrilledMeat
   m_EditorClassIdentifier: 
-  type: 6
-  name: 
-  description: 
-  icon: {fileID: 0}
-  maxStackSize: 0
+  type: 1
+  nameItem: GrilledMeat
+  description: 2 Luck 1 Sanity
+  icon: {fileID: 21300000, guid: 3e45d78ab41ece849b4384dfbbb9d90c, type: 3}
+  maxStackSize: 2
   healthItem: 0
-  luckItem: 2
-  sanityItem: 1
+  luckItem: 0
+  sanityItem: 0

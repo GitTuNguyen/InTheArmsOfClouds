@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff478c1bdb81e6a48b5bd9c904df84a9, type: 3}
-  m_Name: Enchanted Stew
+  m_Script: {fileID: 11500000, guid: 6ba8d176d577b3e4dbdbeccf84ca0c30, type: 3}
+  m_Name: Recipe Grilled Meat
   m_EditorClassIdentifier: 
-  typeCrafItem: 0
-  nameCrafItem: 
-  descriptionCrafItem: 
-  iconCrafItem: {fileID: 0}
-  maxStackSizeCrafItem: 0
+  crafItem: {fileID: 0}
   materialList: []

@@ -9,18 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff478c1bdb81e6a48b5bd9c904df84a9, type: 3}
-  m_Name: Salad
+  m_Script: {fileID: 11500000, guid: 6ba8d176d577b3e4dbdbeccf84ca0c30, type: 3}
+  m_Name: Recipe Enchanted Stew
   m_EditorClassIdentifier: 
-  typeCrafItem: 7
-  nameCrafItem: Salad
-  descriptionCrafItem: + 3 Health
-  iconCrafItem: {fileID: 21300000, guid: 490a811a3adb09c4eaac8d7b8b30b085, type: 3}
-  maxStackSizeCrafItem: 2
+  crafItem: {fileID: 11400000, guid: 65f4bba7e2f2cbc4ab65a0c4b9d13441, type: 2}
   materialList:
   - item: {fileID: 11400000, guid: cd9bbd73ffed52a4a948fa097b7c8d3e, type: 2}
-    required: 1
+    amountRequired: 1
   - item: {fileID: 11400000, guid: 4967eb90d9135e8408bf844191f80d6e, type: 2}
-    required: 1
+    amountRequired: 1
   - item: {fileID: 11400000, guid: 625066f4fa499314a9b7f99ff751c8ae, type: 2}
-    required: 2
+    amountRequired: 2

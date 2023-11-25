@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ItemData/Special_Item", order = 0)]
-public class InventoryCraftableItem : ScriptableObject {
+public class CraftableItem : ScriptableObject {
     public InventoryItemData crafItem;
     
     public List<RecipeItem> materialList;
@@ -12,5 +12,5 @@ public class InventoryCraftableItem : ScriptableObject {
 [System.Serializable] public struct RecipeItem
     {
         public InventoryItemData item;
-        public int required;
+        public int amountRequired;
     }
