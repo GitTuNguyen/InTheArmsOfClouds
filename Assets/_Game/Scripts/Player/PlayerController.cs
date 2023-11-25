@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     public int numberDice;
 
+    private bool isSelectedFirstBlock;
+
     private void Awake()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         path.Add(bigCircle.transform.position);
         line.SetPosition(0, bigCircle.transform.position);
         blocks = new List<GameObject>();
+        isSelectedFirstBlock = false;
 
     }
 
@@ -95,6 +98,14 @@ public class PlayerController : MonoBehaviour
                 {
                     if (block.IsHighLight)
                     {
+                        if(!isSelectedFirstBlock)
+                        {
+                            if(block.CheckCloudOfBlock())
+                            {
+                                line.SetPosition(0, new Vector3(bigCircle.transform.position.x, bigCircle.transform.position.y + 0.8f, bigCircle.transform.position.z));
+                            }
+                        }
+                        isSelectedFirstBlock = true;
                         Vector3 target = new Vector3(hit.transform.position.x, bigCircle.transform.position.y, hit.transform.position.z);
                         direction = target - playerGhost.transform.position;
                         posNextBlock = target;
@@ -215,6 +226,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         blocks.Clear();
+
+        isSelectedFirstBlock = false;
     }
 
     public void PlayerRollDice()
