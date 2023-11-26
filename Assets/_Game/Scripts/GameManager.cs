@@ -8,6 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    //Consequence 
+    private ConsequenceData  currentConsequnce;
+    public ConsequenceData  CurrentConsequnce 
+    {
+        get => currentConsequnce; 
+        set 
+        {
+            if (currentConsequnce == null)
+            {
+                currentConsequnce = value;
+            }
+        }
+    }
+
     private void Start() {
         if (Instance == null)
         {
@@ -34,4 +48,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ClearConsequenceData()
+    {
+        currentConsequnce = null;
+    }
 }

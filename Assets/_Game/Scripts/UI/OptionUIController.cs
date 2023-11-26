@@ -13,8 +13,15 @@ public class OptionUIController : MonoBehaviour
         optionText.text = optionData.OptionDesc;
     }
 
-    public void SelectionOption()
+    public void SelectOption()
     {
-        Debug.Log("Select event option");
+        if (currentOption != null)
+        {
+            Debug.Log("Option selected");
+            GameManager.Instance.CurrentConsequnce = currentOption.TriggerOption();
+            ActionPhaseUIManager.Instance?.StartConsequencesLoading();
+        } else {
+            Debug.LogError("No option was set");
+        }        
     }
 }

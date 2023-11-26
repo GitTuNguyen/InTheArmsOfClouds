@@ -50,7 +50,7 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     // ninh.nghiemthanh: Trigger event
     public EventData eventDataSO;
 
-    void TriggerEvent()
+    public void TriggerEvent()
     {
         ActionPhaseUIManager.Instance.TriggerEvent(eventDataSO);
     }

@@ -8,9 +8,6 @@ public class EventSelectionUIController : MonoBehaviour
     public GameObject eventOption;
     public GameObject optionList;
 
-    private void Start() {
-        SetEventData();
-    }
     public void SetEventData(EventData eventData = null)
     {
         if (eventData != null)
@@ -20,7 +17,7 @@ public class EventSelectionUIController : MonoBehaviour
             foreach(OptionData optionData in eventData.Options)
             {
                 OptionUIController currentOption = Instantiate(eventOption, optionList.transform)?.GetComponent<OptionUIController>();
-                currentOption.SetupOption(optionData);
+                currentOption?.SetupOption(optionData);
             }
         } else {
             Debug.Log("Test Set option");

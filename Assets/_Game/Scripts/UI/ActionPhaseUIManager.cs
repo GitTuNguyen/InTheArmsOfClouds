@@ -29,6 +29,7 @@ public class ActionPhaseUIManager : MonoBehaviour
     public Slider healthBar;
     public Slider luckBar;
     public Slider sanityBar;
+    
     private void Start() {
         if (Instance == null)
         {
@@ -49,25 +50,7 @@ public class ActionPhaseUIManager : MonoBehaviour
         }
         currentPopup = Instantiate(popup, UIHolder.transform);
         panel.SetActive(true);
-    }
-
-    public void OpenEventSelectionPopup()
-    {
-        SpawnPopup(eventSelectionPopup);
-    }
-
-    public void StartConsequencesLoading()
-    {
-        StartCoroutine(LoadConsequences());
-    }
-
-    IEnumerator LoadConsequences()
-    {
-        SpawnPopup(eventConsequencesLoadingPopup);
-        yield return null;
-        yield return new WaitForSeconds(waitingLoadingTime);
-        SpawnPopup(eventConsequencesPopup);
-    }
+    }   
 
     public void RefreshPlayerStatsUI(float currentHealthPercent, float currentLuckPercent, float currentSanityPercent)
     {
@@ -111,9 +94,39 @@ public class ActionPhaseUIManager : MonoBehaviour
         spaceshipQuarity.text = currentQuarity.ToString() + " / " + maxQuarity.ToString();
     }
 
+    //Event UI
     // ninh.nghiemthanh: Trigger event
     public void TriggerEvent(EventData eventData)
     {
         Debug.Log("Trigger event UI");
-    }    
+        OpenEventSelectionPopup();
+        EventSelectionUIController eventSelectionUIController = currentPopup.GetComponent<EventSelectionUIController>();
+        if (eventSelectionUIController != null)
+        {
+            eventSelectionUIController.SetEventData(eventData);
+        }
+    }
+    
+    public void OpenEventSelectionPopup()
+    {
+        SpawnPopup(eventSelectionPopup);
+    }
+
+    public void StartConsequencesLoading()
+    {
+        StartCoroutine(LoadConsequences());
+    }
+
+    IEnumerator LoadConsequences()
+    {
+        SpawnPopup(eventConsequencesLoadingPopup);
+        yield return null;
+        yield return new WaitForSeconds(waitingLoadingTime);
+        SpawnPopup(eventConsequencesPopup);
+        EventConsequenceUI eventConsequenceUI = currentPopup?.GetComponent<EventConsequenceUI>();
+        if (eventConsequenceUI != null)
+        {
+            eventConsequenceUI.SetConsequenUIData(GameManager.Instance.CurrentConsequnce);
+        }
+    }
 }

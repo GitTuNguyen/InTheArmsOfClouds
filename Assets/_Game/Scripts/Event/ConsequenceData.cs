@@ -30,6 +30,7 @@ public class ConsequenceData : ScriptableObject
 
     public void DeployEffects()
     {
+        effectDescriptions.Clear(); //Tu: Clear data
         // Todo: Deploy effects - wip
         if (healthEffect != 0)
         {
