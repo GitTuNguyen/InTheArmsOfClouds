@@ -26,16 +26,17 @@ public class MainUI : MonoBehaviour
     public void Start()
     {
         //Cursor.visible = false;
+        arrow.SetActive(false);
     }
 
     private void OnEnable()
     {
-        EventManager.EndOfTurnUseItem += ActiveCurrsor;
+        EventManager.EndOfTurnUseItem += DeactiveCurrsor;
     }
 
     private void OnDisable()
     {
-        EventManager.EndOfTurnUseItem -= ActiveCurrsor;
+        EventManager.EndOfTurnUseItem -= DeactiveCurrsor;
     }
 
     public void Update()
@@ -46,6 +47,7 @@ public class MainUI : MonoBehaviour
 
         arrow.transform.position = new Vector3(pos.x, pos.y, 0);
     }
+
     public void ShowRollDice()
     {
         mainUI.SetActive(false);
@@ -81,7 +83,7 @@ public class MainUI : MonoBehaviour
         EventManager.UseAmuletItem?.Invoke();
     }
 
-    public void ActiveCurrsor()
+    public void DeactiveCurrsor()
     {
         Cursor.visible = true;
 
