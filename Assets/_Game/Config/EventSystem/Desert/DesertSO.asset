@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventBlock: 2
   eventId: 2
+  eventArtwork: {fileID: 21300000, guid: 98c3d4a9504e82041b4df3d6759d2ac3, type: 3}
   eventDesc: Amidst the vast desert expanse, What is your next move?
   options:
   - {fileID: 11400000, guid: e9e418f0f13e5da4692c28d563e0d793, type: 2}
