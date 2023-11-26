@@ -24,3 +24,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []
