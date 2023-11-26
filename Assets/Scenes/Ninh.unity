@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 117399696}
   - component: {fileID: 117399695}
   m_Layer: 5
-  m_Name: optionDes_1
+  m_Name: optionDesc_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 291877000}
   - component: {fileID: 291876999}
   m_Layer: 5
-  m_Name: optionDes_3
+  m_Name: optionDesc_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 1036453689}
   - component: {fileID: 1036453688}
   m_Layer: 5
-  m_Name: optionDes_2
+  m_Name: optionDesc_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1811,7 +1811,7 @@ GameObject:
   - component: {fileID: 1132028057}
   - component: {fileID: 1132028056}
   m_Layer: 5
-  m_Name: optionDes_4
+  m_Name: optionDesc_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2640,9 +2640,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1886605221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 224}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414114060
@@ -2699,8 +2699,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3499,8 +3499,10 @@ MonoBehaviour:
   title: {fileID: 1414114060}
   seaSO: {fileID: 11400000, guid: bd69c5dded5ff0b43954da76181f7187, type: 2}
   woodSO: {fileID: 11400000, guid: 86d867c8f6582ab4d8f56649fc1c245f, type: 2}
-  eventDes: {fileID: 1723481989}
-  optionDesList:
+  desertSO: {fileID: 11400000, guid: 904f753b0b69cf94f89ac1ddf306f9e6, type: 2}
+  grassSO: {fileID: 11400000, guid: 3925c8c0c15eb184aa148926951ffde1, type: 2}
+  eventDesc: {fileID: 1723481989}
+  optionDescList:
   - {fileID: 117399695}
   - {fileID: 1036453688}
   - {fileID: 291876999}
@@ -3647,10 +3649,10 @@ RectTransform:
   - {fileID: 988067149}
   m_Father: {fileID: 1886605221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: -200, y: -100}
+  m_SizeDelta: {x: 898, y: 440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901627566
 MonoBehaviour:

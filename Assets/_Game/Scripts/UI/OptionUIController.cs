@@ -10,7 +10,7 @@ public class OptionUIController : MonoBehaviour
     public void SetupOption(OptionData optionData)
     {
         currentOption = optionData;
-        optionText.text = optionData.OptionDescription;
+        optionText.text = optionData.OptionDesc;
     }
 
     public void SelectionOption()

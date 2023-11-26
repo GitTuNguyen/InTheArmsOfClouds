@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
+// This script just use in Ninh's demo
 public class OptionHandle : MonoBehaviour
 {
     [SerializeField]
@@ -14,15 +16,16 @@ public class OptionHandle : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject artwork;
+    private GameObject artwork;   
 
     public void BtnOption()
     {
-        int index = Random.Range(0,optionData.Consequences.Count);
         if (optionData != null)
         {
-            Debug.LogFormat("Option Description: {0}", optionData.OptionDescription);
-            artwork.GetComponent<SpriteRenderer>().sprite = optionData.Consequences[index].artwork;
+            ConsequenceData consequenceTriggered = optionData.TriggerOption();
+            Debug.LogFormat("Option Description: {0}", optionData.OptionDesc);
+            artwork.GetComponent<SpriteRenderer>().sprite = consequenceTriggered.artwork;
+            Debug.LogFormat("Consequence: {0}", consequenceTriggered.consequenceCode);
             artwork.SetActive(true);
         }
         else

@@ -7,21 +7,34 @@ using UnityEngine;
 public class EventData : ScriptableObject
 {
     [SerializeField]
-    private Events eventBlock;
-    public Events EventBlock
+    private BlockType eventBlock;
+    public BlockType EventBlock
     {
         get { return eventBlock; }
     }    
 
     [SerializeField]
     private int eventId;
+    public int EventID
+    {
+        get { return eventId; }
+        set { eventId = value; }
+    }    
+
+    [SerializeField] 
+    private Sprite eventArtwork;
+    public Sprite EventArtwork
+    { 
+        get { return eventArtwork; }
+        set { eventArtwork = value; }
+    }
 
     [SerializeField]
-    private string eventDescription;
-    public string EventDescription
+    private string eventDesc;
+    public string EventDesc
     {
-        get { return eventDescription; }
-        set { eventDescription = value; }
+        get { return eventDesc; }
+        set { eventDesc = value; }
     }
 
     [SerializeField]

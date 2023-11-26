@@ -4,17 +4,40 @@ using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
 
+// This script just use in Ninh's demo
 public class DropDown : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public EventData seaSO;
     public EventData woodSO;
-    /*public EventData desertSO;
-    public EventData grassSO;*/
-    public TextMeshProUGUI eventDes;
-    public List<TextMeshProUGUI> optionDesList;
+    public EventData desertSO;
+    public EventData grassSO;
+    public TextMeshProUGUI eventDesc;
+    public List<TextMeshProUGUI> optionDescList;
     List<OptionData> optionList;
-    Events _eventBlock;
+    BlockType _eventBlock;
+
+    void DeployEvent()
+    {
+        int index = 0;
+        foreach (TextMeshProUGUI optionDesc in optionDescList)
+        {
+            Transform optionButton = optionDesc.transform.parent;
+            if (index < optionList.Count)
+            {
+                optionButton.gameObject.SetActive(true);
+                optionDesc.text = optionList[index].OptionDesc;
+                optionButton.GetComponent<OptionHandle>().OptionData = optionList[index];
+                Debug.LogFormat("optionButton.GetComponent<OptionHandle>().OptionData.OptionDescription: {0}", optionButton.GetComponent<OptionHandle>().OptionData.OptionDesc);
+                ++index;
+            }
+            else
+            {
+
+                optionButton.gameObject.SetActive(false);
+            }
+        }
+    }    
 
     public void _DropDown(int eventBlock)
     {
@@ -22,59 +45,36 @@ public class DropDown : MonoBehaviour
         switch (eventBlock) 
         {
             case 0:
-                _eventBlock = Events.SEA;
+                _eventBlock = BlockType.Sea;
                 title.text = "SEA";
-                eventDes.text = seaSO.EventDescription;
+                eventDesc.text = seaSO.EventDesc;
                 optionList = seaSO.Options;
                 Debug.LogFormat("event of sea block has {0} options", optionList.Count);
-                int index = 0;
-                foreach (TextMeshProUGUI optionDes in optionDesList)
-                {
-                    Transform optionButton = optionDes.transform.parent;
-                    if (index < optionList.Count)
-                    {
-                        optionButton.gameObject.SetActive(true);
-                        optionDes.text = optionList[index].OptionDescription;
-                        optionButton.GetComponent<OptionHandle>().OptionData = optionList[index];
-                        Debug.LogFormat("optionButton.GetComponent<OptionHandle>().OptionData.OptionDescription: {0}", optionButton.GetComponent<OptionHandle>().OptionData.OptionDescription);
-                        ++index;
-                    }
-                    else
-                    {
-
-                        optionButton.gameObject.SetActive(false);
-                    }
-                    Debug.LogFormat("index: {0}", index);
-                }    
+                DeployEvent();   
                 break;
             case 1:
-                _eventBlock = Events.WOOD;
+                _eventBlock = BlockType.Wood;
                 title.text = "WOOD";
-                eventDes.text = woodSO.EventDescription;
+                eventDesc.text = woodSO.EventDesc;
                 optionList = woodSO.Options;
                 Debug.LogFormat("event of wood block has {0} options", optionList.Count);
-                /*index = 0;
-                foreach (TextMeshProUGUI optionDes in optionDesList)
-                {
-                    Transform optionButton = optionDes.transform.parent;
-                    if (index < optionList.Count)
-                    {
-                        optionButton.gameObject.SetActive(true);
-                        optionDes.text = optionList[index].OptionDescription;
-                        ++index;
-                    }
-                    else
-                    {
-                        
-                        optionButton.gameObject.SetActive(false);
-                    }
-                }*/
+                DeployEvent();
                 break;
             case 2:
+                _eventBlock = BlockType.Desert;
                 title.text = "DESERT";
+                eventDesc.text = desertSO.EventDesc;
+                optionList = desertSO.Options;
+                Debug.LogFormat("event of desert block has {0} options", optionList.Count);
+                DeployEvent();
                 break;
             case 3:
+                _eventBlock = BlockType.Grass;
                 title.text = "GRASS";
+                eventDesc.text = grassSO.EventDesc;
+                optionList = grassSO.Options;
+                Debug.LogFormat("event of grass block has {0} options", optionList.Count);
+                DeployEvent();
                 break;
         }
     }

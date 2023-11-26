@@ -47,6 +47,14 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         set { isHighLight = value; }
     }
 
+    // ninh.nghiemthanh: Trigger event
+    public EventData eventDataSO;
+
+    void TriggerEvent()
+    {
+        ActionPhaseUIManager.Instance.TriggerEvent(eventDataSO);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

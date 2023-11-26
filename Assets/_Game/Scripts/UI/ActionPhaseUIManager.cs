@@ -110,4 +110,10 @@ public class ActionPhaseUIManager : MonoBehaviour
     {
         spaceshipQuarity.text = currentQuarity.ToString() + " / " + maxQuarity.ToString();
     }
+
+    // ninh.nghiemthanh: Trigger event
+    public void TriggerEvent(EventData eventData)
+    {
+        Debug.Log("Trigger event UI");
+    }    
 }

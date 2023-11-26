@@ -16,7 +16,7 @@ public class EventSelectionUIController : MonoBehaviour
         if (eventData != null)
         {
             Debug.Log("Set option");
-            eventTitle.text = eventData.EventDescription;
+            eventTitle.text = eventData.EventDesc;
             foreach(OptionData optionData in eventData.Options)
             {
                 OptionUIController currentOption = Instantiate(eventOption, optionList.transform)?.GetComponent<OptionUIController>();
