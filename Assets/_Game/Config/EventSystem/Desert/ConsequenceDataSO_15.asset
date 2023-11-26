@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO_5
+  m_Name: ConsequenceDataSO_15
   m_EditorClassIdentifier: 
-  consequenceCode: 5
-  artwork: {fileID: 21300000, guid: 82486bd99348ec04d92efed3b1056732, type: 3}
+  consequenceCode: 15
+  artwork: {fileID: 21300000, guid: b9e5580b6c824984991301a462b62ca2, type: 3}
   weight: 38
-  healthEffect: -2
-  luckEffect: 0
+  healthEffect: 0
+  luckEffect: 3
   sanityEffect: 0
   meatEffect: 0
   logEffect: 0

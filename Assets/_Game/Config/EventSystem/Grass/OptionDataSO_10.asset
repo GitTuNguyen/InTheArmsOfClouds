@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
-  m_Name: OptionDataSO
+  m_Name: OptionDataSO_10
   m_EditorClassIdentifier: 
-  optionId: 0
-  optionDescription: Try catching the with Bunny
-  consequences: []
+  optionId: 10
+  optionDesc: Make a tent and rest
+  consequences:
+  - {fileID: 11400000, guid: 32b2368537dd1ff4fa5f8978a02b59aa, type: 2}
+  triggerCondition: {fileID: 0}

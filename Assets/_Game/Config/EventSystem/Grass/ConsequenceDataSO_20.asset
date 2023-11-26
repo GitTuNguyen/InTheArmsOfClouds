@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO_5
+  m_Name: ConsequenceDataSO_20
   m_EditorClassIdentifier: 
-  consequenceCode: 5
-  artwork: {fileID: 21300000, guid: 82486bd99348ec04d92efed3b1056732, type: 3}
-  weight: 38
-  healthEffect: -2
+  consequenceCode: 20
+  artwork: {fileID: 21300000, guid: 8e994f68901811f44928af5aaf9149a6, type: 3}
+  weight: 100
+  healthEffect: 1
   luckEffect: 0
   sanityEffect: 0
   meatEffect: 0

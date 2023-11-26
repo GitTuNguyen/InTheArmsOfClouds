@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventBlock: 3
   eventId: 1
-  eventDescription: Surrounded by the mystical beauty of the forest, how will you
-    embrace the unknown?
+  eventDesc: Surrounded by the mystical beauty of the forest, how will you embrace
+    the unknown?
   options:
   - {fileID: 11400000, guid: b2bbd98670388c145891deac4445da32, type: 2}
   - {fileID: 11400000, guid: 4f79f6fc6e7a5344791cf8442abc8cb5, type: 2}

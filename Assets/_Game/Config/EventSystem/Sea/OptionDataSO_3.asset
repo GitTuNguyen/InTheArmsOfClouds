@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: OptionDataSO_3
   m_EditorClassIdentifier: 
   optionId: 3
-  optionDescription: Dive-deep into the sea
+  optionDesc: Dive-deep into the sea
   consequences:
   - {fileID: 11400000, guid: b6a2511e00736454892d7ca3a30661f4, type: 2}
   - {fileID: 11400000, guid: ca460766248130445a305c81e024a96a, type: 2}
+  triggerCondition: {fileID: 11400000, guid: 61af5f1eed4322e4cb069192a7750730, type: 2}

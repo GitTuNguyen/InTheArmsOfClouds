@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
-  m_Name: ConsequenceDataSO_5
+  m_Name: ConsequenceDataSO_19
   m_EditorClassIdentifier: 
-  consequenceCode: 5
-  artwork: {fileID: 21300000, guid: 82486bd99348ec04d92efed3b1056732, type: 3}
-  weight: 38
-  healthEffect: -2
+  consequenceCode: 19
+  artwork: {fileID: 21300000, guid: 987e18245aec91440b469746936b9143, type: 3}
+  weight: 100
+  healthEffect: 0
   luckEffect: 0
   sanityEffect: 0
   meatEffect: 0
   logEffect: 0
-  cropEffect: 0
+  cropEffect: 1
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0

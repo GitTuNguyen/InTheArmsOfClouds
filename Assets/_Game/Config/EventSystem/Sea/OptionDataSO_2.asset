@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8b7830768b9d641a56faa091760c88, type: 3}
   m_Name: OptionDataSO_2
   m_EditorClassIdentifier: 
-  optionId: 0
-  optionDescription: Lie on the sand and sleep
+  optionId: 2
+  optionDesc: Lie on the sand and sleep
   consequences:
   - {fileID: 11400000, guid: 8225f7f6886a7fa47801e978c168fbaf, type: 2}
   - {fileID: 11400000, guid: 2523f4df371fcc241b9422b624db9170, type: 2}
+  triggerCondition: {fileID: 0}

@@ -14,3 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consequenceCode: 6
   artwork: {fileID: 21300000, guid: c0a9964fa8aa4d74396340f90488543d, type: 3}
+  weight: 0
+  healthEffect: 0
+  luckEffect: 0
+  sanityEffect: 0
+  meatEffect: 2
+  logEffect: 0
+  cropEffect: 0
+  gemEffect: 0
+  seashellEffect: 1
+  magicScrollEffect: 0

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6eff57ffd6a4ab409d4cecdd8e96e70, type: 3}
-  m_Name: SeaSO
+  m_Name: DesertSO
   m_EditorClassIdentifier: 
-  eventBlock: 1
-  eventId: 0
-  eventDesc: You in the reach of the sea, what do you do now?
+  eventBlock: 2
+  eventId: 2
+  eventDesc: Amidst the vast desert expanse, What is your next move?
   options:
-  - {fileID: 11400000, guid: 09972447440788c49af3432abc6d8604, type: 2}
-  - {fileID: 11400000, guid: d370cd8dba1c6a746a31a26cc574d964, type: 2}
-  - {fileID: 11400000, guid: 256844afbc1c8b5449f5830dc3bc415a, type: 2}
+  - {fileID: 11400000, guid: e9e418f0f13e5da4692c28d563e0d793, type: 2}
+  - {fileID: 11400000, guid: 387b9aac850803b41a2fd1738b0db734, type: 2}
