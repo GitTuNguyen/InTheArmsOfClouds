@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cc1dcb95f85e3488a0dfe3c0aae8c4, type: 3}
+  m_Name: ConsequenceDataSO_9
+  m_EditorClassIdentifier: 
+  consequenceCode: 9
+  artwork: {fileID: 21300000, guid: df47aaf40e217344dbc9758aef2ef398, type: 3}
+  weight: 60
+  healthEffect: 0
+  luckEffect: 0
+  sanityEffect: -1
+  meatEffect: 1
+  logEffect: 0
+  cropEffect: 0
+  gemEffect: 0
+  seashellEffect: 0
+  magicScrollEffect: 0
