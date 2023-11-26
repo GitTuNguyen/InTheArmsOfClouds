@@ -17,11 +17,13 @@ public class PlayerStateManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.SwitchStateToSelectPath += SwitchToSelectPathState;
+        EventManager.PlayerDie += ResetPlayerStateMachine;
     }
 
     private void OnDisable()
     {
         EventManager.SwitchStateToSelectPath -= SwitchToSelectPathState;
+        EventManager.PlayerDie -= ResetPlayerStateMachine;
     }
 
     // Start is called before the first frame update
@@ -72,5 +74,11 @@ public class PlayerStateManager : MonoBehaviour
     private void SwitchToSelectPathState()
     {
         SwitchState(PlayerState.SelectPath);
+    }
+
+    private void ResetPlayerStateMachine()
+    {
+        currentState = playerEndTurn;
+        currentState.EnterState(this);
     }
 }

@@ -22,12 +22,18 @@ public class Player : MonoBehaviour
         get { return santity; }
         set { santity = value; }
     }
+    private void OnEnable()
+    {
+        EventManager.PlayerDie += ResetPlayerStats;
+    }
 
+    private void OnDisable()
+    {
+        EventManager.PlayerDie -= ResetPlayerStats;
+    }
     private void Start()
     {
-        health = 5;
-        luck = 5;
-        santity = 5;
+        ResetPlayerStats();
     }
 
     public void UpdateStatsOfPlayer(int health, int luck, int santity)
@@ -35,5 +41,12 @@ public class Player : MonoBehaviour
         this.health += health;
         this.luck += luck;
         this.santity += santity;
+    }
+
+    public void ResetPlayerStats()
+    {
+        health = 5;
+        luck = 5;
+        santity = 5;
     }
 }
