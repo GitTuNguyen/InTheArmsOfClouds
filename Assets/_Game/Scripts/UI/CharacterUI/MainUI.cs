@@ -83,6 +83,11 @@ public class MainUI : MonoBehaviour
         EventManager.UseAmuletItem?.Invoke();
     }
 
+    public void PlayerDie()
+    {
+        EventManager.PlayerDie?.Invoke();
+    }
+
     public void DeactiveCurrsor()
     {
         Cursor.visible = true;

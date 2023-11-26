@@ -10,9 +10,6 @@ public class PlayerController : MonoBehaviour
     private float speed;
 
     [SerializeField]
-    private Transform startPos;
-
-    [SerializeField]
     private LayerMask layerMask;
 
     [SerializeField]
@@ -38,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public PlayerUI playerUI;
 
+    [SerializeField]
+    private GameObject tomb;
+
     int currentIndex = 0;
     int nextIndex = 1;
 
@@ -50,6 +50,18 @@ public class PlayerController : MonoBehaviour
     public int numberDice;
 
     private bool isSelectedFirstBlock;
+    private Vector3 startPos;
+    private Vector3 currentPos;
+
+    private void OnEnable()
+    {
+        EventManager.PlayerDie += RessetPlayerController;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PlayerDie -= RessetPlayerController;
+    }
 
     private void Awake()
     {
@@ -60,7 +72,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(startPos.position.x, transform.position.y, startPos.position.z);
+        startPos = transform.position;
         path = new List<Vector3>();
         leghtOfLineRender = 1;
         path.Add(bigCircle.transform.position);
@@ -228,6 +240,28 @@ public class PlayerController : MonoBehaviour
         blocks.Clear();
 
         isSelectedFirstBlock = false;
+        currentPos = transform.position;
+    }
+
+    public void RessetPlayerController()
+    {
+        // Check Inventory has Item Enchanted Stew
+        //InventoryItemData itemData = InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.EnchantedStew);
+        //if (InventoryHolder.Instance.InventorySystem.ContainsItem(itemData, out List<InventorySlot> invSlot))
+        //{
+        //    transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
+        //    InventoryHolder.Instance.InventorySystem.RemoveToInventory(itemData, 1);
+        //}
+        //else
+        //{
+        //    transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
+        //}
+        //transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
+        GameObject tombObj = Instantiate(tomb, transform.position, Quaternion.identity);
+
+        transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
+
+        PlayerEndTurn();
     }
 
     public void PlayerRollDice()

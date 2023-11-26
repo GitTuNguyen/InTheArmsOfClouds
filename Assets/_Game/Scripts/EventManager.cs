@@ -12,4 +12,8 @@ public static class EventManager
     public static UnityAction UseAmuletItem;
 
     public static UnityAction EndOfTurnUseItem;
+
+    public static UnityAction UseEnchantedStewItem;
+
+    public static UnityAction PlayerDie;
 }

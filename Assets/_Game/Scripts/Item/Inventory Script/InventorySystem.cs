@@ -9,6 +9,8 @@ public class InventorySystem
 {
     [SerializeField] private List<InventorySlot> inventorySlots;
     public List<InventorySlot> InventorySlot => inventorySlots;
+
+    public List<InventoryItemData> items;
     public int InventorySize => InventorySlot.Count;
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
@@ -118,7 +120,7 @@ public class InventorySystem
     {
         // Player.UpdateStatsOfPlayer(iteamData.heatlh, iteamData.luck,iteamData.santity);
 
-        RemoveToInventory(itemData, 1);
+        //RemoveToInventory(itemData, 1);
 
         switch (itemData.type)
         {
@@ -126,12 +128,25 @@ public class InventorySystem
                 EventManager.UseAmuletItem?.Invoke();
                 break;
             case ItemType.Shield:
-
+                EventManager.UseEnchantedStewItem?.Invoke();
                 break;
             case ItemType.EnchantedStew:
 
                 break;
         }
 
+    }
+
+    public InventoryItemData GetItemByItemType(ItemType type)
+    {
+        InventoryItemData itemData = null;
+        foreach(InventoryItemData item in items)
+        {
+            if(item.type == type)
+            {
+                itemData = item;
+            }
+        }
+        return itemData;
     }
 }

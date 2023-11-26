@@ -14,8 +14,6 @@ public class Map : MonoBehaviour
     [SerializeField]
     private GameObject cloudsMachine;
 
-    private GameObject posCurrentBlock;
-
     private bool canRenoveCloud;
 
     private void OnEnable()
