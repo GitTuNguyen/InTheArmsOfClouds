@@ -47,6 +47,7 @@ public enum AnimalState
     Walk,
     Run,
     Eat,
+    Turn,
     Die
 }
 
