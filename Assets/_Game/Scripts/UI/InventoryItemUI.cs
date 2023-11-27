@@ -11,7 +11,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public Transform infoPopupPos;
     private ItemInfoUI itemInfoUI;
     public float showInfoPopupTimeDelay = 0.25f;
-    //private InventoryItemData itemData = null;
+    private InventoryItemData itemData;
 
     //Item data
     public GameObject itemImageObject;
@@ -35,19 +35,19 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     IEnumerator ShowInfo()
     {
         yield return new WaitForSeconds(showInfoPopupTimeDelay);
-        if (itemInfoUI == null)
+        if (itemInfoUI == null && itemData != null)
         {
             GameObject infoPoup = Instantiate(infoPopupPrefabs, infoPopupPos);
             itemInfoUI = infoPoup.GetComponent<ItemInfoUI>();
-            //itemInfoUI?.SetItemInfoData(itemData); 
+            itemInfoUI.SetItemInfoData(itemData); 
         }
     }
     
-    public void SetItemData(InventoryItemData inventoryItemData)
+    public void SetItemData(InventorySlot inventorySlotData)
     {
-        //itemData = inventoryItemData;
-        itemImage.sprite = inventoryItemData.icon;
-        itemQuantity.text = 1.ToString(); // hard code vi k biet lau dau ra
+        itemData = inventorySlotData.ItemData;
+        itemImage.sprite = inventorySlotData.ItemData.icon;
+        itemQuantity.text = inventorySlotData.StackSize.ToString();
         itemImageObject.SetActive(true);
         itemQuantityObject.SetActive(true);
     }
@@ -55,7 +55,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void RemoveItemData()
     {
         itemImage.sprite = null;
-        itemQuantity.text = 0.ToString(); // hard code vi k biet lau dau ra
+        itemQuantity.text = 0.ToString(); 
         itemImageObject.SetActive(false);
         itemQuantityObject.SetActive(false);
     }

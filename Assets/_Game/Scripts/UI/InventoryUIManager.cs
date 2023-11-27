@@ -12,7 +12,6 @@ public class InventoryUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventorySystem = FindObjectOfType<InventoryHolder>()?.InventorySystem;
         InitInventorySlot();        
     }
 
@@ -24,13 +23,13 @@ public class InventoryUIManager : MonoBehaviour
 
     void InitInventorySlot()
     {
-        for(int i = 0; i < inventorySlotAmount && transform.childCount < inventorySlotAmount; i++)
+        for(int i = 0; i < InventoryHolder.Instance?.InventorySystem.InventorySlot.Count; i++)
         {
             Instantiate(ItemSlotPrefab, transform);
         }
     }
 
-    public void AddItem(InventoryItemData item, int index)
+    public void AddToInventory(InventorySlot item, int index)
     {
         InventoryItemUI inventoryItemUI = transform.GetChild(index)?.GetComponent<InventoryItemUI>();
         if (inventoryItemUI != null)

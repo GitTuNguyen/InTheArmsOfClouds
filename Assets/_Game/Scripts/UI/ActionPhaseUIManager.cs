@@ -29,6 +29,9 @@ public class ActionPhaseUIManager : MonoBehaviour
     public Slider healthBar;
     public Slider luckBar;
     public Slider sanityBar;
+
+    //UI manager
+    public InventoryUIManager inventoryUIManager;
     
     private void Start() {
         if (Instance == null)
@@ -128,5 +131,10 @@ public class ActionPhaseUIManager : MonoBehaviour
         {
             eventConsequenceUI.SetConsequenUIData(GameManager.Instance.CurrentConsequnce);
         }
+    }
+
+    public void AddToInventory(InventorySlot inventorySlot, int index)
+    {
+        inventoryUIManager.AddToInventory(inventorySlot, index);
     }
 }

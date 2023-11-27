@@ -9,25 +9,25 @@ public class ItemInfoUI : MonoBehaviour
     public GameObject itemEffectListHolder;
     public GameObject effectTFPrefabs;
 
-    public void SetItemInfoData(InventoryItemData itemData = null)
+    public void SetItemInfoData(InventoryItemData itemSlotData)
     {
         Debug.Log("set item info");
-        infoPopupItemName.text = itemData?.nameItem ?? "Item null";
-        SetItemEffect(itemData);
+        infoPopupItemName.text = itemSlotData.nameItem;
+        SetItemEffect(itemSlotData);
     }
 
     private void SetItemEffect(InventoryItemData itemData)
     {
         Debug.Log("Set Item Effect");
-        if (itemData?.healthItem > 0)
+        if (itemData.healthItem > 0)
         {
             SpawnEffectTF(itemData.healthItem, "Health");
         }
-        if (itemData?.healthItem > 0)
+        if (itemData.healthItem > 0)
         {
             SpawnEffectTF(itemData.luckItem, "Luck");
         }
-        if (itemData?.healthItem > 0)
+        if (itemData.healthItem > 0)
         {
             SpawnEffectTF(itemData.sanityItem, "Sanity");
         }

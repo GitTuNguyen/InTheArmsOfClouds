@@ -36,7 +36,7 @@ public class InventorySystem
             {
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
-                    inventorySlotUIs[inventorySlots.IndexOf(slot)].UpdateInventorySlot(slot.ItemData, slot.StackSize);
+                    ActionPhaseUIManager.Instance.AddToInventory(slot, inventorySlots.IndexOf(slot));
                     OnInventorySlotChanged?.Invoke(slot);
                     return true;
                 }
@@ -46,7 +46,7 @@ public class InventorySystem
         if(HasFreeSlot(out InventorySlot freeSlot))//Get first available slot
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
-            inventorySlotUIs[inventorySlots.IndexOf(freeSlot)].UpdateInventorySlot(itemToAdd,amountToAdd);          
+            ActionPhaseUIManager.Instance.AddToInventory(freeSlot, inventorySlots.IndexOf(freeSlot));
             OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }

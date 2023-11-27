@@ -610,8 +610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.7142029, y: -0.034999847}
-  m_SizeDelta: {x: -23.48, y: -6.33}
+  m_AnchoredPosition: {x: -0.011306763, y: -0.034500122}
+  m_SizeDelta: {x: -13.8097, y: -6.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1135419211609055825
 GameObject:
@@ -1377,7 +1377,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: -0.000007602386, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1798072598517087360
 CanvasRenderer:
@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.11
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2073,8 +2073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.7138977, y: -0.034999847}
-  m_SizeDelta: {x: -23.48, y: -6.33}
+  m_AnchoredPosition: {x: -0.010192871, y: -0.034500122}
+  m_SizeDelta: {x: -13.8097, y: -6.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4516842451017863265
 GameObject:
@@ -2245,7 +2245,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5422400171523110231
 CanvasRenderer:
@@ -2743,7 +2743,9 @@ MonoBehaviour:
   ItemSlotPrefab: {fileID: 6370004754558258202, guid: 4a7e76a9dcc5a89438a132846c7c6e14, type: 3}
   inventorySystem:
     inventorySlots: []
+    items: []
     inventorySlotUIs: []
+    spaceShipPiece: 0
   inventoryItemDatas: []
   inventorySlotAmount: 4
 --- !u!1 &5615829089128704166
@@ -2868,7 +2870,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.11
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3078,7 +3080,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0.000007517636, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9187772364243345552
 CanvasRenderer:
@@ -3226,8 +3228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.7144928, y: -0.034999847}
-  m_SizeDelta: {x: -23.48, y: -6.33}
+  m_AnchoredPosition: {x: -0.012496948, y: -0.034500122}
+  m_SizeDelta: {x: -13.8097, y: -6.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7226455949388438784
 GameObject:
@@ -3398,6 +3400,7 @@ MonoBehaviour:
   healthBar: {fileID: 1184990833066680658}
   luckBar: {fileID: 6310647331665027894}
   sanityBar: {fileID: 4408550525670576889}
+  inventoryUIManager: {fileID: 3330169014860211764}
   spaceshipQuarity: {fileID: 4382746760874013758}
 --- !u!1 &7775420548170848565
 GameObject:
@@ -3549,7 +3552,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.11
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
