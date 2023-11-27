@@ -13,7 +13,7 @@ public class InventorySystem
     public List<InventoryItemData> items;
     public int InventorySize => InventorySlot.Count;
 
-    public UnityAction<InventorySlot> OnInventorySlotChanged;
+    //public UnityAction<InventorySlot> OnInventorySlotChanged;
 
     [SerializeField]
     private List<InventorySlotUI> inventorySlotUIs;
@@ -37,7 +37,7 @@ public class InventorySystem
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
                     inventorySlotUIs[inventorySlots.IndexOf(slot)].UpdateInventorySlot(slot.ItemData, slot.StackSize);
-                    OnInventorySlotChanged?.Invoke(slot);
+                    //OnInventorySlotChanged?.Invoke(slot);
                     return true;
                 }
             }
@@ -47,7 +47,7 @@ public class InventorySystem
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
             inventorySlotUIs[inventorySlots.IndexOf(freeSlot)].UpdateInventorySlot(itemToAdd,amountToAdd);          
-            OnInventorySlotChanged?.Invoke(freeSlot);
+            //OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }
 
@@ -71,14 +71,9 @@ public class InventorySystem
         {
             foreach(var slot in invSlot)
             {
-                int amountRemaining = 0;
-                if(slot.RoomLeftInStack(amountToRemove, out amountRemaining)){
-                    if(amountToRemove <= amountRemaining){
-                        slot.RemoveFromStack(amountToRemove);
-                        OnInventorySlotChanged?.Invoke(slot);
-                    } else{
-                        Debug.Log("amount To Remove > amount Remaining ");
-                    }
+                if (slot.CanRemoveFromInventory(amountToRemove)){                 
+                    slot.RemoveFromStack(amountToRemove);
+                    //OnInventorySlotChanged?.Invoke(slot);
                 }
             }
         }    
