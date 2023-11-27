@@ -31,7 +31,7 @@ public class ConsequenceData : ScriptableObject
     public void DeployEffects()
     {
         effectDescriptions.Clear(); //Tu: Clear data
-        // Todo: Deploy effects - wip
+        // Todo: Deploy effects - review
         if (healthEffect != 0)
         {
             EffectDescription effectDecs;
@@ -62,6 +62,7 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = meatEffect;
             effectDecs.effectDesc = "Meat";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.Meat, meatEffect);
             Debug.LogFormat("Deploy meat effect: {0}", meatEffect);
         }
         if (logEffect != 0)
@@ -70,6 +71,7 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = logEffect;
             effectDecs.effectDesc = "Log";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.Log, logEffect);
             Debug.LogFormat("Deploy log effect: {0}", logEffect);
         }
         if (cropEffect != 0)
@@ -78,6 +80,7 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = cropEffect;
             effectDecs.effectDesc = "Crop";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.Crop, cropEffect);
             Debug.LogFormat("Deploy crop effect: {0}", cropEffect);
         }
         if (gemEffect != 0)
@@ -86,6 +89,7 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = gemEffect;
             effectDecs.effectDesc = "Gem";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.Gem, gemEffect);
             Debug.LogFormat("Deploy gem effect: {0}", gemEffect);
         }
         if (seashellEffect != 0)
@@ -94,6 +98,7 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = seashellEffect;
             effectDecs.effectDesc = "Seashell";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.Seashell, seashellEffect);
             Debug.LogFormat("Deploy seashell effect: {0}", seashellEffect);
         }
         if (magicScrollEffect != 0)
@@ -102,11 +107,29 @@ public class ConsequenceData : ScriptableObject
             effectDecs.effectStat = magicScrollEffect;
             effectDecs.effectDesc = "Magic Scroll";
             effectDescriptions.Add(effectDecs);
+            DeployEffectForItems(ItemType.MagicScroll, magicScrollEffect);
             Debug.LogFormat("Deploy magicScroll effect: {0}", magicScrollEffect);
         }
+
+        DeployEffectForPlayerStats(healthEffect, luckEffect, sanityEffect);
+
         foreach (EffectDescription effectDescription in effectDescriptions)
         {
             Debug.LogFormat("ConsequenceData_{0} has effect decription {1} {2}", consequenceCode, effectDescription.effectStat, effectDescription.effectDesc);
         }    
+    }
+
+
+    Player player;
+    void DeployEffectForPlayerStats(int health, int luck, int sanity)
+    {
+        player = GameObject.FindObjectOfType<Player>();
+        player?.UpdateStatsOfPlayer(health, luck, sanity);
+    }    
+
+    void DeployEffectForItems(ItemType itemType, int effect)
+    {
+        InventoryItemData itemData = InventoryHolder.Instance.InventorySystem.GetItemByItemType(itemType);
+        InventoryHolder.Instance.InventorySystem.AddToInventory(itemData, effect);
     }    
 }
