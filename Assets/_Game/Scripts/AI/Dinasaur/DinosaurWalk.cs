@@ -50,7 +50,7 @@ public class DinosaurWalk : DinosaurBaseState
             animal.SwitchState(AnimalState.Idle);
         }
         animal.animalController.CheckEnableBigBoxCollider();
-        animal.animalController.UpdateStateOfAnimal(2, 2, 1);
+        animal.animalController.UpdateStateOfAnimal(1, 1, 1);
         //Debug.Log("Ssearching food");
         animal.animalController.AnimalWalking();
 
