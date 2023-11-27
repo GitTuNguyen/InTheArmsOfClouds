@@ -146,12 +146,12 @@ public class Animal : LivingEntity
         {
             if(posFood != Vector3.zero && hunger > hungerStats)
             {
-                transform.LookAt(posFood);
+                transform.LookAt(new Vector3(posFood.x, transform.position.y, posFood.z));
             }
 
             if(posWater != Vector3.zero && thirst > thirstStats)
             {
-                transform.LookAt(new Vector3(posWater.x,1,posWater.z));
+                transform.LookAt(new Vector3(posWater.x,transform.position.y,posWater.z));
             }
         }
 

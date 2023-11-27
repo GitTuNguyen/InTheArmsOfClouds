@@ -42,6 +42,17 @@ public class InventorySlot
         }
 
     }
+
+    public bool CanRemoveFromInventory(int amountToRemove){
+        if(amountToRemove > stackSize){
+            Debug.Log(" amount to remove > current amount");
+            return false;
+        }       
+        else
+        {
+            return true;
+        }
+    }
     public void AddToStack(int amount){
         stackSize += amount;
     }
