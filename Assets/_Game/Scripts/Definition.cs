@@ -12,7 +12,8 @@ public enum BlockType
     Grass,
     Sea,
     Desert,
-    Wood
+    Wood,
+    SpaceShip
 }
 public enum SpeciesType
 {
