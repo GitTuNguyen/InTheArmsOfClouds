@@ -6,9 +6,16 @@ using UnityEngine;
 public class InventorySlot
 {
     [SerializeField] private InventoryItemData itemData;
-    [SerializeField] private int stackSize;
+    [SerializeField] public int stackSize;
     public InventoryItemData ItemData => itemData;
-    public int StackSize => stackSize;
+    public int StackSize
+    {
+        get => stackSize;
+        set 
+        {
+            stackSize = value;
+        }
+    }
 
     public InventorySlot(InventoryItemData source, int amount){
         itemData = source;
@@ -43,16 +50,6 @@ public class InventorySlot
 
     }
 
-    public bool CanRemoveFromInventory(int amountToRemove){
-        if(amountToRemove > stackSize){
-            Debug.Log(" amount to remove > current amount");
-            return false;
-        }       
-        else
-        {
-            return true;
-        }
-    }
     public void AddToStack(int amount){
         stackSize += amount;
     }
