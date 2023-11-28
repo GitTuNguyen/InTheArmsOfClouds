@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba8d176d577b3e4dbdbeccf84ca0c30, type: 3}
   m_Name: Recipe Grilled Meat
   m_EditorClassIdentifier: 
-  crafItem: {fileID: 0}
-  materialList: []
+  crafItem: {fileID: 11400000, guid: faec01b48163f04449c5d3c2b2c6bdc7, type: 2}
+  description: 
+  materialList:
+  - item: {fileID: 11400000, guid: 625066f4fa499314a9b7f99ff751c8ae, type: 2}
+    amountRequired: 2
+  - item: {fileID: 11400000, guid: df22e0c550857d549a9458f518fbbb97, type: 2}
+    amountRequired: 1
