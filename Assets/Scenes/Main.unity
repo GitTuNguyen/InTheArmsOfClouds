@@ -6713,6 +6713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainChar
       objectReference: {fileID: 0}
+    - target: {fileID: 2495727156613276402, guid: c4b059fd97272f840bafb8a38b20a771, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2703500785797519054, guid: c4b059fd97272f840bafb8a38b20a771, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.35

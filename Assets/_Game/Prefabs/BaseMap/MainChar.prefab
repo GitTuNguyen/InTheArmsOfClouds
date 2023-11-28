@@ -112,11 +112,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2703500785797519054}
   - component: {fileID: 341407702966128327}
-  - component: {fileID: 3375731163617748463}
   - component: {fileID: 8912785573871576340}
   - component: {fileID: 7443996581219207032}
-  - component: {fileID: 5446553680383980255}
   - component: {fileID: 9109691403566322478}
+  - component: {fileID: 4426124000701584173}
+  - component: {fileID: 6730121010798952904}
   m_Layer: 0
   m_Name: MainChar
   m_TagString: Player
@@ -171,31 +171,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3375731163617748463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347437173687640505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfdb9d74c1454f4192fcaea6c15d044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  playerGhost: {fileID: 3838859926833155415}
-  path: []
-  line: {fileID: 7721793043392905142}
-  smallCircle: {fileID: 8884550957899815539}
-  bigCircle: {fileID: 4979068598451137876}
-  character: {fileID: 8114384967212219780}
-  playerUI: {fileID: 8912785573871576340}
-  tomb: {fileID: 3319015896397836547, guid: 5b86b314c7a30394a965d1fc9e51acc9, type: 3}
-  numberDice: 0
 --- !u!114 &8912785573871576340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,19 +208,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5446553680383980255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347437173687640505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c0ecb36c2d49e42809c3546b386a77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 3375731163617748463}
 --- !u!114 &9109691403566322478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +220,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44588f10eec21843a71398b70ac5fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4426124000701584173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347437173687640505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dcf7e719cee6d4dbcf22a173f898ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  playerGhost: {fileID: 3838859926833155415}
+  path: []
+  line: {fileID: 7721793043392905142}
+  smallCircle: {fileID: 8884550957899815539}
+  bigCircle: {fileID: 4979068598451137876}
+  character: {fileID: 8114384967212219780}
+  playerUI: {fileID: 8912785573871576340}
+  tomb: {fileID: 3319015896397836547, guid: 5b86b314c7a30394a965d1fc9e51acc9, type: 3}
+  numberDice: 0
+--- !u!114 &6730121010798952904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347437173687640505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08d4a736c4afc4aac2d90e86471bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4426124000701584173}
 --- !u!1 &1192859749999928108
 GameObject:
   m_ObjectHideFlags: 0
