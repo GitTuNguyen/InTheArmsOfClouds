@@ -30,7 +30,8 @@ public class PlayerStateManager : MonoBehaviour
     void Start()
     {
         //EventManager.Instance.SwitchStateToSelectPath += SwitchToSelectPathState;
-        currentState = rollDice;
+        //currentState = rollDice;
+        currentState = selectPath;
         currentState.EnterState(this);
     }
 

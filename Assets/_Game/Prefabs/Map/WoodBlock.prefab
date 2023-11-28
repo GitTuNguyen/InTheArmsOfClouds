@@ -282,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796875527781266732, guid: 1e59a3876792b8942a4892f3a2e9870e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -406,6 +406,7 @@ MonoBehaviour:
   predition: {fileID: 5392977374768401279}
   blockType: 0
   cloud: {fileID: 6773277375939232284}
+  eventDataSO: {fileID: 0}
 --- !u!65 &4854049276699886590
 BoxCollider:
   m_ObjectHideFlags: 0

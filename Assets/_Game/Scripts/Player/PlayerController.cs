@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         line.SetPosition(0, bigCircle.transform.position);
         blocks = new List<GameObject>();
         isSelectedFirstBlock = false;
-
+        numberDice = 5;
     }
 
     // Update is called once per frame
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
 
         currentIndex = 0;
         nextIndex = 1;
-        numberDice = 0;
+        numberDice = 5;
         playerUI.DisableUICanvas();
         foreach(GameObject block in blocks)
         {
