@@ -105,6 +105,7 @@ public class InventorySystem
         {
             countItem += slot.StackSize;
         }
+        Debug.Log("Amount of Item " + item.nameItem + " = " + countItem);
         return countItem;
     }
 

@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0f971e49e6e5f4a8dc11f46d572340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: {fileID: 6342516312819172112}
-  craftUIController: {fileID: 0}
-  craftItem: {fileID: 0}
+  _menuName: {fileID: 6342516312819172112}
+  _craftItem: {fileID: 0}
+  _craftUIController: {fileID: 0}
 --- !u!1 &2811084933377416138
 GameObject:
   m_ObjectHideFlags: 0

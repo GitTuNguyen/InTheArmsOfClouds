@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class CraftMenuController : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI menuName;
-    public CraftUIController craftUIController;
-    public GameObject craftItem;
+    public TMPro.TextMeshProUGUI _menuName;
+    public CraftableItem _craftItem;
+    [SerializeField] 
+    private CraftUIController _craftUIController;
     
     public void RefreshCraftView()
     {
-        craftUIController.RefreshCraftView(craftItem);
+        if (_craftItem != null)
+        {
+            _craftUIController.RefreshCraftView(_craftItem);
+        }        
+    }
+
+    public void SetupCraftMenuData(CraftableItem craftableItem, CraftUIController craftUIController)
+    {
+        _menuName.text = craftableItem.name;
+        _craftItem = craftableItem;
+        _craftUIController = craftUIController;
     }
 }

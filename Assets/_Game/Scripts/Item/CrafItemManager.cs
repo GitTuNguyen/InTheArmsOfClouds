@@ -5,8 +5,16 @@ using UnityEngine;
 public class CrafItemManager : MonoBehaviour
 {
     //public CraftableItem CraftableItem;
+    public static CrafItemManager Instance;
     private List<RecipeItem> allMaterialLists;
     public List<CraftableItem> craftableItemsList;
+
+    private void Start() {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     //Add all material list of craf item  to one list 
     public void CombineMaterialList(){
@@ -22,10 +30,15 @@ public class CrafItemManager : MonoBehaviour
     }
     public bool IsItemCanBeCrafted(CraftableItem craftableItem){
         foreach(RecipeItem material in craftableItem.materialList){
-            if(InventoryHolder.Instance.InventorySystem.GetAmountItemInInventory(material.item) < material.amountRequired) 
-                Debug.Log(" Number of item " + material.item.nameItem + "isn't enought or dont't have");
-                return false;         
+            if(InventoryHolder.Instance.InventorySystem.GetAmountItemInInventory(material.item) < material.amountRequired)
+            {
+                //Tu
+                Debug.Log(" Number of item " + material.item.nameItem + "isn't enought or dont't have " + InventoryHolder.Instance.InventorySystem.GetAmountItemInInventory(material.item) + " / " + material.amountRequired);
+                return false;  
+            }            
+            Debug.Log(" Number of item " + material.item.nameItem + "enought");
             }
+        
         return true;
     }
 
@@ -37,5 +50,10 @@ public class CrafItemManager : MonoBehaviour
             }
             InventoryHolder.Instance.InventorySystem.AddToInventory(craftableItem.crafItem, 1);
         }
+    }
+
+    public void CraftItem(CraftableItem craftableItem)
+    {
+        Debug.Log("Craft Item");
     }
 }

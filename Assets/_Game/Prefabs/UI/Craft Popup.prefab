@@ -905,7 +905,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1164474476188140987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 139782309656834827}
+        m_TargetAssemblyTypeName: CraftUIController, Assembly-CSharp
+        m_MethodName: OnCraftButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4858140959283408479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,11 +1185,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftMenuItemPrefab: {fileID: 477587024307738548, guid: a8f24222d186c5e4db3fcb3872220905, type: 3}
   craftMenuList: {fileID: 5933029055809547298}
-  craftMenuAmount: 5
+  craftItemSlelected: {fileID: 0}
   materialList: {fileID: 8121583967477208395}
   materialPrefab: {fileID: 9195606658204774849, guid: 452d182a3d714f64d81e915cbbf19715, type: 3}
   effectList: {fileID: 3197862444660770706}
   effectTFPrefab: {fileID: 672510281481530400, guid: 31fd3d826317fbd4fa619bccafd27dfb, type: 3}
+  craftItemDescTFPrefab: {fileID: 5066850539754396035, guid: 950ace958d51d454a8c40c5ecc6a6994, type: 3}
+  craftButtonOn: {fileID: 4341523896476103209}
+  craftButtonOff: {fileID: 7293134270185161110}
   itemCraftImage: {fileID: 843530238820033060}
   itemCraftQuarity: {fileID: 5937785882438955822}
   materialSpriteTest: {fileID: 21300000, guid: 3ac45b79feba45342a5b5d73c3fa3208, type: 3}

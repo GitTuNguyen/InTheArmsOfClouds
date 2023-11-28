@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemData", menuName = "ItemData/Special_Item", order = 0)]
 public class CraftableItem : ScriptableObject {
     public InventoryItemData crafItem;
-    
+    public string description;
     public List<RecipeItem> materialList;
 }
 
