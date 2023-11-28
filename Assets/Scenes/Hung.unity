@@ -2522,10 +2522,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009bdd461b758d3488883d23b2a8573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CraftableItem: {fileID: 0}
-  allMaterialLists: []
   craftableItemsList:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6e1079ef175dcd34bae4ae9194698d99, type: 2}
+  - {fileID: 11400000, guid: 055a9fb8600088c43a3b977ba7ecf630, type: 2}
+  - {fileID: 11400000, guid: 429ca3ef47a6b5e4e8b76eb2a1ddbfe7, type: 2}
+  - {fileID: 11400000, guid: 6e1079ef175dcd34bae4ae9194698d99, type: 2}
+  - {fileID: 11400000, guid: a60a3c6c9251cff45add0ff654e2de6f, type: 2}
 --- !u!1 &1160836044
 GameObject:
   m_ObjectHideFlags: 0

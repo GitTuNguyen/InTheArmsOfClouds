@@ -110,6 +110,10 @@ public class InventorySystem
         }    
     }
     
+    public void RemoveFromInventory(int index){
+        inventorySlots[index].ClearSLot();
+    }
+    
     public bool AddSpaceShip(InventoryItemData spaceShipItem, int amountSpaceShip = 1){
         if(spaceShipItem.type == ItemType.SpaceShip && spaceShipPiece < SpaceShipPieceMax){
             spaceShipPiece += amountSpaceShip;
