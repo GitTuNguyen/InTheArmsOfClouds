@@ -38,7 +38,15 @@ public class InventoryUIManager : MonoBehaviour
         }
     }
 
-
-    
-
+    public void RefreshInventoryUI()
+    {
+        for(int i = 0; i < InventoryHolder.Instance?.InventorySystem.InventorySlot.Count; i++)
+        {
+            InventoryItemUI inventoryItemUI = transform.GetChild(i)?.GetComponent<InventoryItemUI>();
+            if (inventoryItemUI != null && InventoryHolder.Instance?.InventorySystem.InventorySlot[i].ItemData != null)
+            {
+                inventoryItemUI.SetItemData(InventoryHolder.Instance.InventorySystem.InventorySlot[i]);
+            }
+        }
+    }
 }

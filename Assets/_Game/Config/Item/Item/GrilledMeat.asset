@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GrilledMeat
   m_EditorClassIdentifier: 
   type: 1
-  nameItem: GrilledMeat
-  description: 2 Luck 1 Sanity
+  nameItem: Grilled Meat
+  description: + 2 Luck & + 1 Sanity
   icon: {fileID: 21300000, guid: 3e45d78ab41ece849b4384dfbbb9d90c, type: 3}
   maxStackSize: 2
   healthItem: 0
-  luckItem: 0
-  sanityItem: 0
+  luckItem: 2
+  sanityItem: 1

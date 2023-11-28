@@ -32,6 +32,10 @@ public class ActionPhaseUIManager : MonoBehaviour
 
     //UI manager
     public InventoryUIManager inventoryUIManager;
+
+    
+    //Spaceship
+    public TMPro.TextMeshProUGUI spaceshipQuarity;
     
     private void Start() {
         if (Instance == null)
@@ -39,10 +43,9 @@ public class ActionPhaseUIManager : MonoBehaviour
             Instance = this;
         }
         RefreshSpaceShipQuarity(0, 4);
+        ToggeleStatBarAtice();
     }
     
-    //Spaceship
-    public TMPro.TextMeshProUGUI spaceshipQuarity;
 
     private void SpawnPopup(GameObject popup)
     {
@@ -55,12 +58,7 @@ public class ActionPhaseUIManager : MonoBehaviour
         panel.SetActive(true);
     }   
 
-    public void RefreshPlayerStatsUI(float currentHealthPercent, float currentLuckPercent, float currentSanityPercent)
-    {
-        healthBar.value = currentHealthPercent;
-        luckBar.value = currentLuckPercent;
-        sanityBar.value = currentSanityPercent;
-    }
+    
 
     public void OpenCraftPopup()
     {
@@ -94,7 +92,7 @@ public class ActionPhaseUIManager : MonoBehaviour
 
     public void RefreshSpaceShipQuarity(int currentQuarity, int maxQuarity)
     {
-        spaceshipQuarity.text = currentQuarity.ToString() + " / " + maxQuarity.ToString();
+        spaceshipQuarity.text = currentQuarity.ToString() + "/" + maxQuarity.ToString();
     }
 
     //Event UI
@@ -136,5 +134,40 @@ public class ActionPhaseUIManager : MonoBehaviour
     public void AddToInventory(InventorySlot inventorySlot, int index)
     {
         inventoryUIManager.AddToInventory(inventorySlot, index);
+    }
+
+    //Button
+    public void OnResumeButtonPress()
+    {
+        Debug.Log("Button Resume pressed");
+        GameManager.Instance.GameResume();
+    }
+
+    public void OnQuitButtonPressed()
+    {
+        GameManager.Instance.QuitToMenu();
+    }
+
+    //Player stats bar
+    private void ToggeleStatBarAtice()
+    {
+        healthBar.enabled = !healthBar.enabled;
+        luckBar.enabled = !luckBar.enabled;
+        sanityBar.enabled = !sanityBar.enabled;
+    }
+
+    //Refresh UI
+    public void RefreshPlayerStatsUI(float currentHealthPercent, float currentLuckPercent, float currentSanityPercent)
+    {
+        ToggeleStatBarAtice();
+        healthBar.value = currentHealthPercent;
+        luckBar.value = currentLuckPercent;
+        sanityBar.value = currentSanityPercent;
+        ToggeleStatBarAtice();
+    }
+
+    public void RefreshInventoryUI()
+    {
+        inventoryUIManager.RefreshInventoryUI();
     }
 }

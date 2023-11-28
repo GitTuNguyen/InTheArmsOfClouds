@@ -43,6 +43,7 @@ public class CraftUIController : MonoBehaviour
             CraftMenuController craftyMenuUI = craftMenuItem.GetComponent<CraftMenuController>();
             if (craftyMenuUI != null)
             {
+                Debug.Log("Setup " + CrafItemManager.Instance.craftableItemsList[i].name + "menu");
                 craftyMenuUI.SetupCraftMenuData(CrafItemManager.Instance.craftableItemsList[i], this);
             }
         }
@@ -145,6 +146,7 @@ public class CraftUIController : MonoBehaviour
 
     public void OnCraftButtonPress()
     {
-        CrafItemManager.Instance.CraftItem(craftItemSlelected);
+        CrafItemManager.Instance.UpdateInventoryAfterCraftSucess(craftItemSlelected);
+        RefreshCraftView(craftItemSlelected);
     }
 }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba8d176d577b3e4dbdbeccf84ca0c30, type: 3}
   m_Name: Recipe Shield
   m_EditorClassIdentifier: 
-  crafItem: {fileID: 0}
+  crafItem: {fileID: 11400000, guid: 3f132646194eccf4f8ac00e00c65727a, type: 2}
+  description: 
   materialList:
   - item: {fileID: 11400000, guid: df22e0c550857d549a9458f518fbbb97, type: 2}
     amountRequired: 2

@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    //Player
+    public Player player;
     //Consequence 
     private ConsequenceData  currentConsequnce;
     public ConsequenceData  CurrentConsequnce 
@@ -45,11 +44,27 @@ public class GameManager : MonoBehaviour
     public void QuitToMenu()
     {
         Debug.Log("Quit To Menu");
+        GameResume();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ClearConsequenceData()
     {
         currentConsequnce = null;
+    }
+
+    public void ResetGame(bool isKeepPosition = false)
+    {
+        Debug.Log("Reset game");
+        if (!isKeepPosition)
+        {
+            player.transform.position = Vector3.zero;
+        }
+        ResetPlayerStats();
+    }
+
+    public void ResetPlayerStats()
+    {
+        player.ResetPlayerStats();
     }
 }

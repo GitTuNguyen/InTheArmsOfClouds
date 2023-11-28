@@ -11,12 +11,12 @@ public class CraftMaterialUI : MonoBehaviour
     public void SetupMaterial(Sprite sprite, int currentQuarity, int requiredQuarity)
     {
         materialImage.sprite = sprite;
-        if (currentQuarity < requiredQuarity)
-        {
-            quarityText.color = Color.red;
-        } else {
-            quarityText.color = Color.green;
-        }
-        quarityText.text = currentQuarity.ToString() + " / " + requiredQuarity.ToString();
+        // if (currentQuarity < requiredQuarity)
+        // {
+        //     quarityText.color = Color.red;
+        // } else {
+        //     quarityText.color = Color.green;
+        // }
+        quarityText.text = currentQuarity.ToString() + "/" + requiredQuarity.ToString();
     }
 }

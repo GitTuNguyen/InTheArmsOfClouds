@@ -19,7 +19,7 @@ public class CraftMenuController : MonoBehaviour
 
     public void SetupCraftMenuData(CraftableItem craftableItem, CraftUIController craftUIController)
     {
-        _menuName.text = craftableItem.name;
+        _menuName.text = craftableItem.crafItem.nameItem;
         _craftItem = craftableItem;
         _craftUIController = craftUIController;
     }

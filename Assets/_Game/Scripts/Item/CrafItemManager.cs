@@ -32,7 +32,7 @@ public class CrafItemManager : MonoBehaviour
         foreach(RecipeItem material in craftableItem.materialList){
             if(InventoryHolder.Instance.InventorySystem.GetAmountItemInInventory(material.item) < material.amountRequired)
             {
-                //Tu
+                //Tu: check 
                 Debug.Log(" Number of item " + material.item.nameItem + "isn't enought or dont't have " + InventoryHolder.Instance.InventorySystem.GetAmountItemInInventory(material.item) + " / " + material.amountRequired);
                 return false;  
             }            

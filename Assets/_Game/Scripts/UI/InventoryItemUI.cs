@@ -3,8 +3,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
+using System;
+using JetBrains.Annotations;
 
-public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerMoveHandler
 {
     //Call info popup
     public GameObject infoPopupPrefabs;
@@ -14,22 +17,52 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private InventoryItemData itemData;
 
     //Item data
-    public GameObject itemImageObject;
     public Image itemImage;
-    public GameObject itemQuantityObject;
     public TextMeshProUGUI itemQuantity;
+    
+    //Drag
+    bool isPointerDown;
+    public GameObject dragItemPrefabs;
+    [SerializeField] private GameObject dragItem;
+
+    private void Update() {
+        if (dragItem != null)
+        {
+            dragItem.transform.position = Input.mousePosition;
+        }
+    }
     public void OnPointerDown(PointerEventData eventData){
+        isPointerDown = true;
         StartCoroutine(ShowInfo());
     }
     
     public void OnPointerUp(PointerEventData eventData){
-        StopAllCoroutines();
-        if (itemInfoUI != null)
+        isPointerDown = false;
+        HideInfo();
+        if (itemData != null)
         {
-            Destroy(itemInfoUI.gameObject);
-            itemInfoUI = null;
+            ItemReturn();
         }
         
+    }
+
+    public void OnPointerClick(PointerEventData eventData){
+
+    }
+    public void OnPointerMove(PointerEventData eventData){
+        if (isPointerDown && dragItem == null && itemData != null)
+        {
+            Debug.Log("Pointer move");
+            HideInfo();
+            dragItem = Instantiate(dragItemPrefabs, this.transform);
+            Image dragItemImage = dragItem.GetComponent<Image>();
+            if (dragItemImage != null)
+            {
+                dragItemImage.sprite = itemImage.sprite;                
+                itemImage.enabled = false;
+                itemQuantity.enabled = false;
+            }
+        }
     }
 
     IEnumerator ShowInfo()
@@ -39,7 +72,17 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         {
             GameObject infoPoup = Instantiate(infoPopupPrefabs, infoPopupPos);
             itemInfoUI = infoPoup.GetComponent<ItemInfoUI>();
-            itemInfoUI.SetItemInfoData(itemData); 
+            itemInfoUI.SetItemInfoData(itemData);
+        }
+    }
+
+    private void HideInfo()
+    {
+        StopAllCoroutines();
+        if (itemInfoUI != null)
+        {
+            Destroy(itemInfoUI.gameObject);
+            itemInfoUI = null;
         }
     }
     
@@ -48,15 +91,23 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         itemData = inventorySlotData.ItemData;
         itemImage.sprite = inventorySlotData.ItemData.icon;
         itemQuantity.text = inventorySlotData.StackSize.ToString();
-        itemImageObject.SetActive(true);
-        itemQuantityObject.SetActive(true);
+        itemImage.enabled = true;
+        itemQuantity.enabled = true;
     }
 
+    private void ItemReturn()
+    {
+        Debug.Log("Item return");
+        //Destroy(dragItem);
+        dragItem = null;
+        itemImage.enabled = true;
+        itemQuantity.enabled = true;
+    }
     public void RemoveItemData()
     {
         itemImage.sprite = null;
-        itemQuantity.text = 0.ToString(); 
-        itemImageObject.SetActive(false);
-        itemQuantityObject.SetActive(false);
+        itemQuantity.text = 0.ToString();
+        itemImage.enabled = false;
+        itemQuantity.enabled = false;
     }
 }
