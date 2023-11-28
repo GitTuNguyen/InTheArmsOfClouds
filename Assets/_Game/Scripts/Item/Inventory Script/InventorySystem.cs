@@ -109,8 +109,9 @@ public class InventorySystem
         return countItem;
     }
 
-    public bool IsItemHasEnoughQuanity(InventoryItemData item, int amount){
-        return GetAmountItemInInventory(item) == amount? true: false;
+    public bool IsItemHasEnoughQuanity(ItemType item, int amount){  // ninh.nghiemthanh: change param type 
+        InventoryItemData itemData = GetItemByItemType(item);
+        return GetAmountItemInInventory(itemData) >= amount ? true : false;
     }
     public bool HasFreeSlot(out InventorySlot freeSlot){
         freeSlot = InventorySlot.FirstOrDefault(i => i.ItemData == null);
