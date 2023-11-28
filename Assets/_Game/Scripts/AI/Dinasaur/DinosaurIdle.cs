@@ -40,6 +40,6 @@ public class DinosaurIdle : DinosaurBaseState
         }
 
 
-        animal.animalController.UpdateStateOfAnimal(2, 2, 1);
+        animal.animalController.UpdateStateOfAnimal(1, 1, 1);
     }
 }

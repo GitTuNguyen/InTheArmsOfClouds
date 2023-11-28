@@ -656,7 +656,7 @@ MonoBehaviour:
   gemder: 0
   type: 0
   bigBoxCollider: {fileID: 1259720999845416034}
-  walkSpeed: 0.8
+  walkSpeed: 0.7
   timeToAdult: 1
   animalUI: {fileID: 8736415388271264644}
   rightVision: {fileID: 74717894549126992}
