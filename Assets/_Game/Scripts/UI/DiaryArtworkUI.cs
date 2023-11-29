@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class DairyArtworkUI : MonoBehaviour
+public class DiaryArtworkUI : MonoBehaviour
 {
     public Sprite artworkImage;
+    public void SetArtwork(Sprite artwork)
+    {
+        artworkImage = artwork;
+        Image artworkImageHolder =  transform.GetChild(0).GetComponent<Image>();
+        if (artworkImageHolder != null)
+        {
+            artworkImageHolder.sprite = artwork;
+        }
+    }
     public void ShowArtworkView()
     {
         ActionPhaseUIManager.Instance.OpenArtworkView();

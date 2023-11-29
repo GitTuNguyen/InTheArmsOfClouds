@@ -8,7 +8,7 @@ public class ActionPhaseUIManager : MonoBehaviour
     public static ActionPhaseUIManager Instance;
 
     //UI Prefabs    
-    public GameObject dairyPopup;
+    public GameObject diaryPopup;
     public GameObject processtionPopup;
     public GameObject craftPopup;
     public GameObject rollDicePopup;
@@ -22,6 +22,7 @@ public class ActionPhaseUIManager : MonoBehaviour
     public GameObject currentPopup;
     public Canvas UIHolder;
     public GameObject panel;
+    public GameObject panelDetectClick;
 
     public float waitingLoadingTime = 3f;
 
@@ -55,7 +56,7 @@ public class ActionPhaseUIManager : MonoBehaviour
             currentPopup = null;
         }
         currentPopup = Instantiate(popup, UIHolder.transform);
-        panel.SetActive(true);
+        TogglePanel();
     }   
 
     
@@ -70,9 +71,9 @@ public class ActionPhaseUIManager : MonoBehaviour
         SpawnPopup(rollDicePopup);
     }
 
-    public void OpenDairyPopup()
+    public void OpenDiaryPopup()
     {
-        SpawnPopup(dairyPopup);
+        SpawnPopup(diaryPopup);
     }
 
     public void OpenFindSpaceshipPopup()
@@ -169,5 +170,29 @@ public class ActionPhaseUIManager : MonoBehaviour
     public void RefreshInventoryUI()
     {
         inventoryUIManager.RefreshInventoryUI();
+    }
+
+    public void TogglePanel (bool isPanelDetectClick = false)
+    {
+        if (isPanelDetectClick)
+        {
+            panelDetectClick.SetActive(!panelDetectClick.activeSelf);
+        } else {
+            panel.SetActive(!panel.activeSelf);
+        }
+    }
+
+    public void CloseCurrentPopup()
+    {
+        if (currentPopup != null)
+        {
+            PopupAnimationController popupAnimationController = currentPopup.GetComponent<PopupAnimationController>();
+            if (popupAnimationController != null)
+            {
+                popupAnimationController.ClosePopup();
+            }
+        }
+        panel.SetActive(false);
+        panelDetectClick.SetActive(false);
     }
 }

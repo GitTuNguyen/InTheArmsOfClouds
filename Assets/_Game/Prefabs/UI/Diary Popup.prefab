@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4837519278444134229}
   - component: {fileID: 3547372113725652881}
   m_Layer: 0
-  m_Name: Dairy Item List
+  m_Name: Diary Item List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6069152614933985361}
   - component: {fileID: 1019346345954574213}
   m_Layer: 0
-  m_Name: Dairy Menu List
+  m_Name: Diary Menu List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 5220899402721564347}
   - component: {fileID: 547443055066111352}
   m_Layer: 0
-  m_Name: 'Dairy Item '
+  m_Name: 'Diary Item '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 33461461745879070}
   - component: {fileID: 6938473107707798880}
   m_Layer: 0
-  m_Name: Content
+  m_Name: ArtworkList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,18 +421,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PopupAnimationController, Assembly-CSharp
         m_MethodName: ClosePopup
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -618,7 +606,7 @@ GameObject:
   - component: {fileID: 3696239279138971659}
   - component: {fileID: 3874091133463182165}
   m_Layer: 0
-  m_Name: Dairy Popup
+  m_Name: Diary Popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,3 +668,4 @@ MonoBehaviour:
   dairyMenuAmount: 4
   artworkList: {fileID: 3111096243896807847}
   artworkPrefab: {fileID: 2337233085776457299, guid: 186a7178a60ad8d4dad5163e1e172ac1, type: 3}
+  currentDairyMenu: {fileID: 0}

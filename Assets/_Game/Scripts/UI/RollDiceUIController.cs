@@ -16,7 +16,6 @@ public class RollDiceUIController : MonoBehaviour
     public float rollDiceDurationTime = 2f;
     public int resultDice = 1;
     private Animator animator;
-    public GameObject panelDetectClick;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -41,7 +40,8 @@ public class RollDiceUIController : MonoBehaviour
             }
         }
         Debug.Log("Dice complete");
-        panelDetectClick.SetActive(true);
+        ActionPhaseUIManager.Instance.TogglePanel();
+        ActionPhaseUIManager.Instance.TogglePanel(true);
     }
     
 }

@@ -13,6 +13,12 @@ public class ButtonAnimationController : MonoBehaviour, IPointerEnterHandler, IP
     public TMPro.TextMeshProUGUI buttonTMP;
     public float offSet = -10f;
     public float pointerEnterScale = 1.2f;
+    private void Start() {
+        if (!String.IsNullOrEmpty(defaultText))
+        {
+            buttonTMP.text = defaultText;
+        }
+    }
     
 
     public void OnPointerEnter(PointerEventData eventData)

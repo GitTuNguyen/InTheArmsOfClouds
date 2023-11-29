@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4973395029642845273}
   - component: {fileID: 8781693912536514462}
   m_Layer: 0
-  m_Name: Dairy Menu Item
+  m_Name: Diary Menu Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8781693912536514462}
-        m_TargetAssemblyTypeName: DairyMenuUI, Assembly-CSharp
-        m_MethodName: SetupArtworkList
+        m_TargetAssemblyTypeName: DiaryMenuUI, Assembly-CSharp
+        m_MethodName: RefreshArtworkList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456b75e2d8ed3dd438b5e238881d75f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: {fileID: 1955881346726277636}
-  dairyUIController: {fileID: 0}
+  _menuNameTF: {fileID: 1955881346726277636}
+  _diaryClassName: 
 --- !u!1 &4540154618501041632
 GameObject:
   m_ObjectHideFlags: 0
