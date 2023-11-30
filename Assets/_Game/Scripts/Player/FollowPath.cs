@@ -27,7 +27,7 @@ public class FollowPath : PlayerBaseState
     {
         if(!player.playerController.PlayerFollowPath())
         {
-            player.SwitchState(PlayerState.EndTurn);
+            player.SwitchState(PlayerState.TriggerEvent);
         }
         
     }

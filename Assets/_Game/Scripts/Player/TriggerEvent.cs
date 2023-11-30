@@ -6,7 +6,8 @@ public class TriggerEvent : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        
+        Debug.Log("Player trigger event");
+        player.playerController.PlayerTriggerEvent();
     }
 
     public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
@@ -16,7 +17,7 @@ public class TriggerEvent : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        
+        player.SwitchState(PlayerState.EndTurn);
     }
 
     

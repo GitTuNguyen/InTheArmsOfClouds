@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     //Player
     public Player player;
+
+    public bool enableDice;
     
     private void Awake() {
         if (Instance == null)
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start() {
         Debug.Log("GameManager Start");
         OnGameOpen();
+        enableDice = true;
     }
 
     private void OnGameOpen()

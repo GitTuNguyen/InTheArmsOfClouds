@@ -47,6 +47,18 @@ MonoBehaviour:
   inventorySize: 4
   inventorySystem:
     inventorySlots: []
-    items: []
+    items:
+    - {fileID: 11400000, guid: 81837f32ac109344e97dc1bf171bce73, type: 2}
+    - {fileID: 11400000, guid: 63afbfa9a848bbe4f9da16fef82d0e4a, type: 2}
+    - {fileID: 11400000, guid: 65f4bba7e2f2cbc4ab65a0c4b9d13441, type: 2}
+    - {fileID: 11400000, guid: c3214451af6e28c4eb7a5b8c51ff480c, type: 2}
+    - {fileID: 11400000, guid: faec01b48163f04449c5d3c2b2c6bdc7, type: 2}
+    - {fileID: 11400000, guid: df22e0c550857d549a9458f518fbbb97, type: 2}
+    - {fileID: 11400000, guid: 4967eb90d9135e8408bf844191f80d6e, type: 2}
+    - {fileID: 11400000, guid: 625066f4fa499314a9b7f99ff751c8ae, type: 2}
+    - {fileID: 11400000, guid: 5063088334aa15c4984c90ba3bae5328, type: 2}
+    - {fileID: 11400000, guid: cd9bbd73ffed52a4a948fa097b7c8d3e, type: 2}
+    - {fileID: 11400000, guid: 3f132646194eccf4f8ac00e00c65727a, type: 2}
+    - {fileID: 11400000, guid: b7164072507892a4ea87bdaec8e8963b, type: 2}
     inventorySlotUIs: []
     spaceShipPiece: 0

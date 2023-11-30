@@ -242,6 +242,15 @@ public class PlayerController : MonoBehaviour
         currentPos = transform.position;
     }
 
+    public void PlayerTriggerEvent()
+    {
+        Block targetBlock = blocks[blocks.Count - 1].GetComponent<Block>();
+        if (targetBlock != null)
+        {
+            targetBlock.TriggerEvent();
+        }
+    }
+
     public void RessetPlayerController()
     {
         // Check Inventory has Item Enchanted Stew

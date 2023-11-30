@@ -91,6 +91,6 @@ public class OptionData : ScriptableObject
                 return consequence;
             }    
         }
-        return consequences;
+        return consequences[0];
     }
 }

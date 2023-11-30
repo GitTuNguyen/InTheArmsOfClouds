@@ -43,6 +43,8 @@ public class ActionPhaseUIManager : MonoBehaviour
     
     //Spaceship
     public TMPro.TextMeshProUGUI spaceshipQuarity;
+
+    public GameObject dice;
     
     private void Start() {
         if (Instance == null)
@@ -51,6 +53,10 @@ public class ActionPhaseUIManager : MonoBehaviour
         }
         RefreshSpaceShipQuarity(0, 4);
         ToggeleStatBarAtice();
+        if(!GameManager.Instance.enableDice)
+        {
+            dice.gameObject.SetActive(false);
+        }
     }
     
 

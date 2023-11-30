@@ -5546,6 +5546,7 @@ MonoBehaviour:
   sanityBar: {fileID: 4408550525670576889}
   inventoryUIManager: {fileID: 3330169014860211764}
   spaceshipQuarity: {fileID: 4382746760874013758}
+  dice: {fileID: 1534886832967810434}
 --- !u!1 &7511257062528999900
 GameObject:
   m_ObjectHideFlags: 0

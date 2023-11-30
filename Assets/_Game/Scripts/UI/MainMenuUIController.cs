@@ -16,6 +16,10 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void StartGame(string sceneName)
     {
+        if(sceneName == "Congyon")
+        {
+            GameManager.Instance.enableDice = false;
+        }
         GameManager.Instance.StartGame(sceneName);
     }
     public void QuitGame()

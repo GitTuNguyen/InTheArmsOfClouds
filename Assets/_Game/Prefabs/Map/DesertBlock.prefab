@@ -396,8 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highLight: {fileID: 1158190166631351761}
   predition: {fileID: 5392977374768401279}
-  blockType: 0
+  blockType: 2
   cloud: {fileID: 3856609409039256080}
+  currentTurn: 3
 --- !u!65 &3853411187871362930
 BoxCollider:
   m_ObjectHideFlags: 0
