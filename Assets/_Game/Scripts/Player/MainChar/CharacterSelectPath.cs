@@ -6,7 +6,8 @@ public class CharacterSelectPath : CharacterBaseState
 {
     public override void EnterState(CharacterStateMachine player)
     {
-        player.playerController.playerUI.EnableUICanvas(player.playerController.numberDice);
+        Debug.Log("");
+        player.playerController.playerUI.EnableUICanvas(GameManager.Instance.currentDiceNumber);
         player.playerController.StartSelectPath();
     }
 

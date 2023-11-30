@@ -45,7 +45,7 @@ public class InventoryUIManager : MonoBehaviour
             InventoryItemUI inventoryItemUI = transform.GetChild(i)?.GetComponent<InventoryItemUI>();
             if (inventoryItemUI != null && InventoryHolder.Instance?.InventorySystem.InventorySlot[i].ItemData != null)
             {
-                inventoryItemUI.SetItemData(InventoryHolder.Instance.InventorySystem.InventorySlot[i]);
+                inventoryItemUI.SetItemData(InventoryHolder.Instance.InventorySystem.InventorySlot[i], i);
             }
         }
     }

@@ -54,6 +54,8 @@ public class CharacterController : MonoBehaviour
     private Vector3 startPos;
     private Vector3 currentPos;
 
+    public Block targetBlock;
+
     private void OnEnable()
     {
         EventManager.PlayerDie += RessetPlayerController;
@@ -81,7 +83,7 @@ public class CharacterController : MonoBehaviour
         line.SetPosition(0, bigCircle.transform.position);
         blocks = new List<GameObject>();
         isSelectedFirstBlock = false;
-        numberDice = 5;
+        numberDice = 0;
     }
 
     // Update is called once per frame
@@ -141,6 +143,7 @@ public class CharacterController : MonoBehaviour
                         block.IsSelected = true;
                         blocks.Add(block.gameObject);
                         numberDice--;
+                        Debug.Log("numberDice run = " + numberDice);
                         EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
                 }
@@ -197,6 +200,7 @@ public class CharacterController : MonoBehaviour
         capsuleCollider.enabled = false;
         smallCircle.SetActive(true);
         smallCircle.transform.localPosition = posSmallCircle;
+        numberDice = GameManager.Instance.currentDiceNumber;
     }
 
     public void StartFollowPath()
@@ -224,7 +228,8 @@ public class CharacterController : MonoBehaviour
 
         currentIndex = 0;
         nextIndex = 1;
-        numberDice = 5;
+        Debug.Log("numberDice = " + numberDice);
+        numberDice = 0;
         playerUI.DisableUICanvas();
         foreach (GameObject block in blocks)
         {
@@ -233,10 +238,20 @@ public class CharacterController : MonoBehaviour
                 block.GetComponent<Block>().IsSelected = false;
             }
         }
+
         blocks.Clear();
 
         isSelectedFirstBlock = false;
         currentPos = transform.position;
+    }
+
+    public void PlayerTriggerEvent()
+    {
+        targetBlock = blocks[blocks.Count - 1].GetComponent<Block>();
+        if (targetBlock != null)
+        {
+            targetBlock.TriggerEvent();
+        }
     }
 
     public void RessetPlayerController()
@@ -263,6 +278,8 @@ public class CharacterController : MonoBehaviour
     public void PlayerRollDice()
     {
         numberDice = Random.Range(1, 7);
+        GameManager.Instance.currentDiceNumber = numberDice;
+        Debug.Log("current dice = " + numberDice);
     }
 
     private void OnTriggerEnter(Collider other)

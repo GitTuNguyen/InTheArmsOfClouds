@@ -265,7 +265,8 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerRollDice()
     {
-        numberDice = Random.Range(1, 7);
+        GameManager.Instance.currentDiceNumber = numberDice = Random.Range(1, 7);
+        Debug.Log("current dice = " + numberDice);
     }
 
     private void OnTriggerEnter(Collider other)

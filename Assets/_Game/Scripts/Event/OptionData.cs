@@ -84,12 +84,13 @@ public class OptionData : ScriptableObject
     {
         foreach (ConsequenceData consequence in consequences)
         {
-            if (consequence.weight == 0)
+            if (consequence.weight != 0) //tu hard code
             {
+                consequence.DeployEffects();
                 Debug.LogFormat("Get type E ConsequenceData_{0} having weight: {1}", consequence.consequenceCode, consequence.weight);
                 return consequence;
             }    
         }
-        return null;
+        return consequences;
     }
 }

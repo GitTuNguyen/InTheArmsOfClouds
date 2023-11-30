@@ -18,4 +18,13 @@ public class InventoryHolder : MonoBehaviour
         inventorySystem.InitInventorySystem(inventorySize);
     }
 
+    public void ClearInventory()
+    {
+        inventorySystem.ClearInventory();
+    }
+
+    public void RemoveItemAtIndex(int index)
+    {
+        inventorySystem.RemoveFromInventory(index);
+    }
 }

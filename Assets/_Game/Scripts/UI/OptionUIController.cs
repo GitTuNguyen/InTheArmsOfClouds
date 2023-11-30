@@ -18,8 +18,8 @@ public class OptionUIController : MonoBehaviour
         if (currentOption != null)
         {
             Debug.Log("Option selected");
-            GameManager.Instance.CurrentConsequnce = currentOption.TriggerOption();
-            ActionPhaseUIManager.Instance?.StartConsequencesLoading();
+            GameEventSystem.Instance.CurrentConsequnce = currentOption.TriggerOption();
+            GameEventSystem.Instance.TriggerEvent();
         } else {
             Debug.LogError("No option was set");
         }        

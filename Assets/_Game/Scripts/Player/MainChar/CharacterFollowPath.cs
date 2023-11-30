@@ -27,7 +27,7 @@ public class CharacterFollowPath : CharacterBaseState
     {
         if (!player.playerController.PlayerFollowPath())
         {
-            player.SwitchState(PlayerState.EndTurn);
+            player.SwitchState(PlayerState.TriggerEvent);
         }
 
     }

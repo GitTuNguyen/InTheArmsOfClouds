@@ -8,6 +8,7 @@ public class CharacterStateMachine : MonoBehaviour
     CharacterRollDice rollDice = new CharacterRollDice();
     CharacterSelectPath selectPath = new CharacterSelectPath();
     CharacterFollowPath followPath = new CharacterFollowPath();
+    CharacterTriggerEvent triggerEvent = new CharacterTriggerEvent();
     //TriggerEvent triggerEvent = new TriggerEvent();
     CharacterEndTurn playerEndTurn = new CharacterEndTurn();
 
@@ -29,7 +30,7 @@ public class CharacterStateMachine : MonoBehaviour
     void Start()
     {
         //EventManager.Instance.SwitchStateToSelectPath += SwitchToSelectPathState;
-        currentState = selectPath;
+        currentState = rollDice;
         currentState.EnterState(this);
     }
 
@@ -53,9 +54,9 @@ public class CharacterStateMachine : MonoBehaviour
             case PlayerState.FollowPath:
                 nextPlayerState = followPath;
                 break;
-            //case PlayerState.TriggerEvent:
-            //    nextPlayerState = triggerEvent;
-                //break;
+            case PlayerState.TriggerEvent:
+                nextPlayerState = triggerEvent;
+                break;
             case PlayerState.EndTurn:
                 nextPlayerState = playerEndTurn;
                 break;

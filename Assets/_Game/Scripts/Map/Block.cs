@@ -47,12 +47,15 @@ public class Block : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         set { isHighLight = value; }
     }
 
-    // ninh.nghiemthanh: Trigger event
-    public EventData eventDataSO;
+    [SerializeField] int currentTurn = 3;
 
     public void TriggerEvent()
     {
-        ActionPhaseUIManager.Instance.TriggerEvent(eventDataSO);
+        if (currentTurn > 0)
+        {            
+            GameEventSystem.Instance.TriggerEvent(blockType);
+            currentTurn--;
+        }
     }
 
     // Start is called before the first frame update

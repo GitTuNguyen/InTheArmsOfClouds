@@ -30,27 +30,29 @@ public class InventorySystem
     }
 
     public bool AddToInventory(InventoryItemData itemToAdd, int amountToAdd){
+        Debug.Log("AddToInventory");
         if(ContainsItem(itemToAdd, out List<InventorySlot> invSlot))//Check whether item is exist in inventory
         {
             foreach(var slot in invSlot)
             {
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
-                    inventorySlotUIs[inventorySlots.IndexOf(slot)].UpdateInventorySlot(slot.ItemData, slot.StackSize);
+                    ActionPhaseUIManager.Instance.AddToInventory(slot, inventorySlots.IndexOf(slot));
                     //OnInventorySlotChanged?.Invoke(slot);
                     return true;
                 }
             }
         }
-
+        Debug.Log("AddToInventory");
         if(HasFreeSlot(out InventorySlot freeSlot))//Get first available slot
         {
+            Debug.Log("HasFreeSlot");
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
-            inventorySlotUIs[inventorySlots.IndexOf(freeSlot)].UpdateInventorySlot(itemToAdd,amountToAdd);          
+            ActionPhaseUIManager.Instance.AddToInventory(freeSlot, inventorySlots.IndexOf(freeSlot));
             //OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }
-
+         Debug.Log("Has No FreeSlot");
         return false;
     }
 
@@ -111,17 +113,20 @@ public class InventorySystem
     }
     
     public void RemoveFromInventory(int index){
+        Debug.Log("clear slot " + index);
         inventorySlots[index].ClearSLot();
     }
     
-    public bool AddSpaceShip(InventoryItemData spaceShipItem, int amountSpaceShip = 1){
-        if(spaceShipItem.type == ItemType.SpaceShip && spaceShipPiece < SpaceShipPieceMax){
-            spaceShipPiece += amountSpaceShip;
+    public bool AddSpaceShip(){
+        if(spaceShipPiece < SpaceShipPieceMax){
+            spaceShipPiece += 1;
             Debug.Log(" Space ship piece = " + spaceShipPiece);
             return true;
-        }else 
+        }else {
+            Debug.Log("Game Finished");
+            GameManager.Instance?.GameFinished();
             return false;
-
+        }
     }
     public bool ContainsItem(InventoryItemData itemtoAdd, out List<InventorySlot> invSlot){
         invSlot = InventorySlot.Where(i => i.ItemData == itemtoAdd).ToList();
@@ -180,5 +185,13 @@ public class InventorySystem
             }
         }
         return itemData;
+    }
+
+    public void ClearInventory()
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            slot.ClearSLot();
+        }
     }
 }

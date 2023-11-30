@@ -24,6 +24,12 @@ public class ActionPhaseUIManager : MonoBehaviour
     public GameObject panel;
     public GameObject panelDetectClick;
 
+    //Menu view
+    public GameObject pauseMenu;
+    public GameObject youWinView;
+    public GameObject thatAllView;
+    public GameObject gameoverView;
+
     public float waitingLoadingTime = 3f;
 
     //Player Stats UI
@@ -57,10 +63,9 @@ public class ActionPhaseUIManager : MonoBehaviour
         }
         currentPopup = Instantiate(popup, UIHolder.transform);
         TogglePanel();
-    }   
+    }
 
-    
-
+    //Open Popup
     public void OpenCraftPopup()
     {
         SpawnPopup(craftPopup);
@@ -91,6 +96,29 @@ public class ActionPhaseUIManager : MonoBehaviour
         SpawnPopup(processtionPopup);
     }
 
+    //Menu    
+    public void TogglePauseView()
+    {
+        TogglePanel();
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
+    public void OpenWinView()
+    {        
+        TogglePanel();
+        youWinView.SetActive(true);
+    }
+
+    public void OpenThatAllView()
+    {
+        youWinView.SetActive(false);
+        thatAllView.SetActive(true);
+    }
+    public void OpenGameOverView()
+    {
+        gameoverView.SetActive(true);
+    }
+
+    //Spaceship
     public void RefreshSpaceShipQuarity(int currentQuarity, int maxQuarity)
     {
         spaceshipQuarity.text = currentQuarity.ToString() + "/" + maxQuarity.ToString();
@@ -122,13 +150,12 @@ public class ActionPhaseUIManager : MonoBehaviour
     IEnumerator LoadConsequences()
     {
         SpawnPopup(eventConsequencesLoadingPopup);
-        yield return null;
         yield return new WaitForSeconds(waitingLoadingTime);
         SpawnPopup(eventConsequencesPopup);
         EventConsequenceUI eventConsequenceUI = currentPopup?.GetComponent<EventConsequenceUI>();
         if (eventConsequenceUI != null)
         {
-            eventConsequenceUI.SetConsequenUIData(GameManager.Instance.CurrentConsequnce);
+            eventConsequenceUI.SetConsequenUIData(GameEventSystem.Instance.CurrentConsequnce);
         }
     }
 
@@ -138,12 +165,17 @@ public class ActionPhaseUIManager : MonoBehaviour
     }
 
     //Button
-    public void OnResumeButtonPress()
+    public void OnResumeButtonPressed()
     {
-        Debug.Log("Button Resume pressed");
         GameManager.Instance.GameResume();
+        TogglePauseView();
     }
 
+    public void OnReplayButtonPressed()
+    {
+        gameoverView?.SetActive(false);
+        GameManager.Instance.ResetGame();
+    }
     public void OnQuitButtonPressed()
     {
         GameManager.Instance.QuitToMenu();
@@ -158,12 +190,12 @@ public class ActionPhaseUIManager : MonoBehaviour
     }
 
     //Refresh UI
-    public void RefreshPlayerStatsUI(float currentHealthPercent, float currentLuckPercent, float currentSanityPercent)
+    public void RefreshPlayerStatsUI(int currentHealth, int currentLuck, int currentSanity)
     {
         ToggeleStatBarAtice();
-        healthBar.value = currentHealthPercent;
-        luckBar.value = currentLuckPercent;
-        sanityBar.value = currentSanityPercent;
+        healthBar.value = currentHealth;
+        luckBar.value = currentLuck;
+        sanityBar.value = currentSanity;
         ToggeleStatBarAtice();
     }
 

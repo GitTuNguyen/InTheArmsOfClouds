@@ -16,4 +16,5 @@ public static class EventManager
     public static UnityAction UseEnchantedStewItem;
 
     public static UnityAction PlayerDie;
+
 }

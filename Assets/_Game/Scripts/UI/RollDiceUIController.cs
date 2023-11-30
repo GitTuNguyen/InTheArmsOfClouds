@@ -15,11 +15,11 @@ public class RollDiceUIController : MonoBehaviour
     public Image diceImage;
     public float rollDiceDurationTime = 2f;
     public int resultDice = 1;
-    private Animator animator;
+    private Animator animator;    
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        StartRollDice(resultDice);
+        StartRollDice(GameManager.Instance.currentDiceNumber);
     }
 
     public void StartRollDice(int value)
@@ -41,7 +41,9 @@ public class RollDiceUIController : MonoBehaviour
         }
         Debug.Log("Dice complete");
         ActionPhaseUIManager.Instance.TogglePanel();
-        ActionPhaseUIManager.Instance.TogglePanel(true);
+        ActionPhaseUIManager.Instance.TogglePanel(true);        
+        EventManager.SwitchStateToSelectPath?.Invoke();
+        
     }
     
 }

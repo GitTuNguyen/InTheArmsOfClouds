@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterEndTurn : CharacterBaseState
+public class CharacterTriggerEvent : CharacterBaseState
 {
     public override void EnterState(CharacterStateMachine player)
     {
-        Debug.Log("Player End turn");
-        player.playerController.PlayerEndTurn();
+        Debug.Log("Player CharacterTriggerEvent");
+        player.playerController.PlayerTriggerEvent();
     }
 
     public override void OnTriggerEnter(CharacterStateMachine player, Collider collision)
@@ -17,8 +17,6 @@ public class CharacterEndTurn : CharacterBaseState
 
     public override void UpdateState(CharacterStateMachine player)
     {
-        player.SwitchState(PlayerState.DiceRoll);
+        player.SwitchState(PlayerState.EndTurn);
     }
-
-
 }

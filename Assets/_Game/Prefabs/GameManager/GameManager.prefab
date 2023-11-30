@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &296803336133232844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7143431612788328729}
+  - component: {fileID: 4200446310213733639}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7143431612788328729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296803336133232844}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 937.20557, y: 849.8795, z: -32.92211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4200446310213733639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296803336133232844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7547ea5b24a81834d85e4a3075af30b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenuUIControllerPrefab: {fileID: 509234608098690109, guid: ee5af1250fd66914e908e48618ca333d, type: 3}
+  ActionPhaseUIControllerPrefab: {fileID: 7398933541723379196, guid: 922817fb7da9f994795639b0ad25db2b, type: 3}
+  CraftSystemPrefab: {fileID: 2488204232155484933, guid: 5d3e097f61ab5f24b800756d5eeb0e1a, type: 3}
+  InventorySystemPrefab: {fileID: 2538287800834221616, guid: 102bff2ad65dc3a47b0540d71f381217, type: 3}
+  DiarySystemPrefab: {fileID: 262345097439611795, guid: b362a1e7fd2d18c4fadc19276a521fb0, type: 3}
+  EventSystemPrefab: {fileID: 81313521996653471, guid: 0573f7f34f5d2b94a9979c4f42d36ed6, type: 3}
+  MainMenuUIController: {fileID: 0}
+  ActionPhaseUIController: {fileID: 0}
+  CraftSystem: {fileID: 0}
+  InventorySystem: {fileID: 0}
+  DiarySystem: {fileID: 0}
+  EventSystem: {fileID: 0}
+  mainMenuAnimator: {fileID: 0}
+  player: {fileID: 0}

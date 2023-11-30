@@ -7,9 +7,10 @@ using Unity.VisualScripting;
 using System;
 using JetBrains.Annotations;
 
-public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerMoveHandler
+public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler
 {
-    //Call info popup
+    public int slotID;
+    //Call info popup    
     public GameObject infoPopupPrefabs;
     public Transform infoPopupPos;
     private ItemInfoUI itemInfoUI;
@@ -21,6 +22,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public TextMeshProUGUI itemQuantity;
     
     //Drag
+    bool isPointerEnter = true;
     bool isPointerDown;
     public GameObject dragItemPrefabs;
     [SerializeField] private GameObject dragItem;
@@ -41,7 +43,12 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         HideInfo();
         if (itemData != null)
         {
-            ItemReturn();
+            if (isPointerEnter)
+            {
+                ItemReturn();
+            } else {
+                InventoryHolder.Instance.RemoveItemAtIndex(slotID);
+            }
         }
         
     }
@@ -63,6 +70,12 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 itemQuantity.enabled = false;
             }
         }
+    }
+    public void OnPointerEnter(PointerEventData eventData){
+        isPointerEnter = true;
+    }
+    public void OnPointerExit(PointerEventData eventData){
+        isPointerEnter = false;
     }
 
     IEnumerator ShowInfo()
@@ -86,8 +99,9 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         }
     }
     
-    public void SetItemData(InventorySlot inventorySlotData)
+    public void SetItemData(InventorySlot inventorySlotData, int index = -1)
     {
+        slotID = index == -1 ? slotID : index;
         itemData = inventorySlotData.ItemData;
         itemImage.sprite = inventorySlotData.ItemData.icon;
         itemQuantity.text = inventorySlotData.StackSize.ToString();

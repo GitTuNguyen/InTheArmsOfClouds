@@ -24,6 +24,6 @@ public class EventConsequenceUI : MonoBehaviour
 
     public void CloseConsequenPopup()
     {
-        GameManager.Instance.ClearConsequenceData();
+        GameEventSystem.Instance.ClearConsequenceData();
     }
 }

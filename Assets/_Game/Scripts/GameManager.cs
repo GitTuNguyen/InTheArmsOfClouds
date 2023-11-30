@@ -5,29 +5,70 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Prefabs")]
+    public GameObject MainMenuUIControllerPrefab;
+    public GameObject ActionPhaseUIControllerPrefab;
+    public GameObject CraftSystemPrefab;
+    public GameObject InventorySystemPrefab;
+    public GameObject DiarySystemPrefab;
+    public GameObject EventSystemPrefab;
+
+    [Header("GameManager")]
+    public GameObject MainMenuUIController;
+    public GameObject ActionPhaseUIController;
+    public GameObject CraftSystem;
+    public GameObject InventorySystem;
+    public GameObject DiarySystem;
+    public GameObject EventSystem;
+
+    [Header("Game Play")]
+    public int currentDiceNumber;
+
     //Player
     public Player player;
-    //Consequence 
-    private ConsequenceData  currentConsequnce;
-    public ConsequenceData  CurrentConsequnce 
-    {
-        get => currentConsequnce; 
-        set 
-        {
-            if (currentConsequnce == null)
-            {
-                currentConsequnce = value;
-            }
-        }
-    }
-
-    private void Start() {
+    
+    private void Awake() {
         if (Instance == null)
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start() {
+        Debug.Log("GameManager Start");
+        OnGameOpen();
+    }
+
+    private void OnGameOpen()
+    {
+        LoadMainMenu();
+        MainMenuUIController mainMenuUI = MainMenuUIController.GetComponentInChildren<MainMenuUIController>();
+        if (mainMenuUI != null)
+        {
+            mainMenuUI.PlayMainUIAnimation();
+        } else {
+            Debug.Log("Can't find mainMenuUIAnimation");
+        }
+    }
+    public void StartGame(string sceneName)
+    {        
+        Debug.Log("Start Game");
+        ClearMainMenu();
+        GameResume();
+        SceneManager.LoadScene(sceneName);
+        InitActionPhase();
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; //stop play in Unity editor
+#endif
+        Application.Quit();
+    }
 
     public void GamePause()
     {
@@ -44,14 +85,48 @@ public class GameManager : MonoBehaviour
     public void QuitToMenu()
     {
         Debug.Log("Quit To Menu");
-        GameResume();
+        ClearActionPhase();
         SceneManager.LoadScene("MainMenu");
+        InitMainMenu();
     }
 
-    public void ClearConsequenceData()
+    //Init
+    private void InitMainMenu()
     {
-        currentConsequnce = null;
+        MainMenuUIController = Instantiate(MainMenuUIControllerPrefab, Vector3.zero, Quaternion.identity);
     }
+
+    private void InitActionPhase()
+    {
+        ActionPhaseUIController = Instantiate(ActionPhaseUIControllerPrefab, transform);
+        CraftSystem = Instantiate(CraftSystemPrefab, transform);
+        InventorySystem = Instantiate(InventorySystemPrefab, transform);
+        DiarySystem = Instantiate(DiarySystemPrefab, transform);
+        EventSystem = Instantiate(EventSystemPrefab, transform );
+    }
+
+    public void ClearMainMenu()
+    {
+        Destroy(MainMenuUIController);
+        MainMenuUIController = null;
+    }
+    private void ClearActionPhase()
+    {
+        Destroy(ActionPhaseUIController);
+        Destroy(CraftSystem);
+        Destroy(InventorySystem);
+        Destroy(DiarySystem);
+        Destroy(EventSystem);
+        ActionPhaseUIController = null;
+        CraftSystem = null;
+        InventorySystem = null;
+        DiarySystem = null;
+    }
+
+    public void LoadMainMenu()
+    {
+        InitMainMenu();
+    }    
 
     public void ResetGame(bool isKeepPosition = false)
     {
@@ -61,10 +136,24 @@ public class GameManager : MonoBehaviour
             player.transform.position = Vector3.zero;
         }
         ResetPlayerStats();
+        InventoryHolder.Instance.ClearInventory();
     }
 
     public void ResetPlayerStats()
     {
         player.ResetPlayerStats();
+    }
+
+    //Game state
+    public void GameOver()
+    {
+        GamePause();
+        ActionPhaseUIManager.Instance?.OpenGameOverView();
+    }
+
+    public void GameFinished()
+    {
+        GamePause();
+        ActionPhaseUIManager.Instance?.OpenWinView();
     }
 }

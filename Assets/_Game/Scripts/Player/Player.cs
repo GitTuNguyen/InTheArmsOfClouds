@@ -41,6 +41,11 @@ public class Player : MonoBehaviour
         this.health += health;
         this.luck += luck;
         this.santity += santity;
+        ActionPhaseUIManager.Instance.RefreshPlayerStatsUI(this.health, this.luck, this.santity);
+        if (this.health == 0 || this.luck == 0 || this.santity == 0)
+        {
+            EventManager.PlayerDie?.Invoke();
+        }
     }
 
     public void ResetPlayerStats()

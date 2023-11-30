@@ -9,18 +9,22 @@ using System;
 public class ButtonAnimationController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private string defaultText;
-    private Vector3 defaulPos;
+    private Vector3 defaulPos = Vector3.zero;
     public TMPro.TextMeshProUGUI buttonTMP;
     public float offSet = -10f;
     public float pointerEnterScale = 1.2f;
-    private void Start() {
+    
+    private void OnEnable() {
         if (!String.IsNullOrEmpty(defaultText))
         {
+            Debug.Log("Set button text to default");
             buttonTMP.text = defaultText;
         }
+        if (defaulPos != Vector3.zero)
+        {
+            transform.position = defaulPos;
+        }
     }
-    
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (String.IsNullOrEmpty(defaultText))

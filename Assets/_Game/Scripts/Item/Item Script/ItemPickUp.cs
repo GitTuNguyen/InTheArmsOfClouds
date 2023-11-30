@@ -19,11 +19,12 @@ public class ItemPickUp : MonoBehaviour,IPointerClickHandler
         }
         Debug.Log("inventory != null");
 
-        if(InventoryHolder.Instance.InventorySystem.AddSpaceShip(ItemData)){
-            Debug.Log("Add spaceship to inventory");
-            Destroy(this.gameObject);
-            Debug.Log("Destroy spaceship");
-        }else if (InventoryHolder.Instance.InventorySystem.AddToInventory(ItemData, 1))
+        // if(InventoryHolder.Instance.InventorySystem.AddSpaceShip(ItemData)){
+        //     Debug.Log("Add spaceship to inventory");
+        //     Destroy(this.gameObject);
+        //     Debug.Log("Destroy spaceship");
+        // }else 
+        if (InventoryHolder.Instance.InventorySystem.AddToInventory(ItemData, 1))
         {
             Debug.Log("Add item to inventory");
             Destroy(this.gameObject);
