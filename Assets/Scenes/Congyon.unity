@@ -1064,6 +1064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -1106,6 +1110,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1689,6 +1697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -1731,6 +1743,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1979,6 +1995,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -2021,6 +2041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2078,6 +2102,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791250982851938617, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479848780686572337, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6103,6 +6131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -6145,6 +6177,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6461,6 +6497,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791250982851938617, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164395667714792906, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479848780686572337, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10818,6 +10862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -10860,6 +10908,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14067,6 +14119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1748164978}
     m_Modifications:
+    - target: {fileID: 198894378429650999, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055877960676184191, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -14109,6 +14165,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863798402174995141, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256621731668874012, guid: b1582a17e83bf90418403a1cb057dce3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18355,6 +18415,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791250982851938617, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479848780686572337, guid: 503955200debbeb4fbdafa5590d78752, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
