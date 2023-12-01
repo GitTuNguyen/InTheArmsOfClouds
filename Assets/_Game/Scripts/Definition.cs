@@ -13,7 +13,8 @@ public enum BlockType
     Sea,
     Desert,
     Wood,
-    SpaceShip
+    SpaceShip,
+    None
 }
 public enum SpeciesType
 {
