@@ -47,7 +47,7 @@ public class InventorySystem
             {
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
-                    
+
                     ActionPhaseUIManager.Instance.AddToInventory(slot, inventorySlots.IndexOf(slot));
                     //OnInventorySlotChanged?.Invoke(slot);
                     return true;
@@ -222,8 +222,7 @@ public class InventorySystem
         {
             case ItemType.EnchantedStew:
                 break;                
-            case ItemType.Shield:
-                GameManager.Instance.player.shield += 3;
+            case ItemType.Shield:                
                 return;                
             case ItemType.Amulet:
                 EventManager.UseAmuletItem?.Invoke();

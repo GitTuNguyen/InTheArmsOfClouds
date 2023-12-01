@@ -249,4 +249,8 @@ public class ActionPhaseUIManager : MonoBehaviour
     {
         GameManager.Instance?.player.UpdateStatsOfPlayer(-5,-5,-5);
     }
+    public void AddShield()
+    {
+        GameManager.Instance?.player.AddShield();
+    }
 }
