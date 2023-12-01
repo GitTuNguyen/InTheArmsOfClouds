@@ -593,68 +593,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f944990efd320744939569620d13903, type: 3}
---- !u!1001 &189845183
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 73.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065531218024316501, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7552953200044685464, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-      propertyPath: m_Name
-      value: CloudMachine
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
---- !u!1 &189845184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7552953200044685464, guid: 54f19d7e5ac301047ae438b3c1e5d74e, type: 3}
-  m_PrefabInstance: {fileID: 189845183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &194228640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7663832114827316106, guid: 5dabe4cca212c4d4da81851cc9763040, type: 3}
@@ -1214,6 +1152,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dabe4cca212c4d4da81851cc9763040, type: 3}
+--- !u!1001 &379120245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 73.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065531218024316501, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552953200044685464, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+      propertyPath: m_Name
+      value: CloudMachine Character
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+--- !u!1 &379120246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7552953200044685464, guid: 2d13fe71064e7bf45a7bbc32d90ebc24, type: 3}
+  m_PrefabInstance: {fileID: 379120245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &387362607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7663832114827316106, guid: 5dabe4cca212c4d4da81851cc9763040, type: 3}
@@ -5156,7 +5156,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  cloudsMachine: {fileID: 189845184}
+  cloudsMachine: {fileID: 379120246}
 --- !u!4 &1556599910
 Transform:
   m_ObjectHideFlags: 0
@@ -7231,9 +7231,9 @@ SceneRoots:
   - {fileID: 7151798402153083711}
   - {fileID: 3619212698535133322}
   - {fileID: 112889159}
-  - {fileID: 189845183}
   - {fileID: 1556599910}
   - {fileID: 666786561}
   - {fileID: 1991089234}
   - {fileID: 319782072}
   - {fileID: 1105561020}
+  - {fileID: 379120245}

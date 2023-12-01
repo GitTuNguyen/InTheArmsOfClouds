@@ -56,6 +56,8 @@ public class CharacterController : MonoBehaviour
 
     public Block targetBlock;
 
+    private SpriteRenderer spriteRender;
+
     private void OnEnable()
     {
         EventManager.PlayerDie += RessetPlayerController;
@@ -71,6 +73,7 @@ public class CharacterController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         posSmallCircle = smallCircle.transform.localPosition;
         isFacingRight = false;
+        spriteRender = character.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -158,9 +161,10 @@ public class CharacterController : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
 
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        spriteRender.flipX = !spriteRender.flipX;
+        //Vector3 theScale = transform.localScale;
+        //theScale.x *= -1;
+        //transform.localScale = theScale;
 
     }
     public bool PlayerFollowPath()
