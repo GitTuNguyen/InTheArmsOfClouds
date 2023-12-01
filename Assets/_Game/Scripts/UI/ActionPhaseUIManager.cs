@@ -68,7 +68,10 @@ public class ActionPhaseUIManager : MonoBehaviour
             currentPopup = null;
         }
         currentPopup = Instantiate(popup, UIHolder.transform);
-        TogglePanel();
+        if (!panel.activeSelf)
+        {
+            TogglePanel();
+        }
     }
 
     //Open Popup
@@ -156,11 +159,7 @@ public class ActionPhaseUIManager : MonoBehaviour
 
     IEnumerator LoadConsequences()
     {
-        SpawnPopup(eventConsequencesLoadingPopup);
-        if (!panel.activeSelf)
-        {
-            panel.SetActive(true);
-        }
+        SpawnPopup(eventConsequencesLoadingPopup);        
         yield return new WaitForSeconds(waitingLoadingTime);
         SpawnPopup(eventConsequencesPopup);
         EventConsequenceUI eventConsequenceUI = currentPopup?.GetComponent<EventConsequenceUI>();

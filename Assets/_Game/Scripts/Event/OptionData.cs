@@ -49,7 +49,7 @@ public class OptionData : ScriptableObject
         return true;
     }
 
-    public ConsequenceData TriggerOption()
+    public ConsequenceData GetConsequence()
     {
         if (TriggerCondition() == false)
         {
@@ -61,7 +61,7 @@ public class OptionData : ScriptableObject
                 cumulativeWeight += consequence.weight;
                 if (randomValue < cumulativeWeight)
                 {
-                    consequence.DeployEffects();    //temporary deploy effect in here
+                    //consequence.DeployEffects();    //temporary deploy effect in here
                     return consequence;
                 }
             }

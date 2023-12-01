@@ -37,8 +37,12 @@ public class GameEventSystem : MonoBehaviour
 
     public void ClearConsequenceData()
     {
-        isEventDone = true;
-        currentConsequnce = null;
+        if (currentConsequnce != null)
+        {
+            currentConsequnce.DeployEffects();
+            isEventDone = true;
+            currentConsequnce = null;
+        }
     }
 
     public void TriggerEvent(BlockType blockType)
