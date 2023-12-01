@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 7
   artwork: {fileID: 21300000, guid: 436d24fae80160c4b89059948b0451ed, type: 3}
   weight: 100
+  consequenceDesc: Why it's so cold?
   healthEffect: -2
   luckEffect: -1
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

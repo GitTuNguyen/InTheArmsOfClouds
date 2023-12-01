@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OptionDataSO_11
   m_EditorClassIdentifier: 
   optionId: 11
-  optionDesc: 'Shooting bird '
+  optionDesc: Shoot the bird
   consequences:
   - {fileID: 11400000, guid: 08e0539dd3167044caf3afaef36be112, type: 2}
   triggerCondition: {fileID: 0}

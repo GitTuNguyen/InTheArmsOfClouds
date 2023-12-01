@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 11
   artwork: {fileID: 21300000, guid: 92fcd40aac2e7d54d89a161c9f279aba, type: 3}
   weight: 62
+  consequenceDesc: Just give me some rest
   healthEffect: 1
   luckEffect: 0
   sanityEffect: 1
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

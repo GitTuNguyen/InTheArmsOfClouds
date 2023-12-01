@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 6
   artwork: {fileID: 21300000, guid: c0a9964fa8aa4d74396340f90488543d, type: 3}
   weight: 0
+  consequenceDesc: Don't you ever see a cat swim?
   healthEffect: 0
   luckEffect: 0
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 1
   magicScrollEffect: 0
+  effectDescriptions: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OptionDataSO_7
   m_EditorClassIdentifier: 
   optionId: 7
-  optionDesc: Join a group of traveler and ask them to take you go through desert
+  optionDesc: Join a group of travelers and ask them to take you through desert
   consequences:
   - {fileID: 11400000, guid: 908c919c2bc82da40910f92be3221c2d, type: 2}
   - {fileID: 11400000, guid: 7d63b6326e841344c8fabf59f3b15603, type: 2}

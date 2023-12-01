@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 18
   artwork: {fileID: 21300000, guid: 791b66eb1ee742544808bbe45c00489b, type: 3}
   weight: 0
+  consequenceDesc: I deserve what I deserve
   healthEffect: 0
   luckEffect: 2
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 1
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

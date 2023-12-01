@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 10
   artwork: {fileID: 21300000, guid: 69f69df9a9cac5d46afe375316845e4a, type: 3}
   weight: 0
+  consequenceDesc: Treasure?
   healthEffect: 0
   luckEffect: 1
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 1
+  effectDescriptions: []

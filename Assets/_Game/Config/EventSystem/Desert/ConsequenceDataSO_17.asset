@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 17
   artwork: {fileID: 21300000, guid: 87803c27fe2dfa54c914138a6e3c81c3, type: 3}
   weight: 100
+  consequenceDesc: Lost again? HEY STUPID!
   healthEffect: -1
   luckEffect: 0
   sanityEffect: -1
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

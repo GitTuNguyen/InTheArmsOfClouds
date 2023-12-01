@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 21
   artwork: {fileID: 21300000, guid: 7f5e7492e5ce2f84bb38093809c2f83d, type: 3}
   weight: 100
+  consequenceDesc: Piu Piu
   healthEffect: 0
   luckEffect: 0
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

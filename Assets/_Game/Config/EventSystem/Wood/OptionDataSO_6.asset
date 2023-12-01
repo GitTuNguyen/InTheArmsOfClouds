@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OptionDataSO_6
   m_EditorClassIdentifier: 
   optionId: 3
-  optionDesc: Chopping the wood
+  optionDesc: Chop the wood
   consequences:
   - {fileID: 11400000, guid: 40d6ebcd4b605cb45b17ef74875b3b5c, type: 2}
   - {fileID: 11400000, guid: 4583345234a57084585f32d57c41e6d9, type: 2}

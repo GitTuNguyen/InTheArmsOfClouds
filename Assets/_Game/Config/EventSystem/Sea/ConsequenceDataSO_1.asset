@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 1
   artwork: {fileID: 21300000, guid: 69f69df9a9cac5d46afe375316845e4a, type: 3}
   weight: 35
+  consequenceDesc: This song makes me crazy
   healthEffect: 0
   luckEffect: 0
   sanityEffect: -2

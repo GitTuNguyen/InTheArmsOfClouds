@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 2
   artwork: {fileID: 21300000, guid: b45797087937984419b86d1c29d409a7, type: 3}
   weight: 45
+  consequenceDesc: Why do I need to pay the cost of a free song?
   healthEffect: -1
   luckEffect: 0
   sanityEffect: 2
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OptionDataSO_4
   m_EditorClassIdentifier: 
   optionId: 4
-  optionDesc: Try catching the with Bunny
+  optionDesc: Catch the Bunny
   consequences:
   - {fileID: 11400000, guid: 364614e2395305044b80e93d34629f9b, type: 2}
   - {fileID: 11400000, guid: f8b12c79e338bfc4bb6a785b4d5a7f67, type: 2}

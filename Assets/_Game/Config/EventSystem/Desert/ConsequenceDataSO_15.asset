@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 15
   artwork: {fileID: 21300000, guid: b9e5580b6c824984991301a462b62ca2, type: 3}
   weight: 38
+  consequenceDesc: Ok, so they DO know the way
   healthEffect: 0
   luckEffect: 3
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

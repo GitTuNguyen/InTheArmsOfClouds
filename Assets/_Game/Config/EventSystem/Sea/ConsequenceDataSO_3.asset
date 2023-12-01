@@ -15,6 +15,7 @@ MonoBehaviour:
   consequenceCode: 3
   artwork: {fileID: 21300000, guid: 7f31e0093297e954a90d9ddbaf951012, type: 3}
   weight: 20
+  consequenceDesc: Just a gift from that ocean stranger!
   healthEffect: 0
   luckEffect: 2
   sanityEffect: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []

@@ -15,6 +15,8 @@ MonoBehaviour:
   consequenceCode: 5
   artwork: {fileID: 21300000, guid: 82486bd99348ec04d92efed3b1056732, type: 3}
   weight: 38
+  consequenceDesc: Fall asleep in the hot sun and wake up with a painful and uncomfortable
+    sunburn
   healthEffect: -2
   luckEffect: 0
   sanityEffect: 0
@@ -24,3 +26,4 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
+  effectDescriptions: []
