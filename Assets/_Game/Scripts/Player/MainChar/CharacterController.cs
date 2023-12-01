@@ -245,7 +245,10 @@ public class CharacterController : MonoBehaviour
         isSelectedFirstBlock = false;
         currentPos = transform.position;
     }
-
+    public bool PlayerCanMove()
+    {
+        return numberDice == 0;
+    }
     public void PlayerTriggerEvent()
     {
         targetBlock = blocks[blocks.Count - 1].GetComponent<Block>();

@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 posSmallCircle;
 
     public int numberDice;
+    private int numberDiceTemp;
 
     private bool isSelectedFirstBlock;
     private Vector3 startPos;
@@ -208,6 +209,35 @@ public class PlayerController : MonoBehaviour
         smallCircle.transform.localPosition = posSmallCircle;
     }
 
+    public bool PlayerCanMove()
+    {
+        return numberDice == 0;
+    }
+
+    public void PlayerResetPath()
+    {
+        numberDice = numberDiceTemp;
+        EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
+
+        foreach (GameObject block in blocks)
+        {
+            if (block.GetComponent<Block>() != null)
+            {
+                block.GetComponent<Block>().IsSelected = false;
+            }
+        }
+        blocks.Clear();
+
+        playerGhost.transform.position = transform.position;
+        leghtOfLineRender = 1;
+        path.Clear();
+        path.Add(bigCircle.transform.position);
+        line.positionCount = 1;
+        line.SetPosition(0, bigCircle.transform.position);
+        //smallCircle.SetActive(false);
+        isSelectedFirstBlock = false;
+    }
+
     public void StartFollowPath()
     {
         smallCircle.SetActive(false);
@@ -229,6 +259,7 @@ public class PlayerController : MonoBehaviour
         currentIndex = 0;
         nextIndex = 1;
         numberDice = 0;
+        numberDiceTemp = 0;
         playerUI.DisableUICanvas();
         foreach(GameObject block in blocks)
         {
@@ -276,6 +307,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerRollDice()
     {
         GameManager.Instance.currentDiceNumber = numberDice = Random.Range(1, 7);
+        numberDiceTemp = numberDice;
         Debug.Log("current dice = " + numberDice);
     }
 

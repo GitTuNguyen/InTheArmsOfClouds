@@ -21,7 +21,7 @@ public class SelectPath : PlayerBaseState
     public override void UpdateState(PlayerStateManager player)
     {
         player.playerController.PlayerSelectPath();
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if(Input.GetKeyDown(KeyCode.Space) && player.playerController.PlayerCanMove()) 
         {
             player.SwitchState(PlayerState.FollowPath);
         }
