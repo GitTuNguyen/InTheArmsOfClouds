@@ -41,6 +41,7 @@ public enum AnimalType
     Dog,
     Dinaso,
     Stag,
+    Alpaca,
     Fox
 }
 

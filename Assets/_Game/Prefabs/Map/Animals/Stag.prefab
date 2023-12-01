@@ -425,7 +425,7 @@ MonoBehaviour:
   status: 1
   gemder: 0
   type: 4
-  bigBoxCollider: {fileID: 0}
+  bigBoxCollider: {fileID: 4154467454881017041}
   walkSpeed: 0.7
   timeToAdult: 1
   animalUI: {fileID: 8260581215168167584}

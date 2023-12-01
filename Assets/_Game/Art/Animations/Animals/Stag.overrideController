@@ -8,4 +8,14 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Stag
   m_Controller: {fileID: 9100000, guid: 8ab2b34e36590b741a8eedddd8e5f1c1, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: -4864718358596981803, guid: 8713ca226e99ddd429a7a3a54d7fae95, type: 3}
+    m_OverrideClip: {fileID: -4864718358596981803, guid: f69dce40c6839964f9c9aadcb57cb27d, type: 3}
+  - m_OriginalClip: {fileID: -5105944257485555118, guid: 8713ca226e99ddd429a7a3a54d7fae95, type: 3}
+    m_OverrideClip: {fileID: -5105944257485555118, guid: f69dce40c6839964f9c9aadcb57cb27d, type: 3}
+  - m_OriginalClip: {fileID: 5845618705403835542, guid: 8713ca226e99ddd429a7a3a54d7fae95, type: 3}
+    m_OverrideClip: {fileID: 5845618705403835542, guid: f69dce40c6839964f9c9aadcb57cb27d, type: 3}
+  - m_OriginalClip: {fileID: 7370985682789098114, guid: 8713ca226e99ddd429a7a3a54d7fae95, type: 3}
+    m_OverrideClip: {fileID: 7370985682789098114, guid: f69dce40c6839964f9c9aadcb57cb27d, type: 3}
+  - m_OriginalClip: {fileID: -34225311753368521, guid: 8713ca226e99ddd429a7a3a54d7fae95, type: 3}
+    m_OverrideClip: {fileID: 9013133730026320192, guid: f69dce40c6839964f9c9aadcb57cb27d, type: 3}
