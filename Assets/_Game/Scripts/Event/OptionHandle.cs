@@ -22,7 +22,7 @@ public class OptionHandle : MonoBehaviour
     {
         if (optionData != null)
         {
-            ConsequenceData consequenceTriggered = optionData.TriggerOption();
+            ConsequenceData consequenceTriggered = optionData.GetConsequence();
             Debug.LogFormat("Option Description: {0}", optionData.OptionDesc);
             artwork.GetComponent<SpriteRenderer>().sprite = consequenceTriggered.artwork;
             Debug.LogFormat("Consequence: {0}", consequenceTriggered.consequenceCode);
