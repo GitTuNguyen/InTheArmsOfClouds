@@ -32,87 +32,51 @@ public class ConsequenceData : ScriptableObject
     public void DeployEffects()
     {
         effectDescriptions.Clear(); //Tu: Clear data
-        // Todo: Deploy effects - review
+        // Todo: Deploy effects - done
+        DeployEffectForPlayerStats(healthEffect, luckEffect, sanityEffect);
+
         if (healthEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = healthEffect;
-            effectDecs.effectDesc = "Health";
-            effectDescriptions.Add(effectDecs);
             Debug.LogFormat("Deploy health effect: {0}", healthEffect);
         }
         if (luckEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = luckEffect;
-            effectDecs.effectDesc = "Luck";
-            effectDescriptions.Add(effectDecs);
             Debug.LogFormat("Deploy luck effect: {0}", luckEffect);
         }
         if (sanityEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = sanityEffect;
-            effectDecs.effectDesc = "Sanity";
-            effectDescriptions.Add(effectDecs);
             Debug.LogFormat("Deploy sanity effect: {0}", sanityEffect);
         }
         if (meatEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = meatEffect;
-            effectDecs.effectDesc = "Meat";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.Meat, meatEffect);
             Debug.LogFormat("Deploy meat effect: {0}", meatEffect);
         }
         if (logEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = logEffect;
-            effectDecs.effectDesc = "Log";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.Log, logEffect);
             Debug.LogFormat("Deploy log effect: {0}", logEffect);
         }
         if (cropEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = cropEffect;
-            effectDecs.effectDesc = "Crop";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.Crop, cropEffect);
             Debug.LogFormat("Deploy crop effect: {0}", cropEffect);
         }
         if (gemEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = gemEffect;
-            effectDecs.effectDesc = "Gem";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.Gem, gemEffect);
             Debug.LogFormat("Deploy gem effect: {0}", gemEffect);
         }
         if (seashellEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = seashellEffect;
-            effectDecs.effectDesc = "Seashell";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.Seashell, seashellEffect);
             Debug.LogFormat("Deploy seashell effect: {0}", seashellEffect);
         }
         if (magicScrollEffect != 0)
         {
-            EffectDescription effectDecs;
-            effectDecs.effectStat = magicScrollEffect;
-            effectDecs.effectDesc = "Magic Scroll";
-            effectDescriptions.Add(effectDecs);
             DeployEffectForItems(ItemType.MagicScroll, magicScrollEffect);
             Debug.LogFormat("Deploy magicScroll effect: {0}", magicScrollEffect);
         }
-
-        DeployEffectForPlayerStats(healthEffect, luckEffect, sanityEffect);
 
         foreach (EffectDescription effectDescription in effectDescriptions)
         {
@@ -121,12 +85,9 @@ public class ConsequenceData : ScriptableObject
         GameManager.Instance.player.RemoveShield();
     }
 
-
-    Player player;
     void DeployEffectForPlayerStats(int health, int luck, int sanity)
     {
-        player = GameObject.FindObjectOfType<Player>();
-        player?.UpdateStatsOfPlayer(health, luck, sanity);
+        GameManager.Instance.player.UpdateStatsOfPlayer(health, luck, sanity);
     }    
 
     void DeployEffectForItems(ItemType itemType, int effect)
