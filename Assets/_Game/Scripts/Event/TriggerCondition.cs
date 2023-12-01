@@ -18,7 +18,11 @@ public class TriggerCondition : ScriptableObject
 
     public bool CheckCondition()
     {
-        player = GameObject.FindObjectOfType<Player>();
+        player = GameManager.Instance.player;
+        if (player == null)
+        {
+            return false;
+        }
         // Todo: Check condition - wip
         if (healthCond > 0)
         {

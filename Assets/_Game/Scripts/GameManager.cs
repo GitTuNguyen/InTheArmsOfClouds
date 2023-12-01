@@ -67,8 +67,10 @@ public class GameManager : MonoBehaviour
         if(sceneName == "Congyon")
         {
             enableDice = false;
+        } else {
+            enableDice = true;
         }
-        StartCoroutine(LoadActionPhaseScene(sceneName));        
+        StartCoroutine(LoadActionPhaseScene(sceneName));
     }
 
     public void QuitGame()
@@ -96,6 +98,10 @@ public class GameManager : MonoBehaviour
     {
         
         Debug.Log("Quit To Menu");
+        if (player != null)
+        {
+            player = null;
+        }
         ClearActionPhase();
         StartCoroutine(LoadMenuScene());
         
@@ -136,7 +142,7 @@ public class GameManager : MonoBehaviour
 
     private void InitActionPhase()
     {
-        ActionPhaseUIController = Instantiate(ActionPhaseUIControllerPrefab, transform);
+        //ActionPhaseUIController = Instantiate(ActionPhaseUIControllerPrefab, transform);
         CraftSystem = Instantiate(CraftSystemPrefab, transform);
         InventorySystem = Instantiate(InventorySystemPrefab, transform);
         DiarySystem = Instantiate(DiarySystemPrefab, transform);
@@ -179,7 +185,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayerStats()
     {
-        player.ResetPlayerStats();
+        player?.ResetPlayerStats();
     }
 
     //Game state

@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Player die");
             Debug.Log("EventManager.PlayerDie == null? " + EventManager.PlayerDie == null);
+            InventoryHolder.Instance.InventorySystem.ResetInventory();
+            ActionPhaseUIManager.Instance.RefreshInventoryUI();
             EventManager.PlayerDie?.Invoke();
         }
     }

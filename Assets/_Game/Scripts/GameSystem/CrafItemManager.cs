@@ -52,7 +52,7 @@ public class CrafItemManager : MonoBehaviour
             {
                 if (craftableItem.crafItem.type == ItemType.Shield)
                 {
-                    GameManager.Instance.player.AddShield();
+                    GameManager.Instance.player?.AddShield();
                 }
             }
         }

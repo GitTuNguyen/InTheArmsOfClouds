@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuUIControllerPrefab: {fileID: 509234608098690109, guid: ee5af1250fd66914e908e48618ca333d, type: 3}
-  ActionPhaseUIControllerPrefab: {fileID: 7398933541723379196, guid: 922817fb7da9f994795639b0ad25db2b, type: 3}
+  ActionPhaseUIControllerPrefab: {fileID: 0}
   CraftSystemPrefab: {fileID: 2488204232155484933, guid: 5d3e097f61ab5f24b800756d5eeb0e1a, type: 3}
   InventorySystemPrefab: {fileID: 2538287800834221616, guid: 102bff2ad65dc3a47b0540d71f381217, type: 3}
   DiarySystemPrefab: {fileID: 262345097439611795, guid: b362a1e7fd2d18c4fadc19276a521fb0, type: 3}
@@ -56,5 +56,8 @@ MonoBehaviour:
   InventorySystem: {fileID: 0}
   DiarySystem: {fileID: 0}
   EventSystem: {fileID: 0}
-  mainMenuAnimator: {fileID: 0}
+  mainMenuSceneName: MainMenu
+  currentDiceNumber: 0
+  isGameFinished: 0
   player: {fileID: 0}
+  enableDice: 0

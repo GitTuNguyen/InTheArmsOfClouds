@@ -143,7 +143,13 @@ public class ActionPhaseUIManager : MonoBehaviour
     //Spaceship
     public void RefreshSpaceShipQuarity()
     {
-        spaceshipQuarity.text = InventoryHolder.Instance.InventorySystem.spaceShipPiece.ToString() + "/" + InventoryHolder.Instance.InventorySystem.SpaceShipPieceMax.ToString();
+        if (InventoryHolder.Instance?.InventorySystem == null)
+        {
+            spaceshipQuarity.text = 0.ToString() + "/"+ 4.ToString();
+        } else {
+            spaceshipQuarity.text = InventoryHolder.Instance.InventorySystem.spaceShipPiece.ToString() + "/" + InventoryHolder.Instance.InventorySystem.SpaceShipPieceMax.ToString();
+        }
+        
     }
 
     //Event UI
@@ -201,6 +207,9 @@ public class ActionPhaseUIManager : MonoBehaviour
     }
     public void OnQuitButtonPressed()
     {
+        Destroy(healthBar);
+        Destroy(luckBar);
+        Destroy(sanityBar);
         GameManager.Instance.QuitToMenu();
     }
 

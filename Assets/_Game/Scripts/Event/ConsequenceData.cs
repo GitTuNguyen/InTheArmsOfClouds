@@ -82,12 +82,12 @@ public class ConsequenceData : ScriptableObject
         {
             Debug.LogFormat("ConsequenceData_{0} has effect decription {1} {2}", consequenceCode, effectDescription.effectStat, effectDescription.effectDesc);
         }
-        GameManager.Instance.player.RemoveShield();
+        GameManager.Instance.player?.RemoveShield();
     }
 
     void DeployEffectForPlayerStats(int health, int luck, int sanity)
     {
-        GameManager.Instance.player.UpdateStatsOfPlayer(health, luck, sanity);
+        GameManager.Instance.player?.UpdateStatsOfPlayer(health, luck, sanity);
     }    
 
     void DeployEffectForItems(ItemType itemType, int effect)
