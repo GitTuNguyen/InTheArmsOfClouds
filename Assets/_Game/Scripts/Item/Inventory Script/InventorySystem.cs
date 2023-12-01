@@ -213,7 +213,7 @@ public class InventorySystem
                 GameManager.Instance.player.shield += 3;
                 return;                
             case ItemType.Amulet:
-
+                EventManager.UseAmuletItem?.Invoke();
                 break;              
             
             default:
