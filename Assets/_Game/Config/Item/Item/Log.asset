@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   nameItem: Log
-  description: 
+  description: Use for craft other items!
   icon: {fileID: 21300000, guid: 902910a515aea0f4ba88b96b7e483be4, type: 3}
   maxStackSize: 4
   healthItem: 0

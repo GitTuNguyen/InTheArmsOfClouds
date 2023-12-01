@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   nameItem: Gem
-  description: 
+  description: Use for craft other items!
   icon: {fileID: 21300000, guid: 9eae84262613c054b8bfd0c9cf3bbe42, type: 3}
   maxStackSize: 2
   healthItem: 0

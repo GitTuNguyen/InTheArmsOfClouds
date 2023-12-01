@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   nameItem: Magic Scroll
-  description: 
+  description: Use for craft other items!
   icon: {fileID: 21300000, guid: fd5dc52c033f6f342b110e289ddb2580, type: 3}
   maxStackSize: 2
   healthItem: 0

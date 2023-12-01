@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1547277984314940678, guid: 58cb6b0fd14e11644929ee6f0346b12c, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547277984314940678, guid: 58cb6b0fd14e11644929ee6f0346b12c, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4724187380968316927, guid: 58cb6b0fd14e11644929ee6f0346b12c, type: 3}
       propertyPath: m_Name
       value: SFXManager

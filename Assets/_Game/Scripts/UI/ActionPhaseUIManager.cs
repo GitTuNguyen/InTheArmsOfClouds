@@ -95,6 +95,7 @@ public class ActionPhaseUIManager : MonoBehaviour
     public void OpenArtworkView()
     {
         SpawnPopup(artWorkView);
+        TogglePanel();
     }
 
     public void OpenProcesstionPopup()
@@ -156,6 +157,10 @@ public class ActionPhaseUIManager : MonoBehaviour
     IEnumerator LoadConsequences()
     {
         SpawnPopup(eventConsequencesLoadingPopup);
+        if (!panel.activeSelf)
+        {
+            panel.SetActive(true);
+        }
         yield return new WaitForSeconds(waitingLoadingTime);
         SpawnPopup(eventConsequencesPopup);
         EventConsequenceUI eventConsequenceUI = currentPopup?.GetComponent<EventConsequenceUI>();

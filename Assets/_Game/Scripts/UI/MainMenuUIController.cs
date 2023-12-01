@@ -24,6 +24,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void QuitGame()
     {
+        Debug.Log("Quit Game UI");
         GameManager.Instance.QuitGame();
     }
 
