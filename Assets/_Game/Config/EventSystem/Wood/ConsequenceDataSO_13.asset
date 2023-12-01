@@ -25,4 +25,8 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 0
   magicScrollEffect: 0
-  effectDescriptions: []
+  effectDescriptions:
+  - effectStat: 1
+    effectDesc: Log
+  - effectStat: 2
+    effectDesc: Crop

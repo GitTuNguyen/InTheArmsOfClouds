@@ -31,7 +31,7 @@ public class ConsequenceData : ScriptableObject
 
     public void DeployEffects()
     {
-        effectDescriptions.Clear(); //Tu: Clear data
+        //effectDescriptions.Clear(); //Tu: Clear data
         // Todo: Deploy effects - done
         DeployEffectForPlayerStats(healthEffect, luckEffect, sanityEffect);
 
