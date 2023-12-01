@@ -144,6 +144,7 @@ public class CharacterController : MonoBehaviour
                         blocks.Add(block.gameObject);
                         numberDice--;
                         Debug.Log("numberDice run = " + numberDice);
+                        SFXManager.Instance?.PlaySound("FindPath");
                         EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
                 }
@@ -286,7 +287,7 @@ public class CharacterController : MonoBehaviour
         {
             Block block = other.gameObject.GetComponent<Block>();
             if (block != null)
-            {
+            {                
                 block.ActivePreditionBlock();
             }
         }

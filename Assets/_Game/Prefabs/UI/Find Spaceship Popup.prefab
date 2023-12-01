@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 4570109892085072794}
   - component: {fileID: 6391152805128241485}
   - component: {fileID: 1372933480597652561}
+  - component: {fileID: 8267385143039007982}
   m_Layer: 0
   m_Name: Find Spaceship Popup
   m_TagString: Untagged
@@ -200,6 +201,18 @@ MonoBehaviour:
   animationDurationTime: 0.15
   animationTime: 0
   needAnimation: 1
+--- !u!114 &8267385143039007982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979666163494404973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30734c432fd84754483c30f9dcedf188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3093408589704929152
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +487,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1372933480597652561}
         m_TargetAssemblyTypeName: PopupAnimationController, Assembly-CSharp
         m_MethodName: ClosePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8267385143039007982}
+        m_TargetAssemblyTypeName: FindSpaceshipPopupUI, Assembly-CSharp
+        m_MethodName: OnFindSpaceshipPopupClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,6 +7,7 @@ public class TriggerEvent : PlayerBaseState
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Player trigger event");
+        SFXManager.Instance?.StopSound("Step");
         player.playerController.PlayerTriggerEvent();
     }
 

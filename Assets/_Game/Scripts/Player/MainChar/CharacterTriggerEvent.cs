@@ -7,6 +7,7 @@ public class CharacterTriggerEvent : CharacterBaseState
     public override void EnterState(CharacterStateMachine player)
     {
         Debug.Log("Player CharacterTriggerEvent");
+        SFXManager.Instance?.StopSound("Step");
         player.playerController.PlayerTriggerEvent();
     }
 

@@ -7,6 +7,7 @@ public class CharacterFollowPath : CharacterBaseState
     public override void EnterState(CharacterStateMachine player)
     {
         Debug.Log("Follow path");
+        SFXManager.Instance?.PlaySound("Step");
         player.playerController.playerUI.DisableUICanvas();
         player.playerController.StartFollowPath();
     }

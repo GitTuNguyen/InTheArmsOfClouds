@@ -18,11 +18,12 @@ public class ActionPhaseUIManager : MonoBehaviour
     public GameObject findSpaceshipPopup;
     public GameObject artWorkView;
 
-    
+    //UI holder
     public GameObject currentPopup;
     public Canvas UIHolder;
     public GameObject panel;
     public GameObject panelDetectClick;
+    public List<GameObject> actionPhaseUIList;
 
     //Menu view
     public GameObject pauseMenu;
@@ -56,6 +57,14 @@ public class ActionPhaseUIManager : MonoBehaviour
         if(!GameManager.Instance.enableDice)
         {
             dice.gameObject.SetActive(false);
+        }
+    }
+
+    public void StartActionPhaseUI()
+    {
+        foreach(GameObject gameObject in actionPhaseUIList)
+        {
+            gameObject.SetActive(true);
         }
     }
     
@@ -149,6 +158,7 @@ public class ActionPhaseUIManager : MonoBehaviour
     
     public void OpenEventSelectionPopup()
     {
+        SFXManager.Instance?.PlaySound("ConsequenceInOut");
         SpawnPopup(eventSelectionPopup);
     }
 
@@ -236,6 +246,14 @@ public class ActionPhaseUIManager : MonoBehaviour
         }
         panel.SetActive(false);
         panelDetectClick.SetActive(false);
+    }
+
+    public void OnFindSpaceshipPopupClose()
+    {
+        if(GameManager.Instance.isGameFinished)
+        {
+            OpenWinView();
+        }
     }
     //Item
     public void OnItemClick(int index)

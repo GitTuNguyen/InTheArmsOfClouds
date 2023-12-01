@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
                         block.IsSelected = true;
                         blocks.Add(block.gameObject);
                         numberDice--;
+                        SFXManager.Instance?.PlaySound("FindPath");
                         EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
                     }
                 }

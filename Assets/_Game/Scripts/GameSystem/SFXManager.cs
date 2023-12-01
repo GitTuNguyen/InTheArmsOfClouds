@@ -48,4 +48,18 @@ public class SFXManager : MonoBehaviour
             }
         }
     }
+
+    public void StopSound(string name)
+    {
+        foreach (SFXSource source in sFXSourcesList)
+        {
+            if (source.name == name)
+            {
+
+                source.audioSource.Stop();
+                return;
+            }
+        }
+        Debug.LogError("can't find sound");
+    }
 }

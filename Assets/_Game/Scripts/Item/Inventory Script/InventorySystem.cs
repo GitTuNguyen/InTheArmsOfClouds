@@ -129,9 +129,9 @@ public class InventorySystem
         inventorySlots[index].ClearSLot();
     }
     
-    public bool AddSpaceShip(){
+    public bool AddSpaceShip(){        
+        spaceShipPiece += 1;
         if(spaceShipPiece < SpaceShipPieceMax){
-            spaceShipPiece += 1;
             Debug.Log(" Space ship piece = " + spaceShipPiece);
             return true;
         }else {

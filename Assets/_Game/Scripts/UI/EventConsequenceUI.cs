@@ -25,6 +25,7 @@ public class EventConsequenceUI : MonoBehaviour
 
     public void CloseConsequenPopup()
     {
+        SFXManager.Instance?.PlaySound("ConsequenceInOut");
         GameEventSystem.Instance.ClearConsequenceData();
     }
 }

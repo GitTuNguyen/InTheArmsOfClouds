@@ -29,8 +29,10 @@ public class RollDiceUIController : MonoBehaviour
     }
     IEnumerator ShowRollDiceResult(int value)
     {
+        SFXManager.Instance?.PlaySound("RollDice");
         yield return new WaitForSeconds(rollDiceDurationTime);
         animator.enabled = false;
+        SFXManager.Instance?.StopSound("RollDice");
         foreach (Dice dice in diceTemplateList)
         {
             if (dice.value == value)

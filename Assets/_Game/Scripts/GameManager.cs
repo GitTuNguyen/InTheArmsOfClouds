@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Play")]
     public int currentDiceNumber;
+    public bool isGameFinished;
 
     //Player
     public Player player;
@@ -56,13 +57,14 @@ public class GameManager : MonoBehaviour
         }
     }
     public void StartGame(string sceneName)
-    {        
+    {
         Debug.Log("Start Game");
         SFXManager.Instance.StopAllSound();
         ClearMainMenu();
         GameResume();
         SceneManager.LoadScene(sceneName);
         InitActionPhase();
+        isGameFinished = false;
         SFXManager.Instance.PlaySound("BackgroundMusic");
     }
 
@@ -158,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     public void GameFinished()
     {
-        GamePause();
-        ActionPhaseUIManager.Instance?.OpenWinView();
+        //GamePause();
+        isGameFinished = true;
     }
 }
