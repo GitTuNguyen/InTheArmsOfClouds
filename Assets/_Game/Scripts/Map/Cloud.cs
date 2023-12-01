@@ -16,12 +16,17 @@ public class Cloud : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, I
     private bool isPredition;
     private bool isHightLight;
 
+    
+
+    SpriteRenderer m_SpriteRenderer;
+
     void Start() 
     {
         isPredition = false;
         isHightLight = false;
         originMaterial = GetComponent<Renderer>().material;
-        //GetComponent<Renderer>().material =  preMaterial;
+
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -31,25 +36,55 @@ public class Cloud : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, I
     public void ActivePreHightLight()
     {
         isPredition = true;
-        GetComponent<Renderer>().material = preMaterial;
+        if (m_SpriteRenderer != null)
+        {
+            m_SpriteRenderer.color = Color.gray;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = preMaterial;
+        }
     }
 
     public void DeActivePreHighLight()
     {
-        GetComponent<Renderer>().material = originMaterial;
+        if (m_SpriteRenderer != null)
+        {
+            m_SpriteRenderer.color = Color.white;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = originMaterial;
+        }
+        
         isPredition = false;
     }
 
     private void ActiveHightLight()
     {
-        GetComponent<Renderer>().material = hightlighMaterial;
+        if (m_SpriteRenderer != null)
+        {
+            m_SpriteRenderer.color = Color.yellow;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = hightlighMaterial;
+        }
         isPredition = false;
         isHightLight = true;
     }
 
     private void DeactiveHightLight()
     {
-        GetComponent<Renderer>().material = preMaterial;
+        if (m_SpriteRenderer != null)
+        {
+            m_SpriteRenderer.color = Color.grey;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = preMaterial;
+        }
+
         isPredition = true;
         isHightLight = false;
     }
@@ -72,7 +107,14 @@ public class Cloud : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, I
 
     public void ResetCloud()
     {
-        GetComponent<Renderer>().material = originMaterial;
+        if (m_SpriteRenderer != null)
+        {
+            m_SpriteRenderer.color = Color.white;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = originMaterial;
+        }      
         isPredition = false;
         isHightLight = false;
     }

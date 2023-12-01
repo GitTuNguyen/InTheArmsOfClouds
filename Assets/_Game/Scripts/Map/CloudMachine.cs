@@ -19,6 +19,7 @@ public class CloudMachine : MonoBehaviour
             if(block != null && block.CheckCloudOfBlock())
             {
                 block.ActivePreditionCouldBlock();
+
                 blocks.Add(block);
             }
         }
