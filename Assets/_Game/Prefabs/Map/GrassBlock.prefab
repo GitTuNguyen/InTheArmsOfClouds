@@ -222,15 +222,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5806058690923687961, guid: 1e59a3876792b8942a4892f3a2e9870e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5806058690923687961, guid: 1e59a3876792b8942a4892f3a2e9870e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5806058690923687961, guid: 1e59a3876792b8942a4892f3a2e9870e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5806058690923687961, guid: 1e59a3876792b8942a4892f3a2e9870e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -410,6 +410,7 @@ MonoBehaviour:
   predition: {fileID: 2746900117672312521}
   blockType: 0
   cloud: {fileID: 8164395667714792906}
+  currentTurn: 3
 --- !u!65 &5351584608614084211
 BoxCollider:
   m_ObjectHideFlags: 0

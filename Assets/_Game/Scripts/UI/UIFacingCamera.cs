@@ -8,7 +8,7 @@ public class UIFacingCamera : MonoBehaviour
     void Update()
     {
         transform.LookAt(Camera.main.transform, Vector3.up);
-        transform.eulerAngles = new Vector3(-30, transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3(-40, transform.eulerAngles.y, 0);
 
     }
 }
