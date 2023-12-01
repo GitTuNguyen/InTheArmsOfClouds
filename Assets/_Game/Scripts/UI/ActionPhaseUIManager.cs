@@ -54,10 +54,7 @@ public class ActionPhaseUIManager : MonoBehaviour
         }
         RefreshSpaceShipQuarity();
         ToggeleStatBarAtice();
-        if(!GameManager.Instance.enableDice)
-        {
-            dice.gameObject.SetActive(false);
-        }
+
     }
 
     public void StartActionPhaseUI()
@@ -65,6 +62,10 @@ public class ActionPhaseUIManager : MonoBehaviour
         foreach(GameObject gameObject in actionPhaseUIList)
         {
             gameObject.SetActive(true);
+            if (!GameManager.Instance.enableDice)
+            {
+                dice.gameObject.SetActive(false);
+            }
         }
     }
     

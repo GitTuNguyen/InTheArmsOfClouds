@@ -17,10 +17,11 @@ public class PlayerEndTurn : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        if (GameEventSystem.Instance.isEventDone)
-        {
-            Debug.Log("Change state to roll dice");
-            player.SwitchState(PlayerState.DiceRoll);
-        } 
+        player.SwitchState(PlayerState.DiceRoll);
+        //if (GameEventSystem.Instance.isEventDone)
+        //{
+        //    Debug.Log("Change state to roll dice");
+        //    player.SwitchState(PlayerState.DiceRoll);
+        //} 
     }
 }
