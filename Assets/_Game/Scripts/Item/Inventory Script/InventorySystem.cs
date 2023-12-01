@@ -221,9 +221,9 @@ public class InventorySystem
         switch (itemData.type)
         {
             case ItemType.EnchantedStew:
-                break;                
+                return;
             case ItemType.Shield:                
-                return;                
+                return;
             case ItemType.Amulet:
                 EventManager.UseAmuletItem?.Invoke();
                 break;              
@@ -232,7 +232,7 @@ public class InventorySystem
                 GameManager.Instance.player.UpdateStatsOfPlayer(itemData.healthItem, itemData.luckItem, itemData.sanityItem);
                 break;
         }
-        if (itemUsed == null)
+        if (itemData != null && (itemData.healthItem > 0 ||  itemData.luckItem > 0  || itemData.sanityItem > 0 || itemData.type == ItemType.Amulet))
         {
             inventorySlots[index].stackSize -= 1;
             if (inventorySlots[index].stackSize <= 0)
