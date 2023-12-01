@@ -25,4 +25,8 @@ MonoBehaviour:
   gemEffect: 1
   seashellEffect: 0
   magicScrollEffect: 0
-  effectDescriptions: []
+  effectDescriptions:
+  - effectStat: 2
+    effectDesc: Luck
+  - effectStat: 1
+    effectDesc: Gem

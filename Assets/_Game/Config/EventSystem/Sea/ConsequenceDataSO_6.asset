@@ -25,4 +25,6 @@ MonoBehaviour:
   gemEffect: 0
   seashellEffect: 1
   magicScrollEffect: 0
-  effectDescriptions: []
+  effectDescriptions:
+  - effectStat: 2
+    effectDesc: Meat
