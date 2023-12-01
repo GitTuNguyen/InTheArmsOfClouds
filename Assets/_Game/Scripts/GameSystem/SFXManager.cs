@@ -30,7 +30,6 @@ public class SFXManager : MonoBehaviour
         {
             if (source.name == soundSourceName)
             {
-
                 source.audioSource.Play();
                 return;
             }

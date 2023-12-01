@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
     public GameObject InventorySystem;
     public GameObject DiarySystem;
     public GameObject EventSystem;
+
+    //Scene
+    public string gameSceneName;
+    public string mainMenuSceneName = "MainMenu";
 
     [Header("Game Play")]
     public int currentDiceNumber;
@@ -59,13 +64,12 @@ public class GameManager : MonoBehaviour
     public void StartGame(string sceneName)
     {
         Debug.Log("Start Game");
-        SFXManager.Instance.StopAllSound();
-        ClearMainMenu();
-        GameResume();
-        SceneManager.LoadScene(sceneName);
-        InitActionPhase();
-        isGameFinished = false;
-        SFXManager.Instance.PlaySound("BackgroundMusic");
+        
+        if(sceneName == "Congyon")
+        {
+            enableDice = false;
+        }
+        StartCoroutine(LoadActionPhaseScene());        
     }
 
     public void QuitGame()
@@ -91,9 +95,37 @@ public class GameManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        
         Debug.Log("Quit To Menu");
         ClearActionPhase();
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LoadMenuScene());
+        
+    }
+
+    IEnumerator LoadActionPhaseScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(gameSceneName);
+        
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        InitActionPhase();
+        isGameFinished = false;
+        SFXManager.Instance.PlaySound("BackgroundMusic");
+    }
+    IEnumerator LoadMenuScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mainMenuSceneName);
+        
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        SFXManager.Instance.StopSound("BackgroundMusic");        
+        SFXManager.Instance.PlaySound("Raining");
         InitMainMenu();
     }
 

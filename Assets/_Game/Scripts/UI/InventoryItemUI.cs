@@ -16,7 +16,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public GameObject infoPopupPrefabs;
     public Transform infoPopupPos;
     private ItemInfoUI itemInfoUI;
-    public float showInfoPopupTimeDelay = 0.25f;
+    public float showRemoveItemSelectionTimeDelay = 0.25f;
     private InventoryItemData itemData;
 
     //Item data
@@ -27,29 +27,35 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public GameObject removeButton;
     public Animator itemUIAnimator;
     public bool isRemoveSelecting = false;
+    public bool isNeedWaitForStopSeletion = false;
     
     public void OnPointerDown(PointerEventData eventData){
         Debug.Log("Item UI down");
-        StartCoroutine(ShowInfo());
-        if (inventoryUIManager.currentSlotRemoveSelected != slotID)
+        
+        
+        if (inventoryUIManager.currentSlotRemoveSelected != -1 &&  inventoryUIManager.currentSlotRemoveSelected != slotID || isRemoveSelecting)
         {
+            Debug.Log("OnPointerUp cancel RemoveItem");
             inventoryUIManager.CancelRemoveItem();
+            isNeedWaitForStopSeletion = true;
+        }
+        if (itemData != null)
+        {
+            StartCoroutine(StartRemoveSeletion());            
         }
     }
     
     public void OnPointerUp(PointerEventData eventData){
         Debug.Log("Item UI Up");
         StopAllCoroutines();
-        if (itemData != null && itemInfoUI == null && !isRemoveSelecting)
+        Debug.Log(isRemoveSelecting + " " + isNeedWaitForStopSeletion);
+        if (itemData != null && !isRemoveSelecting && !isNeedWaitForStopSeletion)
         {
             Debug.Log("Using Item UI");
             ActionPhaseUIManager.Instance.OnItemClick(slotID);
-        }else if (isRemoveSelecting)
-        {
-            Debug.Log("OnPointerUp cancel RemoveItem");
-            inventoryUIManager.CancelRemoveItem();
         }
-        HideInfo();
+        isNeedWaitForStopSeletion = false;
+        
     }
 
     public void OnPointerClick(PointerEventData eventData){
@@ -57,9 +63,14 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         
     }
 
-    IEnumerator ShowInfo()
+    IEnumerator  StartRemoveSeletion()
     {
-        yield return new WaitForSeconds(showInfoPopupTimeDelay);
+        yield return new WaitForSeconds(showRemoveItemSelectionTimeDelay);
+        ShowRemoveSeletion();        
+    }
+    public void ShowInfo()
+    {
+        //yield return new WaitForSeconds(showInfoPopupTimeDelay);
         if (itemInfoUI == null && itemData != null)
         {
             GameObject infoPoup = Instantiate(infoPopupPrefabs, infoPopupPos);
@@ -68,13 +79,13 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         }        
     }
 
-    private void HideInfo()
+    public void HideInfo()
     {
         if (itemInfoUI != null)
         {
             Destroy(itemInfoUI.gameObject);
             itemInfoUI = null;
-            StartRemoveSeletion();
+           
         }
     }
     
@@ -104,7 +115,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         itemImage.enabled = false;
         itemQuantity.enabled = false;
     }
-    public void StartRemoveSeletion()
+    public void ShowRemoveSeletion()
     {
         Debug.Log("start remove item");
         inventoryUIManager.currentSlotRemoveSelected = slotID;

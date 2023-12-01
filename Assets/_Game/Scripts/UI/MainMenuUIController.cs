@@ -7,6 +7,9 @@ public class MainMenuUIController : MonoBehaviour
 {
     public Animator MainMenuAnimator;
     public GameObject panel;
+    private void Start() {
+        SFXManager.Instance.PlaySound("Raining");
+    }
 
     private void Update() {
         if (panel != null && !AnimatorIsPlaying())
@@ -16,10 +19,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void StartGame(string sceneName)
     {
-        if(sceneName == "Congyon")
-        {
-            GameManager.Instance.enableDice = false;
-        }
+        SFXManager.Instance.StopSound("Raining");
         GameManager.Instance.StartGame(sceneName);
     }
     public void QuitGame()

@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         health = 5;
         luck = 5;
         santity = 5;
-        ActionPhaseUIManager.Instance.RefreshPlayerStatsUI(this.health, this.luck, this.santity);
+        ActionPhaseUIManager.Instance?.RefreshPlayerStatsUI(this.health, this.luck, this.santity);
     }
 
     public void AddShield()

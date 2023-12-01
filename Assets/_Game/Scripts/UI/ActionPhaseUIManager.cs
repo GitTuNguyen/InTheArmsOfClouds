@@ -47,11 +47,14 @@ public class ActionPhaseUIManager : MonoBehaviour
 
     public GameObject dice;
     
-    private void Start() {
+    private void Awake() {
         if (Instance == null)
         {
             Instance = this;
         }
+    }
+    private void Start() {
+        
         RefreshSpaceShipQuarity();
         ToggeleStatBarAtice();
 
@@ -108,7 +111,6 @@ public class ActionPhaseUIManager : MonoBehaviour
     public void OpenArtworkView()
     {
         SpawnPopup(artWorkView);
-        TogglePanel();
     }
 
     public void OpenProcesstionPopup()
