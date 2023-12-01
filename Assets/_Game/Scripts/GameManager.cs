@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     public GameObject EventSystem;
 
     //Scene
-    public string gameSceneName;
     public string mainMenuSceneName = "MainMenu";
 
     [Header("Game Play")]
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             enableDice = false;
         }
-        StartCoroutine(LoadActionPhaseScene());        
+        StartCoroutine(LoadActionPhaseScene(sceneName));        
     }
 
     public void QuitGame()
@@ -102,9 +101,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator LoadActionPhaseScene()
+    IEnumerator LoadActionPhaseScene(string sceneName)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(gameSceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
