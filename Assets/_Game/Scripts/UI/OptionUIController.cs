@@ -7,10 +7,10 @@ public class OptionUIController : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI optionText;
     private OptionData currentOption;
-    public void SetupOption(OptionData optionData)
+    public void SetupOption(OptionData optionData, int index)
     {
         currentOption = optionData;
-        optionText.text = optionData.OptionDesc;
+        optionText.text = index.ToString() + ". " + optionData.OptionDesc;
     }
 
     public void SelectOption()

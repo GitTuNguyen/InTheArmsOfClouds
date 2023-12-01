@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class EventSelectionUIController : MonoBehaviour
@@ -14,16 +15,14 @@ public class EventSelectionUIController : MonoBehaviour
         {
             Debug.Log("Set option");
             eventTitle.text = eventData.EventDesc;
-            foreach(OptionData optionData in eventData.Options)
+            eventImage.sprite = eventData.EventArtwork;
+            for (int i = 0; i < eventData.Options.Count; i++)
             {
                 OptionUIController currentOption = Instantiate(eventOption, optionList.transform)?.GetComponent<OptionUIController>();
-                currentOption?.SetupOption(optionData);
-            }
-        } else {
-            Debug.Log("Test Set option");
-            for (int i = 0; i < 3; i++)
-            {                
-                Instantiate(eventOption, optionList.transform)?.GetComponent<OptionUIController>();
+                if (currentOption != null)
+                {
+                    currentOption?.SetupOption(eventData.Options[i], i + 1);
+                }
             }
         }
     }

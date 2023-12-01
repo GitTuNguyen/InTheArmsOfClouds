@@ -9,41 +9,45 @@ using System;
 public class ButtonAnimationController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private string defaultText;
-    private Vector3 defaulPos = Vector3.zero;
+    //private Vector3 defaulPos = Vector3.zero;
+    private float defaultFontSize;
     public TMPro.TextMeshProUGUI buttonTMP;
     public float offSet = -10f;
     public float pointerEnterScale = 1.2f;
-    
     private void OnEnable() {
         if (!String.IsNullOrEmpty(defaultText))
         {
             Debug.Log("Set button text to default");
             buttonTMP.text = defaultText;
         }
-        if (defaulPos != Vector3.zero)
+        // if (defaulPos != Vector3.zero)
+        // {
+        //     transform.position = defaulPos;
+        // }
+        if (defaultFontSize == 0)
         {
-            transform.position = defaulPos;
+            defaultFontSize = buttonTMP.fontSize;
         }
-    }
+    } 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (String.IsNullOrEmpty(defaultText))
         {
             defaultText = buttonTMP.text;
         }
-        if (defaulPos == Vector3.zero)
-        {
-            defaulPos = transform.position;
-        }
+        // if (defaulPos == Vector3.zero)
+        // {
+        //     defaulPos = transform.position;
+        // }
         buttonTMP.text = "> " + defaultText;
-        transform.position = new Vector3(transform.position.x + offSet, transform.position.y, transform.position.z);
-        transform.localScale = new Vector3(pointerEnterScale, pointerEnterScale, pointerEnterScale);
+        //transform.position = new Vector3(transform.position.x + offSet, transform.position.y, transform.position.z);
+        buttonTMP.fontSize = defaultFontSize * pointerEnterScale;
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
         buttonTMP.text = defaultText;
-        transform.position = defaulPos;
-        transform.localScale = Vector3.one;
+        //transform.position = defaulPos;
+        buttonTMP.fontSize = defaultFontSize;
     }
 }
