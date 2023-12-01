@@ -243,4 +243,10 @@ public class ActionPhaseUIManager : MonoBehaviour
     {
         InventoryHolder.Instance.InventorySystem.UsingItemAtSlot(index);
     }
+
+    //Cheat
+    public void KillPlayer()
+    {
+        GameManager.Instance?.player.UpdateStatsOfPlayer(-5,-5,-5);
+    }
 }

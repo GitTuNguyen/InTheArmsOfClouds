@@ -257,20 +257,18 @@ public class CharacterController : MonoBehaviour
     public void RessetPlayerController()
     {
         // Check Inventory has Item Enchanted Stew
-        //InventoryItemData itemData = InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.EnchantedStew);
-        //if (InventoryHolder.Instance.InventorySystem.ContainsItem(itemData, out List<InventorySlot> invSlot))
-        //{
-        //    transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
-        //    InventoryHolder.Instance.InventorySystem.RemoveToInventory(itemData, 1);
-        //}
-        //else
-        //{
-        //    transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
-        //}
-        //transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
         GameObject tombObj = Instantiate(tomb, transform.position, Quaternion.identity);
-
-        transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
+        InventoryItemData itemData = InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.EnchantedStew);
+        Debug.Log("RessetPlayerController: itemData == null? " + itemData == null);
+        if (InventoryHolder.Instance.InventorySystem.ContainsItem(itemData, out List<InventorySlot> invSlot))
+        {
+           InventoryHolder.Instance.InventorySystem.RemoveToInventory(itemData, 1);
+        }
+        else
+        {
+            InventoryHolder.Instance?.InventorySystem.ClearInventory();
+           transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
+        }
 
         PlayerEndTurn();
     }

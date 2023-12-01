@@ -52,8 +52,10 @@ public class Player : MonoBehaviour
         this.health = this.health > 5 ? 5 : this.health;
         this.santity = this.santity > 5 ? 5 : this.santity;
         ActionPhaseUIManager.Instance.RefreshPlayerStatsUI(this.health, this.luck, this.santity);
-        if (this.health == 0 || this.luck == 0 || this.santity == 0)
+        if (this.health <= 0 || this.luck <= 0 || this.santity <= 0)
         {
+            Debug.Log("Player die");
+            Debug.Log("EventManager.PlayerDie == null? " + EventManager.PlayerDie == null);
             EventManager.PlayerDie?.Invoke();
         }
     }

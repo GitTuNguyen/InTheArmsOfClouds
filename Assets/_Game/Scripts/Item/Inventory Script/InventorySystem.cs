@@ -19,6 +19,16 @@ public class InventorySystem
     private List<InventorySlotUI> inventorySlotUIs;
     public int spaceShipPiece = 0;
     public int SpaceShipPieceMax = 4;
+
+    private void OnEnable()
+    {
+        EventManager. PlayerDie += ResetInventory;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PlayerDie -= ResetInventory;
+    }
     public void InitInventorySystem(int size){
         inventorySlots = new List<InventorySlot>(size);
         for(int i = 0; i< size ; i++)
@@ -80,6 +90,7 @@ public class InventorySystem
                     break;
                 }
             }
+            ActionPhaseUIManager.Instance.RefreshInventoryUI();
         }    
     }
 
@@ -129,8 +140,9 @@ public class InventorySystem
         }
     }
     public bool ContainsItem(InventoryItemData itemtoAdd, out List<InventorySlot> invSlot){
+        Debug.Log("Check constains Item" + itemtoAdd.nameItem);
         invSlot = InventorySlot.Where(i => i.ItemData == itemtoAdd).ToList();
-        return invSlot == null ? false: true;
+        return invSlot.Count > 0 ? true : false;
     }
 
     public int GetAmountItemInInventory(InventoryItemData item){
@@ -176,15 +188,15 @@ public class InventorySystem
 
     public InventoryItemData GetItemByItemType(ItemType type)
     {
-        InventoryItemData itemData = null;
+        Debug.Log("GetItemByItemType " + type);
         foreach(InventoryItemData item in items)
         {
             if(item.type == type)
             {
-                itemData = item;
+                return item;
             }
         }
-        return itemData;
+        return null;
     }
 
     public void ClearInventory()
@@ -229,5 +241,17 @@ public class InventorySystem
             }
         }
         ActionPhaseUIManager.Instance?.RefreshInventoryUI();
+    }
+
+    public void ResetInventory()
+    {
+        Debug.Log("Reset Inventory");
+        foreach(InventorySlot slot in inventorySlots)
+        {
+            if (slot.ItemData != null)
+            {
+                slot.ClearSLot();
+            }
+        }
     }
 }
