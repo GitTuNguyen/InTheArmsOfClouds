@@ -9,6 +9,8 @@ public class FindSpaceshipPopupUI : MonoBehaviour
         if(GameManager.Instance.isGameFinished)
         {
             ActionPhaseUIManager.Instance?.OpenWinView();
+        } else {
+            GameEventSystem.Instance.isEventDone = true;
         }
     }
 }

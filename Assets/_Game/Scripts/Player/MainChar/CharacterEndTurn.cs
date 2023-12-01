@@ -17,7 +17,11 @@ public class CharacterEndTurn : CharacterBaseState
 
     public override void UpdateState(CharacterStateMachine player)
     {
-        player.SwitchState(PlayerState.DiceRoll);
+        if (GameEventSystem.Instance.isEventDone)
+        {
+            Debug.Log("Change state to roll dice");
+            player.SwitchState(PlayerState.DiceRoll);
+        } 
     }
 
 
