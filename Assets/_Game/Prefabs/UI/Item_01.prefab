@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1170664960391444195}
   - component: {fileID: 2323656874300135118}
   - component: {fileID: 4906136754789902573}
+  - component: {fileID: 1561942590763906249}
   m_Layer: 0
   m_Name: RemoveButton
   m_TagString: Untagged
@@ -132,6 +133,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1561942590763906249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136721478867288505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5854733412731869201
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +188,7 @@ GameObject:
   - component: {fileID: 7578786659455704371}
   - component: {fileID: 6433281996657153862}
   - component: {fileID: 1519586646536291733}
+  - component: {fileID: 7764631940551772373}
   m_Layer: 0
   m_Name: Item_01
   m_TagString: Untagged
@@ -279,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da098e3f0487b94f8ca660602e5722e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUIManager: {fileID: 0}
   slotID: 0
   infoPopupPrefabs: {fileID: 1195233340743403932, guid: 6644e680a66b41f4c9d33f73c16ff01d, type: 3}
   infoPopupPos: {fileID: 8600111204271962005}
@@ -288,6 +303,18 @@ MonoBehaviour:
   removeButton: {fileID: 3136721478867288505}
   itemUIAnimator: {fileID: 367006151072393384}
   isRemoveSelecting: 0
+--- !u!114 &7764631940551772373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370004754558258202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7296999960859397444
 GameObject:
   m_ObjectHideFlags: 0

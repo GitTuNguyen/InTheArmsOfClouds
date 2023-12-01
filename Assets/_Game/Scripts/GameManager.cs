@@ -58,10 +58,12 @@ public class GameManager : MonoBehaviour
     public void StartGame(string sceneName)
     {        
         Debug.Log("Start Game");
+        SFXManager.Instance.StopAllSound();
         ClearMainMenu();
         GameResume();
         SceneManager.LoadScene(sceneName);
         InitActionPhase();
+        SFXManager.Instance.PlaySound("BackgroundMusic");
     }
 
     public void QuitGame()

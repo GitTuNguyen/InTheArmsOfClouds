@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 8566971981313836773}
   - component: {fileID: 8503024410402182195}
   - component: {fileID: 1407579545149562393}
+  - component: {fileID: 2047459082081773493}
   m_Layer: 0
   m_Name: Close Button
   m_TagString: Untagged
@@ -414,6 +415,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2047459082081773493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925960409330007958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3031010513344368803
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +810,7 @@ GameObject:
   - component: {fileID: 6885306673331828370}
   - component: {fileID: 1164474476188140987}
   - component: {fileID: 8981791366158673864}
+  - component: {fileID: 7167287755390879106}
   m_Layer: 0
   m_Name: Craft Button On
   m_TagString: Untagged
@@ -918,6 +932,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7167287755390879106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341523896476103209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4858140959283408479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1424,7 @@ GameObject:
   - component: {fileID: 7111030500238887074}
   - component: {fileID: 1442371766984356888}
   - component: {fileID: 8986185219891835124}
+  - component: {fileID: 4978384533420596498}
   m_Layer: 0
   m_Name: Craft Button Off
   m_TagString: Untagged
@@ -1507,6 +1534,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4978384533420596498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293134270185161110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7349581456965374009
 GameObject:
   m_ObjectHideFlags: 0

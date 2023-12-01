@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4423412336241755126}
   - component: {fileID: 5168115014644028487}
   - component: {fileID: 1100748197932122162}
+  - component: {fileID: 2652551619474956554}
   m_Layer: 0
   m_Name: EventOption
   m_TagString: Untagged
@@ -132,6 +133,18 @@ MonoBehaviour:
   buttonTMP: {fileID: 2466923493281639823}
   offSet: -10
   pointerEnterScale: 1.2
+--- !u!114 &2652551619474956554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65155768793649404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7459829033315961732
 GameObject:
   m_ObjectHideFlags: 0

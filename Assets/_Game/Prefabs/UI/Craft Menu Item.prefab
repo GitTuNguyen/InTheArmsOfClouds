@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4574142154184383487}
   - component: {fileID: 5467617096196229155}
   - component: {fileID: 8395169826972152698}
+  - component: {fileID: 5146432362367796016}
   m_Layer: 0
   m_Name: Craft Menu Item
   m_TagString: Untagged
@@ -149,6 +150,18 @@ MonoBehaviour:
   _menuName: {fileID: 6342516312819172112}
   _craftItem: {fileID: 0}
   _craftUIController: {fileID: 0}
+--- !u!114 &5146432362367796016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477587024307738548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2811084933377416138
 GameObject:
   m_ObjectHideFlags: 0

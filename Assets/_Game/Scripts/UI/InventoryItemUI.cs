@@ -31,6 +31,10 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData){
         Debug.Log("Item UI down");
         StartCoroutine(ShowInfo());
+        if (inventoryUIManager.currentSlotRemoveSelected != slotID)
+        {
+            inventoryUIManager.CancelRemoveItem();
+        }
     }
     
     public void OnPointerUp(PointerEventData eventData){

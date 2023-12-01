@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2863474029456082812}
   - component: {fileID: 4949211754398849387}
   - component: {fileID: 309116680409844099}
+  - component: {fileID: 6335283609591485576}
   m_Layer: 0
   m_Name: Artwork Item
   m_TagString: Untagged
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artworkImage: {fileID: 0}
+--- !u!114 &6335283609591485576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337233085776457299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17d693db4b901444ab21a1195c7739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8817630801442018682
 GameObject:
   m_ObjectHideFlags: 0

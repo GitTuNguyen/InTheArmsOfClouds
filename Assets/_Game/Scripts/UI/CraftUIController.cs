@@ -90,21 +90,18 @@ public class CraftUIController : MonoBehaviour
             {
                 GameObject effectTF = Instantiate(effectTFPrefab, effectList.transform);
                 TextMeshProUGUI effectText = effectTF.GetComponent<TextMeshProUGUI>();
-                effectText.color = Color.green;
                 effectText.text = "+" + currentCraftItem.healthItem.ToString() + "Health";
             }
             if (currentCraftItem.luckItem > 0)
             {
                 GameObject effectTF = Instantiate(effectTFPrefab, effectList.transform);
                 TextMeshProUGUI effectText = effectTF.GetComponent<TextMeshProUGUI>();
-                effectText.color = Color.green;
                 effectText.text = "+" + currentCraftItem.luckItem.ToString() + "Luck";
             }
             if (currentCraftItem.sanityItem > 0)
             {
                 GameObject effectTF = Instantiate(effectTFPrefab, effectList.transform);
                 TextMeshProUGUI effectText = effectTF.GetComponent<TextMeshProUGUI>();
-                effectText.color = Color.green;
                 effectText.text = "+" + currentCraftItem.sanityItem.ToString() + "Sanity";
             }
         } else {
