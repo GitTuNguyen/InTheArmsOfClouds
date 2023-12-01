@@ -9,6 +9,7 @@ public class ConsequenceData : ScriptableObject
     public int consequenceCode;
     public Sprite artwork;
     public int weight;
+    public string consequenceDesc;
 
     // Efect
     public int healthEffect;
