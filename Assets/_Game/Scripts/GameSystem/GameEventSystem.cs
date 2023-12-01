@@ -7,6 +7,7 @@ public class GameEventSystem : MonoBehaviour
     public static GameEventSystem Instance;
     //Consequence 
     [SerializeField]private ConsequenceData  currentConsequnce;
+    [SerializeField]private BlockType  currentBlockType;
     public ConsequenceData  CurrentConsequnce 
     {
         get => currentConsequnce; 
@@ -39,6 +40,7 @@ public class GameEventSystem : MonoBehaviour
 
     public void TriggerEvent(BlockType blockType)
     {
+        currentBlockType = blockType;
         switch (blockType)
         {
             case BlockType.Grass:
@@ -55,6 +57,7 @@ public class GameEventSystem : MonoBehaviour
                 return;
             case BlockType.SpaceShip:
                 InventoryHolder.Instance?.InventorySystem.AddSpaceShip();
+                ActionPhaseUIManager.Instance?.RefreshSpaceShipQuarity();
                 ActionPhaseUIManager.Instance?.OpenFindSpaceshipPopup();
                 return;
             default:
@@ -66,6 +69,7 @@ public class GameEventSystem : MonoBehaviour
     {
         if (currentConsequnce != null)
         {
+            DiaryManager.Instance.AddConsequence(currentConsequnce, currentBlockType);
             ActionPhaseUIManager.Instance.StartConsequencesLoading();
         }
     }

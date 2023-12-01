@@ -18,7 +18,7 @@ public class InventorySystem
     [SerializeField]
     private List<InventorySlotUI> inventorySlotUIs;
     public int spaceShipPiece = 0;
-    public const int SpaceShipPieceMax = 4;
+    public int SpaceShipPieceMax = 4;
     public void InitInventorySystem(int size){
         inventorySlots = new List<InventorySlot>(size);
         for(int i = 0; i< size ; i++)

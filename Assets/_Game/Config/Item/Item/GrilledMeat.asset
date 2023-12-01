@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   nameItem: Grilled Meat
-  description: + 2 Luck & + 1 Sanity
+  description: 
   icon: {fileID: 21300000, guid: 3e45d78ab41ece849b4384dfbbb9d90c, type: 3}
   maxStackSize: 2
   healthItem: 0

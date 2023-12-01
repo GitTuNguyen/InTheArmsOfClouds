@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   nameItem: SeaShell
-  description: 
+  description: 'Receive no Dammage in 3 turn '
   icon: {fileID: 21300000, guid: f9d6caa1649aeb448b45dc556648b389, type: 3}
   maxStackSize: 2
   healthItem: 0

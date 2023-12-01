@@ -51,7 +51,7 @@ public class ActionPhaseUIManager : MonoBehaviour
         {
             Instance = this;
         }
-        RefreshSpaceShipQuarity(0, 4);
+        RefreshSpaceShipQuarity();
         ToggeleStatBarAtice();
         if(!GameManager.Instance.enableDice)
         {
@@ -125,9 +125,9 @@ public class ActionPhaseUIManager : MonoBehaviour
     }
 
     //Spaceship
-    public void RefreshSpaceShipQuarity(int currentQuarity, int maxQuarity)
+    public void RefreshSpaceShipQuarity()
     {
-        spaceshipQuarity.text = currentQuarity.ToString() + "/" + maxQuarity.ToString();
+        spaceshipQuarity.text = InventoryHolder.Instance.InventorySystem.spaceShipPiece.ToString() + "/" + InventoryHolder.Instance.InventorySystem.SpaceShipPieceMax.ToString();
     }
 
     //Event UI
