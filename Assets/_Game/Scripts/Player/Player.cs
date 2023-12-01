@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     public void UpdateStatsOfPlayer(int health, int luck, int santity)
     {
-        if (shield <= 0)
+        if (shield <= 0 || health > 0)
         {            
             this.health += health;
         }
@@ -66,5 +66,26 @@ public class Player : MonoBehaviour
         luck = 5;
         santity = 5;
         ActionPhaseUIManager.Instance.RefreshPlayerStatsUI(this.health, this.luck, this.santity);
+    }
+
+    public void AddShield()
+    {
+        shield += 3;
+    }
+
+    public void RemoveShield()
+    {
+        if (shield > 0)
+        {
+            shield -= 1;
+            if (shield % 3 == 0)
+            {
+                InventoryItemData shieldItem = InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.Shield);
+                if (shieldItem != null)
+                {
+                    InventoryHolder.Instance.InventorySystem.RemoveToInventory(shieldItem, 1);
+                }                
+            }
+        }
     }
 }

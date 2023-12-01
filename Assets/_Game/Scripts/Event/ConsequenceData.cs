@@ -117,16 +117,8 @@ public class ConsequenceData : ScriptableObject
         foreach (EffectDescription effectDescription in effectDescriptions)
         {
             Debug.LogFormat("ConsequenceData_{0} has effect decription {1} {2}", consequenceCode, effectDescription.effectStat, effectDescription.effectDesc);
-        }    
-        if (GameManager.Instance.player.shield > 0)
-        {
-            GameManager.Instance.player.shield -= 1;
-            if ((GameManager.Instance.player.shield <= 0  || GameManager.Instance.player.shield % 3 == 0) && InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.Shield) != null)
-            {
-                Debug.Log("remove shield item ");
-                InventoryHolder.Instance.InventorySystem.RemoveToInventory(InventoryHolder.Instance.InventorySystem.GetItemByItemType(ItemType.Shield), 1);
-            }
         }
+        GameManager.Instance.player.RemoveShield();
     }
 
 

@@ -6,7 +6,7 @@ public class PlayerEndTurn : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        Debug.Log("Player End turn");
+        Debug.Log("Player End turn");        
         player.playerController.PlayerEndTurn();
     }
 
@@ -17,8 +17,10 @@ public class PlayerEndTurn : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        player.SwitchState(PlayerState.DiceRoll);
+        if (GameEventSystem.Instance.isEventDone)
+        {
+            Debug.Log("Change state to roll dice");
+            player.SwitchState(PlayerState.DiceRoll);
+        } 
     }
-
-
 }

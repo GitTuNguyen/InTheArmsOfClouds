@@ -24,6 +24,8 @@ public class GameEventSystem : MonoBehaviour
     public EventData desertEvent;    
     public EventData seaEvent;
     public EventData woodEvent;
+
+    public bool isEventDone = false;
     
     private void Start() {
         if (Instance == null)
@@ -35,11 +37,13 @@ public class GameEventSystem : MonoBehaviour
 
     public void ClearConsequenceData()
     {
+        isEventDone = true;
         currentConsequnce = null;
     }
 
     public void TriggerEvent(BlockType blockType)
     {
+        isEventDone = false;
         currentBlockType = blockType;
         switch (blockType)
         {

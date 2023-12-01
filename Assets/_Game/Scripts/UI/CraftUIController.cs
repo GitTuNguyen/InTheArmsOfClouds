@@ -143,7 +143,7 @@ public class CraftUIController : MonoBehaviour
 
     public void OnCraftButtonPress()
     {
-        CrafItemManager.Instance.UpdateInventoryAfterCraftSucess(craftItemSlelected);
+        CrafItemManager.Instance.CraftItem(craftItemSlelected);
         RefreshCraftView(craftItemSlelected);
     }
 }

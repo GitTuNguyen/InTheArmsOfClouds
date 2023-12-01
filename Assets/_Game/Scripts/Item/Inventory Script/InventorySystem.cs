@@ -47,6 +47,7 @@ public class InventorySystem
             {
                 if(slot.RoomLeftInStack(amountToAdd)){
                     slot.AddToStack(amountToAdd);
+                    
                     ActionPhaseUIManager.Instance.AddToInventory(slot, inventorySlots.IndexOf(slot));
                     //OnInventorySlotChanged?.Invoke(slot);
                     return true;

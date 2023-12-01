@@ -42,18 +42,20 @@ public class CrafItemManager : MonoBehaviour
         return true;
     }
 
-    public void UpdateInventoryAfterCraftSucess(CraftableItem craftableItem){
-        
+    public void CraftItem(CraftableItem craftableItem){        
+        Debug.Log("Craft Item");
         if(IsItemCanBeCrafted(craftableItem)){
             foreach(RecipeItem material in craftableItem.materialList){
                 InventoryHolder.Instance.InventorySystem.RemoveToInventory(material.item, material.amountRequired);
             }
-            InventoryHolder.Instance.InventorySystem.AddToInventory(craftableItem.crafItem, 1);
+            if (InventoryHolder.Instance.InventorySystem.AddToInventory(craftableItem.crafItem, 1))
+            {
+                if (craftableItem.crafItem.type == ItemType.Shield)
+                {
+                    GameManager.Instance.player.AddShield();
+                }
+            }
         }
     }
 
-    public void CraftItem(CraftableItem craftableItem)
-    {
-        Debug.Log("Craft Item");
-    }
 }
