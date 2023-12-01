@@ -194,4 +194,40 @@ public class InventorySystem
             slot.ClearSLot();
         }
     }
+
+    public void UsingItemAtSlot(int index, InventoryItemData itemUsed = null)
+    {
+        Debug.Log("using item at " + index);
+        InventoryItemData itemData;
+        if (itemUsed != null)
+        {
+            itemData = itemUsed;
+        } else {
+            itemData = inventorySlots[index].ItemData;
+        }
+        switch (itemData.type)
+        {
+            case ItemType.EnchantedStew:
+                break;                
+            case ItemType.Shield:
+                GameManager.Instance.player.shield += 3;
+                return;                
+            case ItemType.Amulet:
+
+                break;              
+            
+            default:
+                GameManager.Instance.player.UpdateStatsOfPlayer(itemData.healthItem, itemData.luckItem, itemData.sanityItem);
+                break;
+        }
+        if (itemUsed == null)
+        {
+            inventorySlots[index].stackSize -= 1;
+            if (inventorySlots[index].stackSize <= 0)
+            {
+                inventorySlots[index].ClearSLot();
+            }
+        }
+        ActionPhaseUIManager.Instance?.RefreshInventoryUI();
+    }
 }

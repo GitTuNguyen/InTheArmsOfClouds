@@ -9,6 +9,8 @@ public class InventoryUIManager : MonoBehaviour
     public List<InventoryItemData> inventoryItemDatas;
     public int inventorySlotAmount = 4;
 
+    public int currentSlotRemoveSelected = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,11 @@ public class InventoryUIManager : MonoBehaviour
     {
         for(int i = 0; i < InventoryHolder.Instance?.InventorySystem.InventorySlot.Count; i++)
         {
-            Instantiate(ItemSlotPrefab, transform);
+            InventoryItemUI inventoryItemUI = Instantiate(ItemSlotPrefab, transform).GetComponent<InventoryItemUI>();
+            if (inventoryItemUI != null)
+            {
+                inventoryItemUI.inventoryUIManager = this;
+            }
         }
     }
 
@@ -43,10 +49,27 @@ public class InventoryUIManager : MonoBehaviour
         for(int i = 0; i < InventoryHolder.Instance?.InventorySystem.InventorySlot.Count; i++)
         {
             InventoryItemUI inventoryItemUI = transform.GetChild(i)?.GetComponent<InventoryItemUI>();
-            if (inventoryItemUI != null && InventoryHolder.Instance?.InventorySystem.InventorySlot[i].ItemData != null)
+            if (inventoryItemUI != null)
             {
-                inventoryItemUI.SetItemData(InventoryHolder.Instance.InventorySystem.InventorySlot[i], i);
-            }
+                if (InventoryHolder.Instance?.InventorySystem.InventorySlot[i].ItemData != null)
+                {
+                    inventoryItemUI.SetItemData(InventoryHolder.Instance.InventorySystem.InventorySlot[i], i);
+                } else {
+                    inventoryItemUI.ClearSlotUI();
+                }
+            }            
         }
+    }
+
+    public void CancelRemoveItem()
+    {
+        if (currentSlotRemoveSelected != -1) {
+            InventoryItemUI inventoryItemUI = transform.GetChild(currentSlotRemoveSelected)?.GetComponent<InventoryItemUI>();
+            if (inventoryItemUI != null)
+            {
+                inventoryItemUI.CancelRemoveItem();
+                currentSlotRemoveSelected = -1;
+            }  
+        }        
     }
 }

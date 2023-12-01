@@ -6,9 +6,11 @@ using TMPro;
 using Unity.VisualScripting;
 using System;
 using JetBrains.Annotations;
+using UnityEngine.Rendering;
 
-public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler
+public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
+    public InventoryUIManager inventoryUIManager;
     public int slotID;
     //Call info popup    
     public GameObject infoPopupPrefabs;
@@ -20,62 +22,35 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     //Item data
     public Image itemImage;
     public TextMeshProUGUI itemQuantity;
-    
-    //Drag
-    bool isPointerEnter = true;
-    bool isPointerDown;
-    public GameObject dragItemPrefabs;
-    [SerializeField] private GameObject dragItem;
 
-    private void Update() {
-        if (dragItem != null)
-        {
-            dragItem.transform.position = Input.mousePosition;
-        }
-    }
+    //Remove Item
+    public GameObject removeButton;
+    public Animator itemUIAnimator;
+    public bool isRemoveSelecting = false;
+    
     public void OnPointerDown(PointerEventData eventData){
-        isPointerDown = true;
+        Debug.Log("Item UI down");
         StartCoroutine(ShowInfo());
     }
     
     public void OnPointerUp(PointerEventData eventData){
-        isPointerDown = false;
-        HideInfo();
-        if (itemData != null)
+        Debug.Log("Item UI Up");
+        StopAllCoroutines();
+        if (itemData != null && itemInfoUI == null && !isRemoveSelecting)
         {
-            if (isPointerEnter)
-            {
-                ItemReturn();
-            } else {
-                InventoryHolder.Instance.RemoveItemAtIndex(slotID);
-            }
+            Debug.Log("Using Item UI");
+            ActionPhaseUIManager.Instance.OnItemClick(slotID);
+        }else if (isRemoveSelecting)
+        {
+            Debug.Log("OnPointerUp cancel RemoveItem");
+            inventoryUIManager.CancelRemoveItem();
         }
-        
+        HideInfo();
     }
 
     public void OnPointerClick(PointerEventData eventData){
-
-    }
-    public void OnPointerMove(PointerEventData eventData){
-        if (isPointerDown && dragItem == null && itemData != null)
-        {
-            Debug.Log("Pointer move");
-            HideInfo();
-            dragItem = Instantiate(dragItemPrefabs, this.transform);
-            Image dragItemImage = dragItem.GetComponent<Image>();
-            if (dragItemImage != null)
-            {
-                dragItemImage.sprite = itemImage.sprite;                
-                itemImage.enabled = false;
-                itemQuantity.enabled = false;
-            }
-        }
-    }
-    public void OnPointerEnter(PointerEventData eventData){
-        isPointerEnter = true;
-    }
-    public void OnPointerExit(PointerEventData eventData){
-        isPointerEnter = false;
+        Debug.Log("Item UI Clicked");
+        
     }
 
     IEnumerator ShowInfo()
@@ -86,16 +61,16 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             GameObject infoPoup = Instantiate(infoPopupPrefabs, infoPopupPos);
             itemInfoUI = infoPoup.GetComponent<ItemInfoUI>();
             itemInfoUI.SetItemInfoData(itemData);
-        }
+        }        
     }
 
     private void HideInfo()
     {
-        StopAllCoroutines();
         if (itemInfoUI != null)
         {
             Destroy(itemInfoUI.gameObject);
             itemInfoUI = null;
+            StartRemoveSeletion();
         }
     }
     
@@ -109,19 +84,54 @@ public class InventoryItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         itemQuantity.enabled = true;
     }
 
-    private void ItemReturn()
-    {
-        Debug.Log("Item return");
-        //Destroy(dragItem);
-        dragItem = null;
-        itemImage.enabled = true;
-        itemQuantity.enabled = true;
-    }
+    //Remove Item
     public void RemoveItemData()
     {
+        Debug.Log("Item remove - UI");
+        InventoryHolder.Instance.RemoveItemAtIndex(slotID);
+        ClearSlotUI();
+    }
+
+    public void ClearSlotUI()
+    {
+        itemData = null;
         itemImage.sprite = null;
         itemQuantity.text = 0.ToString();
         itemImage.enabled = false;
         itemQuantity.enabled = false;
     }
+    public void StartRemoveSeletion()
+    {
+        Debug.Log("start remove item");
+        inventoryUIManager.currentSlotRemoveSelected = slotID;
+        removeButton.SetActive(true);
+        isRemoveSelecting = true;
+        StartRemoveSeletionAnimation();
+    }
+    public void CancelRemoveItem()
+    {
+        Debug.Log("Cancel remove item");
+        removeButton.SetActive(false);
+        StopRemoveSeletionAnimation();
+        isRemoveSelecting = false;
+    }
+    public void StartRemoveSeletionAnimation()
+    {
+        itemUIAnimator.enabled = true;
+        itemUIAnimator.SetTrigger("RemoveSelection");
+    }
+    public void StopRemoveSeletionAnimation()
+    {
+        itemUIAnimator.enabled = false;
+        itemImage.transform.rotation = Quaternion.identity;
+    }
+
+    public void OnRemoveButtonPressed()
+    {
+        RemoveItemData();
+        StopRemoveSeletionAnimation();
+        removeButton.SetActive(false);
+    }
+
+    
 }

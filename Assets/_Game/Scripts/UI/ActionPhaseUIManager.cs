@@ -233,4 +233,9 @@ public class ActionPhaseUIManager : MonoBehaviour
         panel.SetActive(false);
         panelDetectClick.SetActive(false);
     }
+    //Item
+    public void OnItemClick(int index)
+    {
+        InventoryHolder.Instance.InventorySystem.UsingItemAtSlot(index);
+    }
 }

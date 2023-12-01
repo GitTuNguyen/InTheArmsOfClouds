@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
         get { return santity; }
         set { santity = value; }
     }
+
+    
+    public int shield;
     private void OnEnable()
     {
         EventManager.PlayerDie += ResetPlayerStats;
@@ -34,11 +37,15 @@ public class Player : MonoBehaviour
     private void Start()
     {
         ResetPlayerStats();
+        GameManager.Instance.player = this;
     }
 
     public void UpdateStatsOfPlayer(int health, int luck, int santity)
     {
-        this.health += health;
+        if (shield <= 0)
+        {            
+            this.health += health;
+        }
         this.luck += luck;
         this.santity += santity;
         this.luck = this.luck > 5 ? 5 : this.luck;
