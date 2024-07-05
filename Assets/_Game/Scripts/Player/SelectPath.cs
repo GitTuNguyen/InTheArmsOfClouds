@@ -11,6 +11,7 @@ public class SelectPath : PlayerBaseState
     {
         player.playerController.playerUI.EnableUICanvas(player.playerController.numberDice);
         player.playerController.StartSelectPath();
+        ActionPhaseUIManager.Instance.rollDiceButton.enabled = false;
     }
 
     public override void OnTriggerEnter(PlayerStateManager player, Collider collision)
@@ -21,9 +22,13 @@ public class SelectPath : PlayerBaseState
     public override void UpdateState(PlayerStateManager player)
     {
         player.playerController.PlayerSelectPath();
-        if(Input.GetKeyDown(KeyCode.Space) && player.playerController.PlayerCanMove()) 
+        if(player.playerController.PlayerCanMove()) 
         {
             player.SwitchState(PlayerState.FollowPath);
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            player.playerController.PlayerResetPath();
         }
     }
 }

@@ -29,9 +29,13 @@ public class GameManager : MonoBehaviour
     [Header("Game Play")]
     public int currentDiceNumber;
     public bool isGameFinished;
+    public int currentPlayerMultiplesSpeed = 1;
+    public int maxPlayerMultiplesSpeed = 3;
 
     //Player
     public Player player;
+    public CharacterStateMachine characterStateMachine;
+    public PlayerStateManager playerStateManager;
 
     public bool enableDice;
     
@@ -118,6 +122,7 @@ public class GameManager : MonoBehaviour
         }
         InitActionPhase();
         isGameFinished = false;
+        ActionPhaseUIManager.Instance?.RefreshSpaceShipQuarity();
         SFXManager.Instance.PlaySound("BackgroundMusic");
     }
     IEnumerator LoadMenuScene()
@@ -131,7 +136,8 @@ public class GameManager : MonoBehaviour
         }
         SFXManager.Instance.StopSound("BackgroundMusic");        
         SFXManager.Instance.PlaySound("Raining");
-        InitMainMenu();
+        //InitMainMenu();
+        OnGameOpen();
     }
 
     //Init
@@ -161,6 +167,15 @@ public class GameManager : MonoBehaviour
         Destroy(InventorySystem);
         Destroy(DiarySystem);
         Destroy(EventSystem);
+        if (playerStateManager != null)
+        {
+            Destroy(playerStateManager.gameObject);
+        } else if (characterStateMachine != null)
+        {
+            Destroy(characterStateMachine.gameObject);
+        }
+        playerStateManager = null;
+        characterStateMachine = null;
         ActionPhaseUIController = null;
         CraftSystem = null;
         InventorySystem = null;
@@ -199,5 +214,22 @@ public class GameManager : MonoBehaviour
     {
         //GamePause();
         isGameFinished = true;
+    }
+
+    public int SetPlayerSpeed()
+    {
+        currentPlayerMultiplesSpeed += 1;
+        if (currentPlayerMultiplesSpeed > maxPlayerMultiplesSpeed)
+        {
+            currentPlayerMultiplesSpeed = 1;
+        }
+        if (playerStateManager != null)
+        {
+            playerStateManager.playerController.SetPlayerSpeed(currentPlayerMultiplesSpeed);
+        } else if (characterStateMachine != null)
+        {
+            characterStateMachine.playerController.SetPlayerSpeed(currentPlayerMultiplesSpeed);
+        }
+        return currentPlayerMultiplesSpeed;
     }
 }

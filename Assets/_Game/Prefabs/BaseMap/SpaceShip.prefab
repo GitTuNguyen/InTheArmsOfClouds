@@ -210,7 +210,7 @@ MonoBehaviour:
   predition: {fileID: 2494993835068352263}
   blockType: 4
   cloud: {fileID: 5898178198713554571}
-  currentTurn: 3
+  currentTurn: 1
 --- !u!1 &2494993835068352263
 GameObject:
   m_ObjectHideFlags: 0

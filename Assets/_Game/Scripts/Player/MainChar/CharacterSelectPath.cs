@@ -8,7 +8,8 @@ public class CharacterSelectPath : CharacterBaseState
     {
         Debug.Log("");
         player.playerController.playerUI.EnableUICanvas(GameManager.Instance.currentDiceNumber);
-        player.playerController.StartSelectPath();
+        player.playerController.StartSelectPath();        
+        ActionPhaseUIManager.Instance.rollDiceButton.enabled = false;
     }
 
     public override void OnTriggerEnter(CharacterStateMachine player, Collider collision)
@@ -19,9 +20,13 @@ public class CharacterSelectPath : CharacterBaseState
     public override void UpdateState(CharacterStateMachine player)
     {
         player.playerController.PlayerSelectPath();
-        if (Input.GetKeyDown(KeyCode.Space) && player.playerController.PlayerCanMove())
+        if(player.playerController.PlayerCanMove()) 
         {
             player.SwitchState(PlayerState.FollowPath);
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            player.playerController.PlayerResetPath();
         }
     }
 }

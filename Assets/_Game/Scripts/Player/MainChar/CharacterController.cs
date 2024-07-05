@@ -7,6 +7,8 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float defaultSpeed;
 
     [SerializeField]
     private LayerMask layerMask;
@@ -36,6 +38,10 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField]
     private GameObject tomb;
+    
+
+    public int numberDice;
+    private int numberDiceTemp;
 
     bool isFacingRight;
 
@@ -47,8 +53,6 @@ public class CharacterController : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     private Vector3 posSmallCircle;
-
-    public int numberDice;
 
     private bool isSelectedFirstBlock;
     private Vector3 startPos;
@@ -87,6 +91,7 @@ public class CharacterController : MonoBehaviour
         blocks = new List<GameObject>();
         isSelectedFirstBlock = false;
         numberDice = 0;
+        defaultSpeed = speed;
     }
 
     // Update is called once per frame
@@ -233,6 +238,7 @@ public class CharacterController : MonoBehaviour
 
         currentIndex = 0;
         nextIndex = 1;
+        numberDiceTemp = 0;
         Debug.Log("numberDice = " + numberDice);
         numberDice = 0;
         playerUI.DisableUICanvas();
@@ -285,6 +291,7 @@ public class CharacterController : MonoBehaviour
     {
         numberDice = Random.Range(1, 7);
         GameManager.Instance.currentDiceNumber = numberDice;
+        numberDiceTemp = numberDice;
         Debug.Log("current dice = " + numberDice);
     }
 
@@ -310,5 +317,34 @@ public class CharacterController : MonoBehaviour
                 block.ResetBlock();
             }
         }
+    }
+
+    public void PlayerResetPath()
+    {
+        numberDice = numberDiceTemp;
+        EventManager.SelectBlockOnTheMap?.Invoke(numberDice);
+
+        foreach (GameObject block in blocks)
+        {
+            if (block.GetComponent<Block>() != null)
+            {
+                block.GetComponent<Block>().IsSelected = false;
+            }
+        }
+        blocks.Clear();
+
+        playerGhost.transform.position = transform.position;
+        leghtOfLineRender = 1;
+        path.Clear();
+        path.Add(bigCircle.transform.position);
+        line.positionCount = 1;
+        line.SetPosition(0, bigCircle.transform.position);
+        //smallCircle.SetActive(false);
+        isSelectedFirstBlock = false;
+    }
+
+    public void SetPlayerSpeed(int multiplesSpeed)
+    {
+        speed = multiplesSpeed * defaultSpeed;
     }
 }

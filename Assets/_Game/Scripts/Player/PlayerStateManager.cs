@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         EventManager.SwitchStateToSelectPath += SwitchToSelectPathState;
         EventManager.PlayerDie += ResetPlayerStateMachine;
+        GameManager.Instance.playerStateManager = this;
     }
 
     private void OnDisable()

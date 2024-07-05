@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float defaultSpeed;
 
     [SerializeField]
     private LayerMask layerMask;
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         line.SetPosition(0, bigCircle.transform.position);
         blocks = new List<GameObject>();
         isSelectedFirstBlock = false;
+        defaultSpeed = speed;
     }
 
     // Update is called once per frame
@@ -333,5 +336,10 @@ public class PlayerController : MonoBehaviour
                 block.ResetBlock();
             }
         }
+    }
+
+    public void SetPlayerSpeed(int multiplesSpeed)
+    {
+        speed = multiplesSpeed * defaultSpeed;
     }
 }

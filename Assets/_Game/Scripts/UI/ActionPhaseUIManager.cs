@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +47,14 @@ public class ActionPhaseUIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI spaceshipQuarity;
 
     public GameObject dice;
+    public Button rollDiceButton;
+
+    //Cheat
+    public GameObject cheatMenu;
+    public TMPro.TextMeshProUGUI playerSpeedCheatButtonText;
+    public TMPro.TextMeshProUGUI SkipLoadingEventText;
+    bool isSkipLoadingEvent = false;
+    
     
     private void Awake() {
         if (Instance == null)
@@ -53,11 +62,18 @@ public class ActionPhaseUIManager : MonoBehaviour
             Instance = this;
         }
     }
-    private void Start() {
+    private void OnEnable() {
         
         RefreshSpaceShipQuarity();
         ToggeleStatBarAtice();
 
+    }
+
+    private void Update() {
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            cheatMenu.SetActive(!cheatMenu.activeSelf);
+        }
     }
 
     public void StartActionPhaseUI()
@@ -178,8 +194,14 @@ public class ActionPhaseUIManager : MonoBehaviour
 
     IEnumerator LoadConsequences()
     {
-        SpawnPopup(eventConsequencesLoadingPopup);        
-        yield return new WaitForSeconds(waitingLoadingTime);
+        if (!isSkipLoadingEvent)
+        {
+            SpawnPopup(eventConsequencesLoadingPopup);
+            yield return new WaitForSeconds(waitingLoadingTime);
+        } else {
+            yield return null;
+        }
+        
         SpawnPopup(eventConsequencesPopup);
         EventConsequenceUI eventConsequenceUI = currentPopup?.GetComponent<EventConsequenceUI>();
         if (eventConsequenceUI != null)
@@ -281,5 +303,21 @@ public class ActionPhaseUIManager : MonoBehaviour
     public void AddShield()
     {
         GameManager.Instance?.player.AddShield();
+    }
+    public void SetPlayerSpeed()
+    {
+        int currentPlaySpeed = GameManager.Instance.SetPlayerSpeed();
+        playerSpeedCheatButtonText.text = "Player Speed: x" + currentPlaySpeed.ToString();
+    }
+    public void ToggleSkipLoadingEvent()
+    {
+        isSkipLoadingEvent = !isSkipLoadingEvent;
+        SkipLoadingEventText.text = "Skip Loading Event: ";
+        if (isSkipLoadingEvent)
+        {
+            SkipLoadingEventText.text += "ON";
+        } else {
+            SkipLoadingEventText.text += "OFF";
+        }
     }
 }
